@@ -122,38 +122,21 @@ h4 {
 }
 
 .typography-simple-text, h5, .typography-simple-text a {
-    font-family: Montserrat;
-    font-weight: normal;
-    font-stretch: normal;
+    font-family: IBM Plex Sans;
     font-style: normal;
+    font-weight: normal;
     letter-spacing: normal;
-
-    @media screen and (max-width: 727px + 20px*2) {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-    @media screen and (min-width: 728px + 20px*2) {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-    @media screen and (min-width: 1140px + 20px + 20px) {
-        font-size: 16px;
-        line-height: 1.75;
-    }
+    font-size: 15px;
+    line-height: 24px;
 
     &.text-white {
         color: #ffffff;
-        opacity: .6;
     }
     &.text-light {
-        color: #f0f0f0;
-        opacity: .6;
-    }
-    &.text-orange, & .text-orange {
-        color: #ff7f50;
+        color: #E5E5E5;
     }
     &.text-dark {
-        color: #4d4d4d;
+        color: #4D4D4D;
     }
     &.text-darken {
         color: #333333;
@@ -168,32 +151,30 @@ h4 {
         margin-top: 0px;
         margin-bottom: 0px;
     }
-
-    &.typography-simple-text__l-h {
-        @media screen and (max-width: 727px + 20px*2) {
-            line-height: 1.6;
-        }
-        @media screen and (min-width: 728px + 20px*2) {
-            line-height: 1.6;
-        }
-        @media screen and (min-width: 1140px + 20px + 20px) {
-            line-height: 1.65;
-        }       
-    }
 }
 
 .typography-little-text {
-    opacity: 0.5;
-    font-family: Montserrat;
-    font-size: 12px;
-    font-weight: normal;
-    font-stretch: normal;
+    font-family: IBM Plex Sans;
     font-style: normal;
-    line-height: 1.5;
-    letter-spacing: normal;
-    color: #000000;
+    font-weight: normal;
+
+    @media screen and (max-width: 727px + 20px*2) {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    @media screen and (min-width: 728px + 20px*2) {
+        font-size: 13px;
+        line-height: 20px;
+    }
+    @media screen and (min-width: 1140px + 20px + 20px) {
+        font-size: 15px;
+        line-height: 24px;
+    }
 
     &.text-light {
-        color: #9f9f9f;
+        color: #A0A0A0;
+    }
+    &.text-dark {
+        color: #301D11;
     }
 }
