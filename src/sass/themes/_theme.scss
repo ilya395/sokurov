@@ -1,0 +1,52 @@
+.work-area {
+    width: 100%;
+    height: 100%;
+    background-color: #F0F0F0;
+    position: relative;
+}
+
+.text-opacity-5 {
+    opacity: .5;
+}
+.text-opacity-6 {
+    opacity: .6;
+}
+
+.container {
+    @media screen and (max-width: 728px + 20px*2) {
+        width: 100%; // <= 768px
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    @media screen and (min-width: 728px + 20px*2) {
+        width: 728px + 20px*2; // >= 768px
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    @media screen and (min-width: 1100px + 20px + 20px) {
+        width: 1100px + 20px + 20px; // >= 
+        padding-left: 20px;
+        padding-right: 20px;
+    }  
+    
+    &.container_full {
+        @media screen and (max-width: 728px + 20px*2) {
+            width: 100%;
+            padding-left: 0px;
+            padding-right: 0px;
+            max-width: 100%;
+        }
+        @media screen and (min-width: 728px + 20px*2) {
+            width: 100%;
+            padding-left: 0px;
+            padding-right: 0px;
+            max-width: 100%;
+        }
+        @media screen and (min-width: 1140px + 20px + 20px) {
+            width: 100%;
+            padding-left: 0px;
+            padding-right: 0px;
+            max-width: 100%;
+        }  
+    }
+}
