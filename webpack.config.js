@@ -124,7 +124,7 @@ module.exports = {
     },
     devtool: isDev ? 'source-map' : '',
     externals: {
-        // jquery: 'jQuery'
+        jquery: 'jQuery'
     },
     plugins: [
         new HTMLWebpackPlugin({
@@ -135,18 +135,18 @@ module.exports = {
             },
             inject: true,
         }),
-        // new webpack.ProvidePlugin({
-        //     'window.jQuery': 'jquery',
-        //     'window.$': 'jquery',
-        //     jQuery: 'jquery',
-        //     $: 'jquery',
-        //     'window.Swiper': 'swiper',
-        //     Swiper: 'swiper'
-        //     // '$.debounce': 'throttle_debounce',
-        //     // '$.throttle': 'throttle_debounce',
-        //     // 'jQuery.throttle': 'throttle_debounce',
-        //     // 'jQuery.debounce': 'throttle_debounce'
-        // }),
+        new webpack.ProvidePlugin({
+            'window.jQuery': 'jquery',
+            'window.$': 'jquery',
+            jQuery: 'jquery',
+            $: 'jquery',
+            // 'window.Swiper': 'swiper',
+            // Swiper: 'swiper'
+            // '$.debounce': 'throttle_debounce',
+            // '$.throttle': 'throttle_debounce',
+            // 'jQuery.throttle': 'throttle_debounce',
+            // 'jQuery.debounce': 'throttle_debounce'
+        }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
             patterns: [
@@ -160,20 +160,25 @@ module.exports = {
             filename: 'assets/css/' + filename('css')                            // filename('css') // 'assets/css/' + filename('css')
         }),
         // new HtmlWebpackPlugin(),
-        // new HtmlWebpackExternalsPlugin({
-        //     externals: [
-        //         {
-        //             module: 'lottie',
-        //             entry: 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.3/lottie_svg.min.js',
-        //             global: 'lottie',
-        //         },
-        //         {
-        //             module: 'map2gis',
-        //             entry: 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full',
-        //             global: 'map2gis',
-        //         },
-        //     ]
-        // })
+        new HtmlWebpackExternalsPlugin({
+            externals: [
+                {
+                    module: 'jquery',
+                    entry: 'https://code.jquery.com/jquery-3.4.1.min.js',
+                    global: 'jQuery',
+                },
+                // {
+                //     module: 'lottie',
+                //     entry: 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.3/lottie_svg.min.js',
+                //     global: 'lottie',
+                // },
+                // {
+                //     module: 'map2gis',
+                //     entry: 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full',
+                //     global: 'map2gis',
+                // },
+            ]
+        })
     ],
     module: {
         rules: [

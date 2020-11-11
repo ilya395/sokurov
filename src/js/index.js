@@ -7,3 +7,7 @@ console.log('Hello, bro! This project work with Webpack!');
 
 import './materialize-src/js/bin/materialize.min'; 
 import '../sass/style.scss';
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
