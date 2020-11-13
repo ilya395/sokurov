@@ -3,7 +3,7 @@
 @import 'abstracts/mixins';
 @import 'abstracts/placeholders';
 
-@import 'vendors/materialize';
+/*@import 'vendors/materialize';*/
 
 @import 'base/reset';
 @import 'base/typography';
@@ -19,3 +19,59 @@
 @import 'pages/main-page/main-page';
 
 @import 'themes/theme';
+
+.mobile {
+    display: block;
+
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+.tablet {
+    display: none;
+
+    @media screen and (min-width: 768px) {
+        display: block;
+    }
+    @media screen and (min-width: 1200px) {
+        display: none;
+    }
+}
+.desktop {
+    display: none;
+
+    @media screen and (min-width: 1200px) {
+        display: block;
+    }
+}
+.container {
+	position: relative;
+	width: 87.5vw;
+	margin: 0 auto;
+
+	@media screen and (min-width: 768px) {
+        width: 730px;
+    }
+    @media screen and (min-width: 1200px) {
+        width: 1140px;
+    }
+}
+.container-tablet {
+	position: relative;
+
+	@media screen and (min-width: 768px) {
+        width: 730px;
+        margin: 0 auto;
+    }
+    @media screen and (min-width: 1200px) {
+        width: 1140px;
+    }
+}
+.container-main-slider {
+    position: relative;
+
+    @media screen and (min-width: 1200px) {
+        width: 1200px;
+        margin: 0 auto;
+    }
+}
