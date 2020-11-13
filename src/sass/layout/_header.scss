@@ -1,0 +1,92 @@
+header {
+    position: fixed;
+    z-index: 101;
+    width: 100vw;
+    height: 70px;
+    top: 0;
+    background-color: #fff;
+
+    @media screen and (min-width: 1200px) {
+        background-image: url(../images/main-page/ptn3.png);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        height: 100px;
+        background-color: #F0F0F0;
+    }
+
+    & .container {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.header__site-logo {
+    & svg {
+        
+        height: auto;
+        width: 37.5vw;
+
+        @media screen and (min-width: 768px) {
+            width: 120px;       
+        }
+        @media screen and (min-width: 1200px) {
+            width: 200px;
+        }
+    }
+}
+.header__navigation-menu {
+    display: none;
+
+    @media screen and (min-width: 1200px) {
+        display: flex;
+    }
+
+    & .menu__list {
+        display: flex;
+
+        & li {
+            margin-right: 20px;
+
+            & a {
+                font-family: $ibm;
+                font-size: 14px;
+                color: $text-color-dark-grey;
+
+                &:hover {
+                    color: #FFA34F;
+                }
+            }
+        }
+    }
+
+    & .company-phone {
+        font-family: $ibm;
+        font-size: 14px;
+        color: $text-color-dark-grey;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+}
+
+.header__burger-button {
+    width: 25px;
+    height: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (min-width: 1200px) {
+        display: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    & .burger-line {
+        width: 100%;
+        height: 2px;
+        background-color: $aquamarine;
+    }
+}
