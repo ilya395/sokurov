@@ -137,7 +137,7 @@ module.exports = {
         }),
         new HTMLWebpackPlugin({
             filename: 'news.html',
-            template: './assets/templates/page-news.html',
+            template: './templates/news-page.html',
             minify: {
                 collapseWhitespace: !isProd
             },

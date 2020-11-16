@@ -1,5 +1,11 @@
 console.log('Hello, bro! This project work with Webpack!');
 //
+
+// import Swiper JS
+import Swiper from 'swiper';
+// import Swiper styles
+import 'swiper/swiper-bundle.css';
+//
 // import 'normalize.css';
 
 // import 'materialize-css/dist/css/materialize.min.css';
@@ -10,6 +16,8 @@ import '../sass/style.scss';
 
 $( document ).ready(function() {
     console.log( "ready!" );
+
+    const swiper = new Swiper();
 
     //параллакс фона
     function parallax(){
