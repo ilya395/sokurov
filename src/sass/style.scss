@@ -12,6 +12,7 @@
 @import 'layout/header';
 @import 'layout/footer';
 @import 'layout/forms';
+@import 'layout/modal';
 
 @import 'components/buttons';
 @import 'components/carousel';
@@ -41,6 +42,13 @@
     display: none;
 
     @media screen and (min-width: 1200px) {
+        display: block;
+    }
+}
+.tab-desk {
+    display: none;
+
+    @media screen and (min-width: 768px) {
         display: block;
     }
 }
