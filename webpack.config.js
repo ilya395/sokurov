@@ -135,6 +135,14 @@ module.exports = {
             },
             inject: true,
         }),
+        new HTMLWebpackPlugin({
+            filename: 'news.html',
+            template: './assets/templates/page-news.html',
+            minify: {
+                collapseWhitespace: !isProd
+            },
+            inject: true,
+        }),
         new webpack.ProvidePlugin({
             'window.jQuery': 'jquery',
             'window.$': 'jquery',
