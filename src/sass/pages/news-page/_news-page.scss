@@ -1,0 +1,42 @@
+.news-page .content {
+	padding-top: 160px;
+	padding-bottom: 80px;
+
+	@media screen and (min-width: 1200px) {
+		padding-top: 180px;
+	}
+
+	& .back-arrow {
+		position: absolute;
+		top: -65px;
+		left: 0;
+		display: flex;
+		width: 40px;
+		height: 40px;
+		border: 1px solid $aquamarine;
+		border-radius: 50%;
+
+		& img {
+			margin: auto;
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.date {
+		font-family: $ibm;
+		font-weight: bold;
+		font-size: 15px;
+		color: $text-color-dark-grey;
+		margin-bottom: 20px;
+	}
+	.news-image {
+		margin-bottom: 30px;
+
+		& img {
+			width: 100%;
+		}
+	}
+}

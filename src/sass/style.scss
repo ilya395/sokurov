@@ -18,6 +18,7 @@
 @import 'components/carousel';
 
 @import 'pages/main-page/main-page';
+@import 'pages/news-page/news-page';
 
 @import 'themes/theme';
 
@@ -81,5 +82,28 @@
     @media screen and (min-width: 1200px) {
         width: 1200px;
         margin: 0 auto;
+    }
+}
+.container-news {
+    position: relative;
+    width: 87.5vw;
+    margin: 0 auto;
+
+    @media screen and (min-width: 768px) {
+        width: 730px;
+    }
+    @media screen and (min-width: 1200px) {
+        width: 750px;
+    }
+}
+.container-tablet-news {
+    position: relative;
+
+    @media screen and (min-width: 768px) {
+        width: 730px;
+        margin: 0 auto;
+    }
+    @media screen and (min-width: 1200px) {
+        width: 750px;
     }
 }
