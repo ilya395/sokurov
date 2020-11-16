@@ -109,30 +109,10 @@ header {
         transition: all 0.3s ease-in-out;
     }
 }
-
-/*#hamburger-9:before{
-  content: "";
-  position: absolute;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 4.86vw;
-  height: 4.86vw;
-  border: 0.35vw solid transparent;
-  top: calc(50% - 2.43vw);
-  left: calc(50% - 2.43vw);
-  border-radius: 100%;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}*/
-
-/*#hamburger-9.is-active:before{
-  border: 0.35vw solid #ecf0f1;
-}*/
-
-/*#hamburger-9.is-active .line{
-  width: 2.43vw;
-}*/
+.news-page header {
+    @media screen and (min-width: 1200px) {
+        background: #fff;
+    }
+}
 
 
