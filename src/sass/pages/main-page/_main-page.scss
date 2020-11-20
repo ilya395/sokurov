@@ -5,15 +5,15 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-image: url(../images/main-page/mob-ptn.png);
+	background-image: url('../images/main-page/mob-ptn.png');
 	background-repeat: repeat-y;
 	background-size: 100% auto;
 
 	@media screen and (min-width: 768px) {
-        background-image: url(../images/main-page/tablet-ptn.png);
+        background-image: url('../images/main-page/tablet-ptn.png');
     }
 	@media screen and (min-width: 1200px) {
-        background-image: url(../images/main-page/ptn3.png);
+        background-image: url('../images/main-page/ptn3.png');
     }
 }
 .bg-ptn2 {
@@ -23,15 +23,15 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-image: url(../images/main-page/alley-mob-ptn.png);
+	background-image: url('../images/main-page/alley-mob-ptn.png');
 	background-repeat: repeat-y;
 	background-size: 100% auto;
 
 	@media screen and (min-width: 768px) {
-        background-image: url(../images/main-page/alley-tablet-ptn.png);
+        background-image: url('../images/main-page/alley-tablet-ptn.png');
     }
 	@media screen and (min-width: 1200px) {
-        background-image: url(../images/main-page/alley-desktop-ptn.png);
+        background-image: url('../images/main-page/alley-desktop-ptn.png');
     }
 }
 .section-content {
@@ -1255,7 +1255,7 @@
 			content: "";
 			width: 17px;
 			height: 17px;
-			background: url(../images/main-page/select.svg) no-repeat;
+			background: url('../images/main-page/select.svg') no-repeat;
 			z-index: 3;
 		}
 	}

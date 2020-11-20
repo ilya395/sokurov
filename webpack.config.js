@@ -102,7 +102,7 @@ module.exports = {
         main: ['@babel/polyfill', './js/index.js'],
     },
     output: {                                                               // куда складывать результаты работы
-        filename: 'assets/js/' + filename('js'),                            // итоговый файл, после сборкивсех js файлов
+        filename: 'js/' + filename('js'),                            // итоговый файл, после сборкивсех js файлов
         path: path.resolve(__dirname, 'dist'),                              // отталкиваясь от текущей директории, складывать все в dist
         publicPath: '/'                                                     // относительная ссылка, которая будет подставляться из браузера
     },
@@ -110,9 +110,8 @@ module.exports = {
         extensions: [                                                       // какие расширения нужно понимать по умолчанию
             '.js', '.json', '.png'
         ],
-       alias: {                                                             // путь до корня проекта
-           '@assets': path.resolve(__dirname, 'src/assets'),
-           '@': path.resolve(__dirname, 'src')
+       alias: {                                                             
+           '@': path.resolve(__dirname, 'src')                              // путь до корня проекта
        } 
     },
     optimization: optimization(),
@@ -160,12 +159,12 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(__dirname, './src/images/**/*'),
-                    to: path.resolve(__dirname, './dist/assets/'),
+                    to: path.resolve(__dirname, './dist/'),
                 },
             ]
         }),
         new MiniCssExtractPlugin({
-            filename: 'assets/css/' + filename('css')                            // filename('css') // 'assets/css/' + filename('css')
+            filename: 'css/' + filename('css')                            // filename('css') // 'assets/css/' + filename('css')
         }),
         // new HtmlWebpackPlugin(),
         new HtmlWebpackExternalsPlugin({
@@ -267,7 +266,7 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                include: path.resolve(__dirname, 'src/assets/templates'),
+                include: path.resolve(__dirname, 'src/templates'),
                 use: [
                     'raw-loader',
                 ]

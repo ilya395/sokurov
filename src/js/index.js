@@ -14,6 +14,11 @@ import 'swiper/swiper-bundle.css';
 //import './materialize-src/js/bin/materialize.min'; 
 import '../sass/style.scss';
 
+import { FilterForm, DefaultForm } from './services/forms';
+
+const AJAX_REQUEST_SUBMIT_FORM = 'ajax_submit_form';
+const AJAX_REQUEST_SUBMIT_FILTER = 'ajax_submit_filter';
+
 $( document ).ready(function() {
     console.log( "ready!" );
 
@@ -153,17 +158,17 @@ $( document ).ready(function() {
         }
     });
 
-    const constructionSwiper = new Swiper('#construction-slider .swiper-container', {
-        navigation: {
-            nextEl: '#construction-slider .swiper-button-next',
-            prevEl: '#construction-slider .swiper-button-prev',
-        },
-        pagination: {
-            el: '#construction-slider .swiper-pagination',
-            type: 'bullets',
-            clickable: true,
-        }
-    });
+    // const constructionSwiper = new Swiper('#construction-slider .swiper-container', {
+    //     navigation: {
+    //         nextEl: '#construction-slider .swiper-button-next',
+    //         prevEl: '#construction-slider .swiper-button-prev',
+    //     },
+    //     pagination: {
+    //         el: '#construction-slider .swiper-pagination',
+    //         type: 'bullets',
+    //         clickable: true,
+    //     }
+    // });
 
     $(".flat-card").each(function(index, element){
         var $this = $(this);
@@ -198,6 +203,14 @@ $( document ).ready(function() {
             }
         }
     });
+
+    const filter = FilterForm({
+        containerUrl: '.plans',
+        actionName: AJAX_REQUEST_SUBMIT_FILTER,
+        containerForRenderingUrl: '.plans__flats-wrapper',
+        moreBtnUrl: '[data-object="filter_more"]',
+    });
+    filter.init();
 });
 
 
