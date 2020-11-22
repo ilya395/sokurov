@@ -52,9 +52,12 @@
         height: calc(65vw + 420px);
     }
 	@media screen and (min-width: 1200px) {
-        margin-top: 100px;
+        /*margin-top: 100px;*/
         height: 504px;
         background-color: transparent;
+    }
+    @media screen and (min-width: 1440px) {
+        height: 565px;
     }
 
     & .main-slider__wrapper {
@@ -62,6 +65,9 @@
 
 		@media screen and (min-width: 1200px) {
 			height: 504px;
+	    }
+	    @media screen and (min-width: 1440px) {
+			height: 565px;
 	    }
 
 		& .main-slider__slide {
@@ -92,6 +98,9 @@
 					position: absolute;
 					top: 0;
 					right: 0;
+			    }
+			    @media screen and (min-width: 1440px) {
+			    	width: 750px;
 			    }
 
 				& img {
@@ -124,6 +133,11 @@
 					box-shadow: 15px 15px 15px rgba(79, 115, 139, 0.5);
 					border-radius: 2px;
 			    }
+			    @media screen and (min-width: 1440px) {
+					width: 600px;
+					height: 500px;
+					top: 30px;
+			    }
 
 				& .info-slide__inside {
 					margin: auto;
@@ -133,6 +147,10 @@
 					& .btn1 {
 						margin: 0 auto;
 						margin-top: 30px;
+
+						@media screen and (min-width: 1440px) {
+							margin-top: 98px;
+					    }
 					}
 
 					h1 {
@@ -141,6 +159,7 @@
 
 					& .info-slide__subtitle {
 						font-family: $ibm;
+						font-weight: 300;
 						font-size: 15px;
 						line-height: 1.6;
 						margin-bottom: 15px;
@@ -149,6 +168,10 @@
 					    	font-size: 22px;
 					    }
 					}
+
+					@media screen and (min-width: 1440px) {
+				    	margin-top: 53px;
+				    }
 				}
 			}
 		}
@@ -167,6 +190,9 @@
 	    }
 	    @media screen and (min-width: 1200px) {
 	    	top: 427px;
+	    }
+	    @media screen and (min-width: 1440px) {
+	    	top: 475px;
 	    }
 
 		&:hover {
@@ -187,12 +213,19 @@
 			@media screen and (min-width: 1200px) {
 		    	left: 225px;
 		    }
+		    @media screen and (min-width: 1440px) {
+		    	left: 255px;
+		    }
 		}
 		&.arrow-next {
 			right: calc(50% - 40px);
 
 			@media screen and (min-width: 1200px) {
 		    	left: 275px;
+		    	right: auto;
+		    }
+		    @media screen and (min-width: 1440px) {
+		    	left: 305px;
 		    	right: auto;
 		    }
 		}
@@ -216,6 +249,10 @@
 	    	right: auto;
 	    	margin: 0;
 	    }
+	    @media screen and (min-width: 1440px) {
+	    	top: 555px;
+	    	left: 264px;
+	    }
 
     	& .pagination-item {
     		width: 6px;
@@ -228,6 +265,10 @@
 			&.active {
 				transform: scale(1.4);
 				background: #1B3A4D;
+			}
+
+			&:hover {
+				cursor: pointer;
 			}
     	}
     }
@@ -290,15 +331,16 @@
 	& .about-complex__cards {
 		width: 100%;
 		position: absolute;
-		bottom: -250px;
+		bottom: -280px;
+		padding-bottom: 30px;
 		left: 0;
 		overflow-x: scroll;
 
 		@media screen and (min-width: 768px) {
-			bottom: -170px;
+			bottom: -200px;
 	    }
 	    @media screen and (min-width: 1200px) {
-	    	bottom: 105px;
+	    	bottom: 75px;
 	    }
 
 		& .about-complex__cards-wrapper {
@@ -367,6 +409,14 @@
 	& .alley-info {
 		@media screen and (min-width: 768px) {
 			width: 550px;
+		}
+		@media screen and (min-width: 1200px) {
+			width: 600px;
+		}
+		h1 {
+			@media screen and (min-width: 1200px) {
+				margin-bottom: 10px;
+			}
 		}
 	}
 
@@ -605,6 +655,14 @@
 		
 	}
 
+	& .presentation__info {
+		& p {
+			@media screen and (min-width: 1200px) {
+				width: 280px;
+			}
+		}
+	}
+
 	& .presentaton-image {
 		display: none;
 
@@ -618,6 +676,7 @@
 		@media screen and (min-width: 1200px) {
 			width: 350px;
 			margin-left: 80px;
+			margin-top: -30px;
 		}
 	}
 
@@ -661,6 +720,7 @@
 			text-align: center;
 			margin: auto;
 			font-family: $ibm;
+			font-weight: 300;
 			font-size: 18px;
 			line-height: 1.6;
 			color: $text-color-dark-grey;
@@ -719,15 +779,16 @@
 	& .houses-types__cards {
 		width: 100%;
 		position: absolute;
-		bottom: -280px;
+		bottom: -310px;
+		padding-bottom: 30px;
 		left: 0;
 		overflow-x: scroll;
 
 		@media screen and (min-width: 768px) {
-			bottom: -226px;
+			bottom: -256px;
 	    }
 	    @media screen and (min-width: 1200px) {
-	    	bottom: -115px;
+	    	bottom: -145px;
 	    }
 
 		& .houses-types__cards-wrapper {
@@ -874,6 +935,7 @@
 
 			& .label {
 				font-family: $ibm;
+				font-weight: 300;
 				font-size: 15px;
 				color: $text-color-light-grey;
 				margin-bottom: 14px;
@@ -957,6 +1019,7 @@
 
 			& .floor {
 				font-family: $ibm;
+				font-weight: 300;
 				font-size: 3.75vw;
 				text-transform: uppercase;
 				color: $text-color-dark-grey;
@@ -1090,6 +1153,7 @@
 
 			& .flat-info__title {
 				font-family: $ibm;
+				font-weight: 300;
 				font-size: 3.75vw;
 				text-transform: uppercase;
 				color: #A0A0A0;
@@ -1369,7 +1433,7 @@
 	    	margin: 0 auto !important;
 
 		    @media screen and (min-width: 1200px) {
-		    	bottom: 10px !important;
+		    	bottom: -30px !important;
 		    }
 
 	    	& .swiper-pagination-bullet {
