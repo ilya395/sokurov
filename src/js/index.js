@@ -185,6 +185,30 @@ $( document ).ready(function() {
         }
     });
 
+    $('.main-slider__wrapper .pagination-item').click(function() {
+        if($(this).hasClass('active') == false) {
+            let ind = $(this).index();
+            let wrapper = $('.main-slider__wrapper');
+            let count = wrapper.find('.main-slider__slide').length;
+
+            wrapper.find('.main-slider__slide').fadeOut(300);
+            wrapper.find('.main-slider__slide').removeClass('active');
+            wrapper.find('.main-slider__slide').eq(ind).fadeIn(300);
+            wrapper.find('.main-slider__slide').eq(ind).addClass('active');
+            wrapper.find('.pagination-item').removeClass('active');
+            wrapper.find('.pagination-item').eq(ind).addClass('active');
+
+            $('.main-slider__wrapper .arrow-next').removeClass('disabled');
+            $('.main-slider__wrapper .arrow-prev').removeClass('disabled');
+
+            if (ind == 0) {
+                $('.main-slider__wrapper .arrow-prev').addClass('disabled');
+            } else if (ind == count - 1) {
+                $('.main-slider__wrapper .arrow-next').addClass('disabled');
+            }
+        }
+    });
+
     const alleySwiper = new Swiper('#alley-slider .swiper-container', {
         navigation: {
             nextEl: '#alley-slider .swiper-button-next',
@@ -197,17 +221,17 @@ $( document ).ready(function() {
         }
     });
 
-    // const constructionSwiper = new Swiper('#construction-slider .swiper-container', {
-    //     navigation: {
-    //         nextEl: '#construction-slider .swiper-button-next',
-    //         prevEl: '#construction-slider .swiper-button-prev',
-    //     },
-    //     pagination: {
-    //         el: '#construction-slider .swiper-pagination',
-    //         type: 'bullets',
-    //         clickable: true,
-    //     }
-    // });
+    const constructionSwiper = new Swiper('#construction-slider .swiper-container', {
+        navigation: {
+            nextEl: '#construction-slider .swiper-button-next',
+            prevEl: '#construction-slider .swiper-button-prev',
+        },
+        pagination: {
+            el: '#construction-slider .swiper-pagination',
+            type: 'bullets',
+            clickable: true,
+        }
+    });
 
     $(".flat-card").each(function(index, element){
         var $this = $(this);

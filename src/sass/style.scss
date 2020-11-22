@@ -83,6 +83,10 @@
         width: 1200px;
         margin: 0 auto;
     }
+    @media screen and (min-width: 1440px) {
+        width: 1320px;
+        margin: 0 auto;
+    }
 }
 .container-news {
     position: relative;
