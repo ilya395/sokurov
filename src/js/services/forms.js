@@ -1,4 +1,4 @@
-import { imOkey, searchData, sendAjax, plansCard } from '../utils/functions';
+import { imOkey, searchData, sendAjax, plansCard, makeMasks } from '../utils/functions';
 
 export function DefaultForm(object) {
 
@@ -35,6 +35,7 @@ export function DefaultForm(object) {
 
     const methods = {
         init() {
+            makeMasks();
             function handler(event) {
                 event.preventDefault();
                 _fetch();
