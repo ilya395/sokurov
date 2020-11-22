@@ -1,4 +1,4 @@
-import { imOkey, searchData, sendAjax } from '../utils/functions';
+import { imOkey, searchData, sendAjax, plansCard } from '../utils/functions';
 
 export function DefaultForm(object) {
 
@@ -51,7 +51,7 @@ export function DefaultForm(object) {
 
 export function FilterForm(object) {
 
-    const { containerUrl, actionName, eventName, manageItems = ['[data-object="filter_type"]', '[data-object="filter_rooms"]'], containerForRenderingUrl, moreBtnUrl, limit = 6, htmlTemplate } = object;
+    const { containerUrl, actionName, eventName, manageItems = ['[data-object="filter_type"]', '[data-object="filter_rooms"]'], containerForRenderingUrl, moreBtnUrl, limit = 6, htmlTemplate = plansCard } = object;
 
     let globalData = {};
     const btn = document.querySelector(moreBtnUrl);
@@ -140,7 +140,7 @@ export function FilterForm(object) {
 
         function draw(start, end) {
             for (let i = start; i < end; i++) {
-                const html = htmlTemplate(data[i]);
+                const html = htmlTemplate({i, ...data[i]});
                 container.insertAdjacentHTML('beforeend', html);
                 count++;
             }

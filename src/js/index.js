@@ -16,9 +16,7 @@ import '../sass/style.scss';
 
 import { FilterForm, DefaultForm, EventsForm } from './services/forms';
 
-const AJAX_REQUEST_SUBMIT_FORM = 'ajax_submit_form';
-const AJAX_REQUEST_SUBMIT_FILTER = 'ajax_submit_filter';
-const AJAX_REQUEST_SUBMIT_EVENT = 'ajax_submit_events';
+import { AJAX_REQUEST_SUBMIT_FORM, AJAX_REQUEST_SUBMIT_FILTER, AJAX_REQUEST_SUBMIT_EVENT, EVENT_STATIC_FORM, EVENT_MODAL_FORM } from './utils/constants';
 
 $( document ).ready(function() {
     console.log( "ready!" );
@@ -65,34 +63,70 @@ $( document ).ready(function() {
     	$('.modal-menu').fadeOut();
     });
 
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////////// модалка: начало ///////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+    const modalForm = DefaultForm({
+        containerUrl: '#modal-form', 
+        actionName: AJAX_REQUEST_SUBMIT_FORM, 
+        eventName: EVENT_MODAL_FORM,        
+    });
+    modalForm.init();
+    function handlerModalForm() {
+        //окно об успешной отправке в модалке
+        $('#modal-form').submit(function() {
+            $('.modal-form .modal-form__inside').fadeOut();
+            $('.modal-form .modal-form__success').fadeIn();
+        });
+    }
+
     //закрытие модалки с формой
     $('.modal-form .close').click(function() {
-    	$('.modal-form').fadeOut();
+        $('.modal-form').fadeOut();
+        //
+        window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
     });
 
     $('.modal-form').click(function(e) {
     	if($(e.target).hasClass('modal-form__wrapper')) {
     		$('.modal-form').fadeOut();
-    	}
+        }
+        //
+        window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
     });
 
     //открытие модалки с формой
     $('.form-open').click(function() {
     	$('.modal-form .modal-form__inside').css('display', 'block');
     	$('.modal-form .modal-form__success').css('display', 'none');
-    	$('.modal-form').fadeIn();
+        $('.modal-form').fadeIn();
+        //
+        window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
     }); 
 
-    //окно об успешной отправке в модалке
-    $('#modal-form').submit(function() {
-    	$('.modal-form .modal-form__inside').fadeOut();
-    	$('.modal-form .modal-form__success').fadeIn();
-    });
 
-    //окно об успешной отправке форма презентации
-    $('#presentation-form').submit(function() {
-    	$('.form-presentation-card form').fadeOut();
-    	$('.form-presentation-card .form-presentation__success').fadeIn();
+
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////////// модалка: конец ////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////// форма презентации: начало //////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+    
+    const staticForm = DefaultForm({
+        containerUrl: '#presentation-form', 
+        actionName: AJAX_REQUEST_SUBMIT_FORM, 
+        eventName: EVENT_STATIC_FORM,
+    });
+    staticForm.init();
+    window.addEventListener(`${EVENT_STATIC_FORM}_success`, function() {
+        //окно об успешной отправке форма презентации
+        $('#presentation-form').submit(function() {
+            $('.form-presentation-card form').fadeOut();
+            $('.form-presentation-card .form-presentation__success').fadeIn();
+        });        
     });
 
     //фото в блоке аллея
@@ -105,6 +139,10 @@ $( document ).ready(function() {
             thisPlus.find('.plus__photo').addClass('active');
         }
     });
+
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////// форма презентации: конец //////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
     //слайдеры
     $('.main-slider__wrapper .arrow-prev').click(function() {
