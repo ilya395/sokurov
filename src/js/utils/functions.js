@@ -2,6 +2,8 @@
 ////////////////////////// вспомогательные функции ///////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
+import '../libs/inputmask';
+
 export function raf(fn){
     window.requestAnimationFrame(function(){
         window.requestAnimationFrame(function(){
@@ -58,7 +60,7 @@ export function imOkey(n) {
 // инпут для телефона
 export function makeMasks() {
     if(document.querySelectorAll(".phonemask").length > 0){
-        console.log(document.querySelectorAll(".phonemask").lenght);
+        //console.log(document.querySelectorAll(".phonemask").lenght);
         let inputMask = document.querySelectorAll(".phonemask");
         Inputmask.extendDefinitions({
           'f': {"validator": "[9\(\)\.\+/ ]"}
