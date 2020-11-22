@@ -14,10 +14,11 @@ import 'swiper/swiper-bundle.css';
 //import './materialize-src/js/bin/materialize.min'; 
 import '../sass/style.scss';
 
-import { FilterForm, DefaultForm } from './services/forms';
+import { FilterForm, DefaultForm, EventsForm } from './services/forms';
 
 const AJAX_REQUEST_SUBMIT_FORM = 'ajax_submit_form';
 const AJAX_REQUEST_SUBMIT_FILTER = 'ajax_submit_filter';
+const AJAX_REQUEST_SUBMIT_EVENT = 'ajax_submit_events';
 
 $( document ).ready(function() {
     console.log( "ready!" );
@@ -211,6 +212,18 @@ $( document ).ready(function() {
         moreBtnUrl: '[data-object="filter_more"]',
     });
     filter.init();
+    filter.manage();
+
+    const historyBuildinig = EventsForm({
+        containerUrl: '#construction .section-content', 
+        containerSelectUrl: '.select-block select', 
+        containerTextUrl: '.construction__info-inside', 
+        containerSliderUrl: '#construction-slider .swiper-container', 
+        actionName: AJAX_REQUEST_SUBMIT_EVENT, 
+        eventName: 'bulding-event',
+    });
+    historyBuildinig.init();
+    historyBuildinig.manage();
 });
 
 

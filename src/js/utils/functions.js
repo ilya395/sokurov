@@ -109,7 +109,7 @@ export function searchData(object) {
                     }
                 }
             });
-            dataString += dataString + string;
+            dataString += string;
         });
     }
 
