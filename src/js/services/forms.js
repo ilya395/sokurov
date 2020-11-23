@@ -92,6 +92,8 @@ export function FilterForm(object) {
 
     function _filter(data, options) {
 
+        console.log(data, options)
+
         let resultArray = [];
         for (let i of data) {
             if (i.filter_rooms == options.filter_rooms && i.filter_type == options.filter_type) {
