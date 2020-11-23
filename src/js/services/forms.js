@@ -54,7 +54,7 @@ export function FilterForm(object) {
 
     const { containerUrl, actionName, eventName, manageItems = ['[data-object="filter_type"]', '[data-object="filter_rooms"]'], containerForRenderingUrl, moreBtnUrl, limit = 6, htmlTemplate = plansCard } = object;
 
-    let globalData = {};
+    let globalData = null;
     const btn = document.querySelector(moreBtnUrl);
 
     function _handlerBtn() {
@@ -155,8 +155,9 @@ export function FilterForm(object) {
         init() {
             function handler(event) {
                 console.log(event);
-                const data = JSON.parse(event.detail.data);
-                globalData = {...data};
+                // const data = event.detail.data; // JSON.parse();
+                // globalData = data; // {...data};
+                globalData = event.detail.data;
 
                 const result = _filter({
                     data: globalData,
@@ -212,7 +213,7 @@ export function EventsForm(object) {
 
     // let constructionSwiper = null;
 
-    let globalData = {};
+    let globalData = null;
 
     function _findData(index) {
         // const data = `action=${actionName}&event_id=${arg}`;
@@ -296,8 +297,9 @@ export function EventsForm(object) {
         init() {
             function handl(event) {
                 console.log(event);
-                const data = JSON.parse(event.detail.data);
-                globalData = {...data};
+                // const data = event.detail.data; // JSON.parse(event.detail.data);
+                // globalData = data; // {...data};
+                globalData = event.detail.data;
             }
             container.addEventListener(`${eventName}_success`, handl);
 
