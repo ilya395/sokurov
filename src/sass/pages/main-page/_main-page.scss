@@ -5,15 +5,15 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-image: url('../images/main-page/ptn_svetly_fon.png');
+	background-image: url('../images/main-page/ptn_svetly_fon.svg');
 	background-repeat: repeat-y;
 	background-size: 100% auto;
 
 	@media screen and (min-width: 768px) {
-        background-image: url('../images/main-page/ptn_svetly_fon.png');
+        background-image: url('../images/main-page/ptn_svetly_fon.svg');
     }
 	@media screen and (min-width: 1200px) {
-        background-image: url('../images/main-page/ptn_svetly_fon.png');
+        background-image: url('../images/main-page/ptn_svetly_fon.svg');
     }
 }
 .bg-ptn2 {
@@ -23,15 +23,15 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-image: url('../images/main-page/ptn_temn_fon.png');
+	background-image: url('../images/main-page/ptn_temn_fon.svg');
 	background-repeat: repeat-y;
 	background-size: 100% auto;
 
 	@media screen and (min-width: 768px) {
-        background-image: url('../images/main-page/ptn_temn_fon.png');
+        background-image: url('../images/main-page/ptn_temn_fon.svg');
     }
 	@media screen and (min-width: 1200px) {
-        background-image: url('../images/main-page/ptn_temn_fon.png');
+        background-image: url('../images/main-page/ptn_temn_fon.svg');
     }
 }
 .section-content {
