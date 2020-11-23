@@ -121,7 +121,7 @@ module.exports = {
         hot: isDev,                                                          // если разработка - true, должна быть
         historyApiFallback: true,                                            // отдаем по любому url главный html файл - index.html
     },
-    devtool: isDev ? 'source-map' : '',
+    devtool: isDev ? 'source-map' : 'source-map', // ''
     externals: {
         jquery: 'jQuery'
     },
