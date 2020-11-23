@@ -154,6 +154,7 @@ export function FilterForm(object) {
     const methods = {
         init() {
             function handler(event) {
+                console.log(event);
                 const data = JSON.parse(event.detail.data);
                 globalData = {...data};
 
@@ -231,7 +232,7 @@ export function EventsForm(object) {
 
     function _fetch(string) {
         sendAjax({
-            containerSelectUrl,
+            containerUrl,
             formData: `action=${string}`,
             eventName
         });
@@ -294,6 +295,7 @@ export function EventsForm(object) {
     const methods = {
         init() {
             function handl(event) {
+                console.log(event);
                 const data = JSON.parse(event.detail.data);
                 globalData = {...data};
             }

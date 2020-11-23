@@ -328,6 +328,7 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_FILTER,
         containerForRenderingUrl: '.plans__flats-wrapper',
         moreBtnUrl: '[data-object="filter_more"]',
+        eventName: 'filter-event'
     });
     filter.init();
     filter.manage();
