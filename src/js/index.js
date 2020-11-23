@@ -23,6 +23,8 @@ $( document ).ready(function() {
 
     Swiper.use([Navigation, Pagination]);
 
+    let s_width = $(window).width();
+
     //const swiper = new Swiper();
 
     //параллакс фона
@@ -34,6 +36,22 @@ $( document ).ready(function() {
     $(window).scroll(function(e){
         parallax();
     });
+
+    //хэдер
+    function headerModify() {
+        var scrolled = $(window).scrollTop();
+        if (scrolled > 120) {
+            $('header').addClass('modify');
+        } else {
+            $('header').removeClass('modify');
+        }
+    }
+
+    if (s_width >=1200) {
+        $(window).scroll(function(e){
+            headerModify();
+        });
+    }
 
     //плавный скролл
     $("a.scrollto").click(function() {
