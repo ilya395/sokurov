@@ -5,15 +5,15 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-image: url('../images/main-page/mob-ptn.png');
+	background-image: url('../images/main-page/ptn_svetly_fon.svg');
 	background-repeat: repeat-y;
 	background-size: 100% auto;
 
 	@media screen and (min-width: 768px) {
-        background-image: url('../images/main-page/tablet-ptn.png');
+        background-image: url('../images/main-page/ptn_svetly_fon.svg');
     }
 	@media screen and (min-width: 1200px) {
-        background-image: url('../images/main-page/ptn3.png');
+        background-image: url('../images/main-page/ptn_svetly_fon.svg');
     }
 }
 .bg-ptn2 {
@@ -23,15 +23,15 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-image: url('../images/main-page/alley-mob-ptn.png');
+	background-image: url('../images/main-page/ptn_temn_fon.svg');
 	background-repeat: repeat-y;
 	background-size: 100% auto;
 
 	@media screen and (min-width: 768px) {
-        background-image: url('../images/main-page/alley-tablet-ptn.png');
+        background-image: url('../images/main-page/ptn_temn_fon.svg');
     }
 	@media screen and (min-width: 1200px) {
-        background-image: url('../images/main-page/alley-desktop-ptn.png');
+        background-image: url('../images/main-page/ptn_temn_fon.svg');
     }
 }
 .section-content {
@@ -41,9 +41,14 @@
 .work-area.main-page {
 	position: relative;
 	background: #F0F0F0;
+	padding-top: 70px;
+
+	@media screen and (min-width: 1200px) {
+        padding-top: 100px;
+    }
+
 }
 .main-slider {
-	margin-top: 70px;
 	height: 177.6vw;
 	background-color: $aquamarine;
 
@@ -52,7 +57,6 @@
         height: calc(65vw + 420px);
     }
 	@media screen and (min-width: 1200px) {
-        /*margin-top: 100px;*/
         height: 504px;
         background-color: transparent;
     }
@@ -1510,6 +1514,7 @@
 				}
 				&.limiter-bottom {
 					bottom: 0;
+					height: 40px;
 				}
 			}
 		}
@@ -1769,6 +1774,15 @@
 
 	& .infrastructure__map {
 		margin-top: 50px;
+		height: 130vw;
+
+		@media screen and (min-width: 768px) {
+			height: 565px;
+		}
+
+		@media screen and (min-width: 1200px) {
+			height: 600px;
+		}
 
 		@media screen and (max-width: 320px) {
 			height: 420px;
