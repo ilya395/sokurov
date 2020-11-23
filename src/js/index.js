@@ -2,9 +2,9 @@ console.log('Hello, bro! This project work with Webpack!');
 //
 
 // import Swiper JS
-// import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper, { Navigation, Pagination } from 'swiper';
 // import Swiper styles
-// import 'swiper/swiper-bundle.css';
+import 'swiper/swiper-bundle.css';
 //
 // import 'normalize.css';
 
