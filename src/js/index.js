@@ -18,6 +18,8 @@ import { FilterForm, DefaultForm, EventsForm } from './services/forms';
 
 import { AJAX_REQUEST_SUBMIT_FORM, AJAX_REQUEST_SUBMIT_FILTER, AJAX_REQUEST_SUBMIT_EVENT, EVENT_STATIC_FORM, EVENT_MODAL_FORM } from './utils/constants';
 
+import { DefaultMap } from '../js/services/map';
+
 $( document ).ready(function() {
     console.log( "ready!" );
 
@@ -62,6 +64,42 @@ $( document ).ready(function() {
     	$('.header__burger-button').removeClass('active');
     	$('.modal-menu').fadeOut();
     });
+
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////// карта: начало ////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+    const objectsOnMap = {
+        school: [
+            [55.619765, 49.39361]
+        ],
+        kindergarten: [
+            [55.620835, 49.389501]
+        ],
+        market: [
+            [55.621133, 49.393318],
+            [5.619713, 49.395687],
+            [55.618043, 49.400012]
+        ],
+        'bus-station': [
+            [55.621405, 49.393316],
+            [55.620732, 49.394353],
+            [55.618159, 49.39944],
+            [55.617658, 49.400178]
+        ]
+    }
+
+    const defMap = DefaultMap({
+        urlMapContainer: '#map',
+        objects: objectsOnMap,
+        zoom: 14,
+    });
+    defMap.init();
+
+
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////// карта: конец /////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// модалка: начало ///////////////////////////////

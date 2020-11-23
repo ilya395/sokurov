@@ -168,7 +168,7 @@ export function FilterForm(object) {
                 _render(result, true);
             }
             document.addEventListener(`${eventName}_success`, handler);
-            _fetch();
+            // _fetch();
         },
         manage() {
             function handl(event) {

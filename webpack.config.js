@@ -102,7 +102,7 @@ module.exports = {
         main: ['@babel/polyfill', './js/index.js'],
     },
     output: {                                                               // куда складывать результаты работы
-        filename: 'js/' + filename('js'),                            // итоговый файл, после сборкивсех js файлов
+        filename: 'js/' + filename('js'),                                   // итоговый файл, после сборкивсех js файлов
         path: path.resolve(__dirname, 'dist'),                              // отталкиваясь от текущей директории, складывать все в dist
         publicPath: '/'                                                     // относительная ссылка, которая будет подставляться из браузера
     },
@@ -179,11 +179,11 @@ module.exports = {
                 //     entry: 'https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.3/lottie_svg.min.js',
                 //     global: 'lottie',
                 // },
-                // {
-                //     module: 'map2gis',
-                //     entry: 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full',
-                //     global: 'map2gis',
-                // },
+                {
+                    module: 'map2gis',
+                    entry: 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full',
+                    global: 'map2gis',
+                },
             ]
         })
     ],

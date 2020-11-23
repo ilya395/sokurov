@@ -1740,6 +1740,7 @@
 
 			& img {
 				margin: auto;
+				pointer-events: none;
 			}
 
 			&.icon1 {
@@ -1768,6 +1769,19 @@
 
 	& .infrastructure__map {
 		margin-top: 50px;
+
+		@media screen and (max-width: 320px) {
+			height: 420px;
+		}
+		@media screen and (min-width: 320px) {
+			height: 420px;
+		}
+		@media screen and (min-width: 768px) {
+			height: 600px;
+		}
+		@media screen and (min-width: 1200px) {
+			height: 500px;
+		}
 
 		& img {
 			width: 100%;
