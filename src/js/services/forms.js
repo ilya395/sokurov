@@ -154,7 +154,7 @@ export function FilterForm(object) {
     const methods = {
         init() {
             function handler(event) {
-                const data = event.detail.data.json();
+                const data = JSON.parse(event.detail.data);
                 globalData = {...data};
 
                 const result = _filter({
@@ -294,7 +294,7 @@ export function EventsForm(object) {
     const methods = {
         init() {
             function handl(event) {
-                const data = event.detail.data.json();
+                const data = JSON.parse(event.detail.data);
                 globalData = {...data};
             }
             container.addEventListener(`${eventName}_success`, handl);

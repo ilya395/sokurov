@@ -130,7 +130,7 @@ export function sendAjax(object) {
     const { containerUrl, formData, eventName } = object;
 
     const container = document.querySelector(containerUrl);
-    console.log(containerUrl, container)
+    console.log(containerUrl, container, eventName)
 
     const customEvent = new CustomEvent(eventName, {bubbles: true});
     container.dispatchEvent(customEvent);
