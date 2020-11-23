@@ -96,7 +96,7 @@ export function FilterForm(object) {
 
         let resultArray = [];
         for (let i of data) {
-            if (i.filter_rooms == options.filter_rooms && i.filter_type == options.filter_type) {
+            if (+i.rooms == +options.filter_rooms && i.type.value == options.filter_type) {
                 resultArray.push({...i});
             }
         }
