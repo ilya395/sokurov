@@ -140,6 +140,7 @@ $( document ).ready(function() {
     //закрытие модалки с формой
     $('.modal-form .close').click(function() {
         $('.modal-form').fadeOut();
+        $('.modal-form').find('input[name="title"]').val('Форма обратной связи');
         //
         window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
     });
@@ -147,6 +148,7 @@ $( document ).ready(function() {
     $('.modal-form').click(function(e) {
     	if($(e.target).hasClass('modal-form__wrapper')) {
     		$('.modal-form').fadeOut();
+            $('.modal-form').find('input[name="title"]').val('Форма обратной связи');
         }
         //
         window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
@@ -160,6 +162,20 @@ $( document ).ready(function() {
         //
         window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
     }); 
+
+    function handlerFormOpen(event) {
+        if(event.target.getAttribute('data-action') == 'form-open') {
+            let planString = event.target.getAttribute('data-string');
+            $('.modal-form').find('input[name="title"]').val(planString);
+            $('.modal-form .modal-form__inside').css('display', 'block');
+            $('.modal-form .modal-form__success').css('display', 'none');
+            $('.modal-form').fadeIn();
+            //
+            window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
+        }
+    }
+
+    document.getElementById('catalog').addEventListener('click', handlerFormOpen);
 
 
 
@@ -200,7 +216,11 @@ $( document ).ready(function() {
 ////////////////////////// форма презентации: конец //////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-    //слайдеры
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////// слайдеры: начало ///////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+    //main slider
     $('.main-slider__wrapper .arrow-prev').click(function() {
         if($(this).hasClass('disabled') == false) {
             let wrapper = $('.main-slider__wrapper');
@@ -265,6 +285,68 @@ $( document ).ready(function() {
         }
     });
 
+    //flat-card slider 
+    function flatCardPrevClick(index) {
+        let sliderWrap = $('.instance-' + index).find('.swiper-wrapper');
+        let slide = $('.instance-' + index).find('.swiper-slide');
+        let btnPrev = $('.btn-prev-' + index);
+        let btnNext = $('.btn-next-' + index);
+        let pagination = $('.pagination-' + index);
+
+        sliderWrap.css('margin-left', 0);
+        btnNext.removeClass('swiper-button-disabled');
+        btnPrev.addClass('swiper-button-disabled');
+        pagination.find('.swiper-pagination-bullet').eq(0).addClass('swiper-pagination-bullet-active');
+        pagination.find('.swiper-pagination-bullet').eq(1).removeClass('swiper-pagination-bullet-active');
+
+    }
+    function flatCardNextClick(index) {
+        let sliderWrap = $('.instance-' + index).find('.swiper-wrapper');
+        let slide = $('.instance-' + index).find('.swiper-slide');
+        let btnPrev = $('.btn-prev-' + index);
+        let btnNext = $('.btn-next-' + index);
+        let pagination = $('.pagination-' + index);
+        let slideMargin = -parseInt(slide.css('width')) + 'px';
+
+        sliderWrap.css('margin-left', slideMargin);
+        btnNext.addClass('swiper-button-disabled');
+        btnPrev.removeClass('swiper-button-disabled');
+        pagination.find('.swiper-pagination-bullet').eq(1).addClass('swiper-pagination-bullet-active');
+        pagination.find('.swiper-pagination-bullet').eq(0).removeClass('swiper-pagination-bullet-active');
+    }
+    function handlerFlatCardPrevClick(event) {
+        let btn = $(event.target).parent();
+        if(
+                (btn.hasClass('swiper-button-prev') && 
+                btn.hasClass('swiper-button-disabled') == false) ||
+                ($(event.target).hasClass('swiper-pagination-bullet') && 
+                $(event.target).eq(0) && 
+                $(event.target).hasClass('swiper-pagination-bullet-active') == false)
+            ) {
+            let ind = btn.closest('.flat-card').attr('data-index');
+            flatCardPrevClick(ind);
+        }
+    }
+    function handlerFlatCardNextClick(event) {
+        let btn = $(event.target).parent();
+        if(
+                (btn.hasClass('swiper-button-next') && 
+                btn.hasClass('swiper-button-disabled') == false) ||
+                ($(event.target).hasClass('swiper-pagination-bullet') && 
+                $(event.target).eq(1) && 
+                $(event.target).hasClass('swiper-pagination-bullet-active') == false)
+            ) {
+            let ind = btn.closest('.flat-card').attr('data-index');
+            flatCardNextClick(ind);
+        }
+    }
+
+    document.getElementById('catalog').addEventListener('click', handlerFlatCardPrevClick);
+    document.getElementById('catalog').addEventListener('click', handlerFlatCardNextClick);
+
+
+
+
     const alleySwiper = new Swiper('#alley-slider .swiper-container', {
         navigation: {
             nextEl: '#alley-slider .swiper-button-next',
@@ -289,24 +371,24 @@ $( document ).ready(function() {
         }
     });
 
-    $(".flat-card").each(function(index, element){
-        var $this = $(this);
-        $this.addClass("instance-" + index);
-        $this.find(".swiper-button-prev").addClass("btn-prev-" + index);
-        $this.find(".swiper-button-next").addClass("btn-next-" + index);
-        $this.find(".swiper-pagination").addClass("pagination-" + index);
-        var swiper = new Swiper(".instance-" + index + " .swiper-container", {
-            navigation: {
-                nextEl: ".btn-next-" + index,
-                prevEl: ".btn-prev-" + index,
-            },
-            pagination: {
-                el: ".pagination-" + index,
-                type: 'bullets',
-                clickable: true,
-            }
-        });
-    });
+    // $(".flat-card").each(function(index, element){
+    //     var $this = $(this);
+    //     $this.addClass("instance-" + index);
+    //     $this.find(".swiper-button-prev").addClass("btn-prev-" + index);
+    //     $this.find(".swiper-button-next").addClass("btn-next-" + index);
+    //     $this.find(".swiper-pagination").addClass("pagination-" + index);
+    //     var swiper = new Swiper(".instance-" + index + " .swiper-container", {
+    //         navigation: {
+    //             nextEl: ".btn-next-" + index,
+    //             prevEl: ".btn-prev-" + index,
+    //         },
+    //         pagination: {
+    //             el: ".pagination-" + index,
+    //             type: 'bullets',
+    //             clickable: true,
+    //         }
+    //     });
+    // });
 
     const newsSwiper = new Swiper('#news-slider .swiper-container', {
         slidesPerView: 'auto',
@@ -322,6 +404,9 @@ $( document ).ready(function() {
             }
         }
     });
+//////////////////////////////////////////////////////////////////////////////
+///////////////////////////// слайдеры: конец ///////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
 
     const filter = FilterForm({
         containerUrl: '.plans',

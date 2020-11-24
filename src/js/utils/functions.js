@@ -177,14 +177,14 @@ export function sendAjax(object) {
 export function plansCard(object) {
     const { i, id, name, area, plan_flat_1, plan_flat_2, type } = object;
     const html = `
-        <div class="flat-card instance-${i}" data-index="${id}" data-type="${type.value}">
+        <div class="flat-card instance-${id}" data-index="${id}" data-type="${type.value}">
             <div class="flat-card__top">
                 <div class="floor">1 / 2 этаж</div>
                 <div class="arrows">
-                    <div class="arrow arrow-prev swiper-button-prev">
+                    <div class="arrow arrow-prev swiper-button-prev btn-prev-${id} swiper-button-disabled">
                         <img src="images/main-page/arrow-prev-black.svg">
                     </div>
-                    <div class="arrow arrow-next swiper-button-next">
+                    <div class="arrow arrow-next swiper-button-next btn-next-${id}">
                         <img src="images/main-page/arrow-next-black.svg">
                     </div>
                 </div>
@@ -194,7 +194,10 @@ export function plansCard(object) {
                     <div class="plan-image swiper-slide"><img src="${plan_flat_1}"></div>
                     <div class="plan-image swiper-slide"><img src="${plan_flat_2}"></div>
                 </div>
-                <div class="pagination swiper-pagination"></div>
+                <div class="pagination swiper-pagination swiper-pagination-clickable pagination-${id}">
+                    <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                    <span class="swiper-pagination-bullet"></span>
+                </div>
             </div>
             <div class="flat-info">
                 <div class="flat-info__plan">
@@ -206,7 +209,7 @@ export function plansCard(object) {
                     <div class="flat-info__value">${area} м<sup>2</sup></div>
                 </div>
             </div>
-            <div class="btn5 form-open">узнать цену</div>
+            <div class="btn5" data-action="form-open" data-string=''>узнать цену</div>
         </div>
     `;
 
