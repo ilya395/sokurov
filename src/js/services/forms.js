@@ -90,17 +90,22 @@ export function FilterForm(object) {
 
     }
 
-    function _filter(data, options) {
+    function _filter(
+        data, 
+        options,
+    ) {
 
-        console.log(data, options)
+        console.log(`### data :`, data);
+        console.log(`### options :`, options)
 
         let resultArray = [];
         for (let i of data) {
+            console.log(i.rooms, options.filter_rooms, i.type.value, options.filter_type);
             if (+i.rooms == +options.filter_rooms && i.type.value == options.filter_type) {
                 resultArray.push({...i});
             }
         }
-
+        console.log(resultArray)
         return resultArray;
     }
 
@@ -173,6 +178,34 @@ export function FilterForm(object) {
             }
             document.addEventListener(`${eventName}_success`, handler);
             _fetch();
+            // _filter(
+            //     [
+            //         {
+            //             area: "90,18",
+            //             id: 249,
+            //             name: "4А.6",
+            //             plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/4_a.6_90_18.svg",
+            //             plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/4_a.6_90_18-1.svg",
+            //             rooms: "4",
+            //             type: {value: "toun", label: "Таунхаус"},
+            //         },
+            //         {
+            //             area: "89,61",
+            //             id: 244,
+            //             name: "4А.5",
+            //             plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/4_a.5_89_61.svg",
+            //             plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/4_a.5_89_61-1.svg",
+            //             rooms: "4",
+            //             type: {value: "toun", label: "Таунхаус"},
+            //         },
+            //     ],
+            //     {
+            //         action: "ajax_submit_filter",
+            //         filter_rooms: "3",
+            //         filter_type: "toun",
+            //     }
+            // );
+            // _render([]);
         },
         manage() {
             function handl(event) {
