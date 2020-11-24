@@ -136,7 +136,7 @@ export function sendAjax(object) {
     container.dispatchEvent(customEvent);
 
     fetch(
-        'http://sokurovpark.ru/wp-admin/admin-ajax.php', // window.wp.ajax_url, // 'http://sokurovpark.ru//wp-admin/admin-ajax.php', // точка входа
+        window.wp.ajax_url, // 'http://sokurovpark.ru//wp-admin/admin-ajax.php', // точка входа
         {
             method: 'POST',
             headers: {
