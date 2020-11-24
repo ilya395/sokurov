@@ -38,7 +38,7 @@ const cssLoaders  = (extra) => {
             options: {
                 hrm: isDev,                                               // hot module replacement // изменяй определенные сущности без перезагрузки страницы 
                 reloadAll: true,
-                publicPath: '../../'
+                publicPath: '../../dist/'
             },
         }, 
         'css-loader',

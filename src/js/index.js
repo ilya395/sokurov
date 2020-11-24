@@ -422,7 +422,7 @@ $( document ).ready(function() {
         containerUrl: '#construction .section-content', 
         containerSelectUrl: '.select-block select', 
         containerTextUrl: '.construction__info-inside', 
-        containerSliderUrl: '#construction-slider .swiper-container', 
+        containerSliderUrl: '#construction .construction-slider__slides.swiper-wrapper',// '#construction-slider .swiper-container', 
         actionName: AJAX_REQUEST_SUBMIT_EVENT, 
         eventName: 'bulding-event',
     });
