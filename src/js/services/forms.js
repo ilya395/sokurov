@@ -58,6 +58,7 @@ export function FilterForm(object) {
     const btn = document.querySelector(moreBtnUrl);
 
     function _handlerBtn() {
+        console.log('давай больше планировок, уже нажали кнопку');
         const morePlan = new CustomEvent(`give-more-plans`, {
             bubbles: true,
             // detail: {
@@ -130,7 +131,7 @@ export function FilterForm(object) {
             draw(0, data.length);
         } else {
             btn.style.opacity = 1;
-            container.addEventListener('give-more-plans', hand)
+            document.querySelector(containerUrl).addEventListener('give-more-plans', hand);
             _listenBtn();
             // рисуй до лимита
             draw(0, limit);
