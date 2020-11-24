@@ -90,10 +90,9 @@ export function FilterForm(object) {
 
     }
 
-    function _filter(
-        data, 
-        options,
-    ) {
+    function _filter(obj) {
+
+        const { data, options } = obj;
 
         console.log(`### data :`, data);
         console.log(`### options :`, options)
