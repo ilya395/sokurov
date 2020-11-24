@@ -177,7 +177,7 @@ export function sendAjax(object) {
 export function plansCard(object) {
     const { i, id, name, area, plan_flat_1, plan_flat_2, type } = object;
     const html = `
-        <div class="flat-card instance-${i}" data-index="${id}" data-type="${type}">
+        <div class="flat-card instance-${i}" data-index="${id}" data-type="${type.value}">
             <div class="flat-card__top">
                 <div class="floor">1 / 2 этаж</div>
                 <div class="arrows">

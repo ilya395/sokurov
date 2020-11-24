@@ -68,9 +68,11 @@ export function FilterForm(object) {
         btn.dispatchEvent(morePlan);
     }
     function _listenBtn() {
+        console.log('слушвем кнопку');
         btn.addEventListener('click', _handlerBtn)
     }
     function _dontListenBtn() {
+        console.log('не слушвем кнопку');
         btn.removeEventListener('click', _handlerBtn)
     }
 
@@ -135,6 +137,7 @@ export function FilterForm(object) {
         }
 
         function hand() {
+            console.log('нужно больше планировок!');
             // дорисуй до лимита
             if ((data.length - count) > limit) {
                 draw(count, limit);
@@ -146,10 +149,14 @@ export function FilterForm(object) {
         }
 
         function draw(start, end) {
-            for (let i = start; i < end; i++) {
-                const html = htmlTemplate({i, ...data[i]});
-                container.insertAdjacentHTML('beforeend', html);
-                count++;
+            if (start == 0 && end == 0) {
+                container.insertAdjacentHTML('beforeend', `<p>Данные объекты закончились...<p>`);
+            } else {
+                for (let i = start; i < end; i++) {
+                    const html = htmlTemplate({i, ...data[i]});
+                    container.insertAdjacentHTML('beforeend', html);
+                    count++;
+                }
             }
         }
 
