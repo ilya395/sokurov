@@ -1,4 +1,5 @@
 import { imOkey, searchData, sendAjax, plansCard, makeMasks } from '../utils/functions';
+import Swiper from 'swiper';
 
 export function DefaultForm(object) {
 
@@ -253,13 +254,14 @@ export function EventsForm(object) {
     const select = document.querySelector(containerSelectUrl);
     const slider = document.querySelector(containerSliderUrl);
 
-    // let constructionSwiper = null;
+    let constructionSwiper = null;
 
     let globalData = null;
 
     function _findData(index) {
         // const data = `action=${actionName}&event_id=${arg}`;
         // return data;
+        
         let result = {};
         if (globalData.length > 0) {
             for (let i of globalData) {
@@ -270,7 +272,7 @@ export function EventsForm(object) {
         } else {
             console.log('погоди, данные не пришли еще!');
         }
-        return result.length > 0 ? result : null;
+        return Object.keys(result).length > 0 ? result : null;
     }
 
     function _fetch(string) {
@@ -279,18 +281,53 @@ export function EventsForm(object) {
             formData: `action=${string}`,
             eventName
         });
+
+        // const test = [
+        //     {
+        //         content: "Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь. Если вам нужен Lorem Ipsum для серьёзного проекта, вы наверняка не хотите какой-нибудь шутки, скрытой в середине абзаца. Также все другие известные генераторы Lorem Ipsum используют один и тот же текст, который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый здесь генератор единственным настоящим Lorem Ipsum генератором. Он использует словарь из более чем 200 латинских слов, а также набор моделей предложений. В результате сгенерированный Lorem Ipsum выглядит правдоподобно, не имеет повторяющихся абзацей или \"невозможных\" слов",
+        //         id: 47,
+        //         images: [
+        //             "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3-1.jpg",
+        //             "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3.jpg"
+        //         ],
+        //         name: "15 октября 2020"
+        //     },
+        //     {
+        //         content: "<strong>Lorem Ipsum</strong> - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum",
+        //         id: 46,
+        //         images: [
+        //             "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3-1.jpg",
+        //             "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3-2.jpg"
+        //         ],
+        //         name: "5 сентября 2020"
+        //     }
+        // ]
+
+        // const successEvent = new CustomEvent(`${eventName}_success`, {
+        //     bubbles: true,
+        //     detail: {
+        //         data: test,
+        //     },
+        // });
+        // container.dispatchEvent(successEvent);
+
     }
 
     async function _putData(obj) {
+        console.log(obj);
         if (obj != null) {
-            let constructionSwiper = null;
 
-            const { images } = obj;
-
-            containerTxt.innerHTML(obj.content);
+            function __put() {
+                containerTxt.innerHTML = obj.content;
+            }
 
             function __create() {
+                console.log('__create');
+
                 slider.innerHTML = '';
+
+                const { images } = obj;
+                console.log(images);
 
                 function htmlTpl(url = 'images/main-page/pic_park_001.jpg') {
                     const html = `
@@ -307,7 +344,9 @@ export function EventsForm(object) {
             }
 
             function __init() {
+                console.log('__init');
                 if (!constructionSwiper) {
+                    
                     constructionSwiper = new Swiper('#construction-slider .swiper-container', {
                         navigation: {
                             nextEl: '#construction-slider .swiper-button-next',
@@ -320,18 +359,23 @@ export function EventsForm(object) {
                         }
                     });
                 }
+                console.log(constructionSwiper);
             }
 
             function __destroy() {
+                console.log('__destroy');
                 if (constructionSwiper) {
                     constructionSwiper.destroy();
                     constructionSwiper = null;
+                    
                 }
+                console.log(constructionSwiper);
             }
 
             await __destroy();
             await __create();
             await __init();
+            await __put();
         }
     }
 
@@ -349,7 +393,10 @@ export function EventsForm(object) {
         },
         manage() {
             function handler(event) {
-                _putData( _findData(event.target.dataset.planIndex) );
+                console.log('#### выбор index: ', select.options[select.selectedIndex].dataset.planIndex );
+                const result = _findData( +select.options[select.selectedIndex].dataset.planIndex );
+                console.log(result);
+                _putData( result );
             }
             select.addEventListener('change', handler)
         }
