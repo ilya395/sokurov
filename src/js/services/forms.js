@@ -17,7 +17,7 @@ export function DefaultForm(object) {
         const data = searchData({
             containerUrl, 
             actionName,
-            type: 'input',
+            type: ['input'],
         });
 
         if (
@@ -86,11 +86,130 @@ export function FilterForm(object) {
             type: manageItems // null,
         });     
         
-        sendAjax({
-            containerUrl,
-            formData: dataForRequest.dataString,
-            eventName,
+        // sendAjax({
+        //     containerUrl,
+        //     formData: dataForRequest.dataString,
+        //     eventName,
+        // });
+
+        const test = [
+            {
+                area: "81,61",
+                id: 107,
+                name: "3А.2",
+                plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+                plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+                rooms: "3",
+                type: {
+                    label: "Таунхаус",
+                    value: "toun",
+                }
+            },
+            {
+                area: "81,61",
+                id: 107,
+                name: "3А.2",
+                plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+                plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+                rooms: "3",
+                type: {
+                    label: "Таунхаус",
+                    value: "toun",
+                }
+            },
+            {
+                area: "81,61",
+                id: 107,
+                name: "3А.2",
+                plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+                plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+                rooms: "3",
+                type: {
+                    label: "Таунхаус",
+                    value: "toun",
+                }
+            },
+            {
+                area: "81,61",
+                id: 107,
+                name: "3А.2",
+                plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+                plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+                rooms: "3",
+                type: {
+                    label: "Таунхаус",
+                    value: "toun",
+                }
+            },
+            {
+                area: "81,61",
+                id: 107,
+                name: "3А.2",
+                plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+                plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+                rooms: "3",
+                type: {
+                    label: "Таунхаус",
+                    value: "toun",
+                }
+            },
+            {
+                area: "81,61",
+                id: 107,
+                name: "3А.2",
+                plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+                plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+                rooms: "3",
+                type: {
+                    label: "Таунхаус",
+                    value: "toun",
+                }
+            },
+            {
+                area: "81,61",
+                id: 107,
+                name: "3А.2",
+                plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+                plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+                rooms: "3",
+                type: {
+                    label: "Таунхаус",
+                    value: "toun",
+                }
+            },
+            {
+                area: "81,61",
+                id: 107,
+                name: "3А.2",
+                plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+                plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+                rooms: "3",
+                type: {
+                    label: "Таунхаус",
+                    value: "toun",
+                }
+            },
+            {
+                area: "81,61",
+                id: 107,
+                name: "3А.2",
+                plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+                plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+                rooms: "3",
+                type: {
+                    label: "Таунхаус",
+                    value: "toun",
+                }
+            },
+        ];
+
+        const successEvent = new CustomEvent(`${eventName}_success`, {
+            bubbles: true,
+            detail: {
+                data: test,
+            },
         });
+        document.querySelector(containerUrl).dispatchEvent(successEvent);
 
     }
 
@@ -144,13 +263,14 @@ export function FilterForm(object) {
             if ((data.length - count) > limit) {
                 draw(count, limit);
             } else {
-                draw(count, data.length - count);
+                draw(count, data.length);
                 btn.style.opacity = 0;
                 _dontListenBtn();
             }
         }
 
         function draw(start, end) {
+            console.log(`от ${start} до ${end}`)
             if (start == 0 && end == 0) {
                 container.insertAdjacentHTML('beforeend', `<p>Данные объекты закончились...<p>`);
             } else {
