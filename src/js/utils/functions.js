@@ -216,3 +216,18 @@ export function plansCard(object) {
 
     return html;
 }
+
+export function makingDownload(fileUrl, fileName) {
+    if (fileUrl) {
+        const a = document.createElement('a');
+        a.style.display = 'none'
+        a.href = fileUrl;
+        a.download = fileName ?? 'File';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    } else {
+        console.log('нет пути до файла :(');
+    }
+
+}
