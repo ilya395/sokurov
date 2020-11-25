@@ -20,6 +20,8 @@ import { AJAX_REQUEST_SUBMIT_FORM, AJAX_REQUEST_SUBMIT_FILTER, AJAX_REQUEST_SUBM
 
 import { DefaultMap } from '../js/services/map';
 
+import { makingDownload } from '../js/utils/functions';
+
 $( document ).ready(function() {
     console.log( "ready!" );
 
@@ -129,12 +131,14 @@ $( document ).ready(function() {
         eventName: EVENT_MODAL_FORM,        
     });
     modalForm.init();
-    function handlerModalForm() {
+    function handlerModalFormRequest() {
         //окно об успешной отправке в модалке
-        $('#modal-form').submit(function() {
-            $('.modal-form .modal-form__inside').fadeOut();
-            $('.modal-form .modal-form__success').fadeIn();
-        });
+        $('.modal-form .modal-form__inside').fadeOut();
+        $('.modal-form .modal-form__success').fadeIn();
+        // $('#modal-form').submit(function() {
+            // $('.modal-form .modal-form__inside').fadeOut();
+            // $('.modal-form .modal-form__success').fadeIn();
+        // });
     }
 
     //закрытие модалки с формой
@@ -142,7 +146,7 @@ $( document ).ready(function() {
         $('.modal-form').fadeOut();
         $('.modal-form').find('input[name="title"]').val('Форма обратной связи');
         //
-        window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
+        window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
     });
 
     $('.modal-form').click(function(e) {
@@ -151,7 +155,7 @@ $( document ).ready(function() {
             $('.modal-form').find('input[name="title"]').val('Форма обратной связи');
         }
         //
-        window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
+        window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
     });
 
     //открытие модалки с формой
@@ -160,7 +164,7 @@ $( document ).ready(function() {
     	$('.modal-form .modal-form__success').css('display', 'none');
         $('.modal-form').fadeIn();
         //
-        window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
+        window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
     }); 
 
     function handlerFormOpen(event) {
@@ -171,7 +175,7 @@ $( document ).ready(function() {
             $('.modal-form .modal-form__success').css('display', 'none');
             $('.modal-form').fadeIn();
             //
-            window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalForm);
+            window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
         }
     }
 
@@ -195,10 +199,18 @@ $( document ).ready(function() {
     staticForm.init();
     window.addEventListener(`${EVENT_STATIC_FORM}_success`, function() {
         //окно об успешной отправке форма презентации
-        $('#presentation-form').submit(function() {
-            $('.form-presentation-card form').fadeOut();
-            $('.form-presentation-card .form-presentation__success').fadeIn();
-        });        
+        $('.form-presentation-card form').fadeOut();
+        $('.form-presentation-card .form-presentation__success').fadeIn();
+        // $('#presentation-form').submit(function() {
+        //     $('.form-presentation-card form').fadeOut();
+        //     $('.form-presentation-card .form-presentation__success').fadeIn();
+        // });       
+        //
+        // вызвать функцию для скачивания
+        makingDownload(
+            window.wp.presentation.url,
+            window.wp.presentation.name,
+        )
     });
 
     //фото в блоке аллея
