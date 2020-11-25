@@ -23,7 +23,7 @@ export function DefaultForm(object) {
         if (
             name.value != '' && name.value.length < 25 && 
             phone.value != '' && imOkey(phone.value) == true && 
-            item.value.indexOf(' ', 0) != -1 && item.value.indexOf(' ', 0) != 0 && item.value.length < 100
+            title.value.indexOf(' ', 0) != -1 && title.value.indexOf(' ', 0) != 0 && title.value.length < 100 && title.value.indexOf('src', 0) != -1
         ) {
             sendAjax({
                 containerUrl,
@@ -56,7 +56,10 @@ export function FilterForm(object) {
     const { containerUrl, actionName, eventName, manageItems = ['[data-object="filter_type"]', '[data-object="filter_rooms"]'], containerForRenderingUrl, moreBtnUrl, limit = 6, htmlTemplate = plansCard } = object;
 
     let globalData = null;
+    let workingData = null;
+    let count = 0;
     const btn = document.querySelector(moreBtnUrl);
+    let controlArray = [];
 
     function _handlerBtn() {
         console.log('давай больше планировок, уже нажали кнопку');
@@ -201,6 +204,138 @@ export function FilterForm(object) {
         //             value: "toun",
         //         }
         //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
+        //     {
+        //         area: "81,61",
+        //         id: 107,
+        //         name: "4А.2",
+        //         plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-3.svg",
+        //         plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/3_a.2_81_61-4.svg",
+        //         rooms: "4",
+        //         type: {
+        //             label: "Таунхаус",
+        //             value: "toun",
+        //         }
+        //     },
         // ];
 
         // const successEvent = new CustomEvent(`${eventName}_success`, {
@@ -215,24 +350,63 @@ export function FilterForm(object) {
 
     function _filter(obj) {
 
-        const { data, options } = obj;
+        controlArray.splice(0, controlArray.length);
 
-        console.log(`### data :`, data);
-        console.log(`### options :`, options)
+        const { data, options } = obj;
 
         let resultArray = [];
         for (let i of data) {
-            console.log(i.rooms, options.filter_rooms, i.type.value, options.filter_type);
+            // console.log(i.rooms, options.filter_rooms, i.type.value, options.filter_type);
             if (+i.rooms == +options.filter_rooms && i.type.value == options.filter_type) {
                 resultArray.push({...i});
             }
         }
-        console.log(resultArray)
+        console.log('### нафильтровали: ',resultArray);
+        workingData = resultArray;
         return resultArray;
     }
 
-    function _render(data, param = true) {
-        console.log(data, param);
+    function _handlerMorePlans() {
+        const data = workingData;
+        console.log('нужно больше планировок!');
+        console.log('### что у же есть, до рисования: ', controlArray);
+        // дорисуй до лимита
+        console.log(`все элементов: ${data.length}, уже отредерено: ${count}, limit: ${limit}`);
+        if ((data.length - count) > limit) {
+            _draw(count, limit);
+        } else {
+            _draw(count, data.length);
+            btn.style.opacity = 0;
+            _dontListenBtn();
+            document.querySelector(containerUrl).removeEventListener('give-more-plans', _handlerMorePlans);
+        }
+    }
+
+    function _draw(start, end) {
+        console.log(`от ${start} до ${end}`)
+        console.log(`data с которой работаю: `, data)
+        const data = workingData;
+        const container = document.querySelector(containerForRenderingUrl);
+        if (start == 0 && end == 0) {
+            container.insertAdjacentHTML('beforeend', `<p>Данные объекты закончились...<p>`);
+        } else {
+            for (let i = start; i < end; i++) {
+                const html = htmlTemplate({i, ...data[i]});
+                container.insertAdjacentHTML('beforeend', html);
+                count++;
+                controlArray.push({i, ...data[i]});
+            }
+        }
+        console.log('### already _draw: ', controlArray);
+    }
+
+    function _render(dataReturn, param = true) {
+        const data = workingData;
+        count = 0;
+        console.log('сравнение на входе: ', data, dataReturn);
+        _dontListenBtn();
+        document.querySelector(containerUrl).removeEventListener('give-more-plans', _handlerMorePlans);
+        console.log('### отправлены ренднриться: ', data, param);
 
         const container = document.querySelector(containerForRenderingUrl);
         if (param == true) {
@@ -240,46 +414,22 @@ export function FilterForm(object) {
         }
         const btn = document.querySelector(moreBtnUrl);
         btn.style.opacity = 1;
-        let count = 0;
+        
         // let hasCollection = 0;
         // let newCollection = data.length - hasCollection;
-        
+
         if ((data.length - limit) < 0) {
             btn.style.opacity = 0;
             _dontListenBtn();
+            document.querySelector(containerUrl).removeEventListener('give-more-plans', _handlerMorePlans);
             // рисуй сколько есть
-            draw(0, data.length);
+            _draw(0, data.length);
         } else {
             btn.style.opacity = 1;
-            document.querySelector(containerUrl).addEventListener('give-more-plans', hand);
+            document.querySelector(containerUrl).addEventListener('give-more-plans', _handlerMorePlans);
             _listenBtn();
             // рисуй до лимита
-            draw(0, limit);
-        }
-
-        function hand() {
-            console.log('нужно больше планировок!');
-            // дорисуй до лимита
-            if ((data.length - count) > limit) {
-                draw(count, limit);
-            } else {
-                draw(count, data.length);
-                btn.style.opacity = 0;
-                _dontListenBtn();
-            }
-        }
-
-        function draw(start, end) {
-            console.log(`от ${start} до ${end}`)
-            if (start == 0 && end == 0) {
-                container.insertAdjacentHTML('beforeend', `<p>Данные объекты закончились...<p>`);
-            } else {
-                for (let i = start; i < end; i++) {
-                    const html = htmlTemplate({i, ...data[i]});
-                    container.insertAdjacentHTML('beforeend', html);
-                    count++;
-                }
-            }
+            _draw(0, limit);
         }
 
         // const alreadyHavePlans = container.querySelectorAll('[data-plan-index]');
@@ -289,10 +439,10 @@ export function FilterForm(object) {
     const methods = {
         init() {
             function handler(event) {
-                console.log(event);
+                // console.log(event);
                 // const data = event.detail.data; // JSON.parse();
                 // globalData = data; // {...data};
-                globalData = event.detail.data;
+                globalData = [...event.detail.data];
 
                 const result = _filter({
                     data: globalData,
@@ -306,46 +456,19 @@ export function FilterForm(object) {
             }
             document.addEventListener(`${eventName}_success`, handler);
             _fetch();
-            // _filter(
-            //     [
-            //         {
-            //             area: "90,18",
-            //             id: 249,
-            //             name: "4А.6",
-            //             plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/4_a.6_90_18.svg",
-            //             plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/4_a.6_90_18-1.svg",
-            //             rooms: "4",
-            //             type: {value: "toun", label: "Таунхаус"},
-            //         },
-            //         {
-            //             area: "89,61",
-            //             id: 244,
-            //             name: "4А.5",
-            //             plan_flat_1: "http://sokurovpark.ru/wp-content/uploads/2020/11/4_a.5_89_61.svg",
-            //             plan_flat_2: "http://sokurovpark.ru/wp-content/uploads/2020/11/4_a.5_89_61-1.svg",
-            //             rooms: "4",
-            //             type: {value: "toun", label: "Таунхаус"},
-            //         },
-            //     ],
-            //     {
-            //         action: "ajax_submit_filter",
-            //         filter_rooms: "3",
-            //         filter_type: "toun",
-            //     }
-            // );
-            // _render([]);
         },
         manage() {
             function handl(event) {
-                console.log(event.target);
+                // console.log(event.target);
                 if (event.target.dataset.object) {
                     let st = `[data-object="${event.target.dataset.object}"]`;
-                    console.log(st, manageItems.includes(st));
+                    // console.log(st, manageItems.includes(st));
                     if (manageItems.includes(st)) {
                         document.querySelectorAll(`[data-object=${event.target.dataset.object}]`).forEach(item => item.classList.remove('active'));
                         event.target.classList.add('active');
 
                         _dontListenBtn();
+
                         const result = _filter({
                             data: globalData,
                             options: searchData({
@@ -434,7 +557,7 @@ export function EventsForm(object) {
     }
 
     async function _putData(obj) {
-        console.log(obj);
+        // console.log(obj);
         if (obj != null) {
 
             function __put() {
@@ -447,7 +570,6 @@ export function EventsForm(object) {
                 slider.innerHTML = '';
 
                 const { images } = obj;
-                console.log(images);
 
                 function htmlTpl(url = 'images/main-page/pic_park_001.jpg') {
                     const html = `
@@ -479,7 +601,7 @@ export function EventsForm(object) {
                         }
                     });
                 }
-                console.log(constructionSwiper);
+                // console.log(constructionSwiper);
             }
 
             function __destroy() {
@@ -489,7 +611,7 @@ export function EventsForm(object) {
                     constructionSwiper = null;
                     
                 }
-                console.log(constructionSwiper);
+                // console.log(constructionSwiper);
             }
 
             await __destroy();
@@ -502,7 +624,7 @@ export function EventsForm(object) {
     const methods = {
         init() {
             function handl(event) {
-                console.log(event);
+                // console.log(event);
                 // const data = event.detail.data; // JSON.parse(event.detail.data);
                 // globalData = data; // {...data};
                 globalData = event.detail.data;
@@ -513,9 +635,9 @@ export function EventsForm(object) {
         },
         manage() {
             function handler(event) {
-                console.log('#### выбор index: ', select.options[select.selectedIndex].dataset.planIndex );
+                // console.log('#### выбор index: ', select.options[select.selectedIndex].dataset.planIndex );
                 const result = _findData( +select.options[select.selectedIndex].dataset.planIndex );
-                console.log(result);
+                // console.log(result);
                 _putData( result );
             }
             select.addEventListener('change', handler)

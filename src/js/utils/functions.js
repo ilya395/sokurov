@@ -79,7 +79,7 @@ export function makeMasks() {
 }
 
 export function searchData(object) {
-    console.log(object);
+    // console.log(object);
     const { containerUrl, actionName, type = null} = object;
 
     const container = document.querySelector(containerUrl);
@@ -115,10 +115,10 @@ export function searchData(object) {
         });
     }
 
-    console.log({
-        dataString,
-        dataObject,
-    });
+    // console.log({
+    //     dataString,
+    //     dataObject,
+    // });
     return {
         dataString,
         dataObject,
@@ -130,7 +130,7 @@ export function sendAjax(object) {
     const { containerUrl, formData, eventName } = object;
 
     const container = document.querySelector(containerUrl);
-    console.log(containerUrl, container, eventName)
+    // console.log(containerUrl, container, eventName)
 
     const customEvent = new CustomEvent(eventName, {bubbles: true});
     container.dispatchEvent(customEvent);
