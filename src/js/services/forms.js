@@ -19,17 +19,21 @@ export function DefaultForm(object) {
             actionName,
             type: ['input'],
         });
+        console.log(data.dataString);
 
         if (
             name.value != '' && name.value.length < 25 && 
             phone.value != '' && imOkey(phone.value) == true && 
             title.value.indexOf(' ', 0) != -1 && title.value.indexOf(' ', 0) != 0 && title.value.length < 100 && title.value.indexOf('src', 0) != -1
         ) {
+            console.log('send');
             sendAjax({
                 containerUrl,
                 formData: data.dataString,
                 eventName
             });
+        } else {
+            console.log('not send');
         }
     }
 
@@ -373,7 +377,7 @@ export function FilterForm(object) {
         // дорисуй до лимита
         console.log(`все элементов: ${data.length}, уже отредерено: ${count}, limit: ${limit}`);
         if ((data.length - count) > limit) {
-            _draw(count, limit);
+            _draw(count, count + limit);
         } else {
             _draw(count, data.length);
             btn.style.opacity = 0;
@@ -384,8 +388,9 @@ export function FilterForm(object) {
 
     function _draw(start, end) {
         console.log(`от ${start} до ${end}`)
-        console.log(`data с которой работаю: `, data)
         const data = workingData;
+        console.log(`data с которой работаю: `, data)
+        
         const container = document.querySelector(containerForRenderingUrl);
         if (start == 0 && end == 0) {
             container.insertAdjacentHTML('beforeend', `<p>Данные объекты закончились...<p>`);
