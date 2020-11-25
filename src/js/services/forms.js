@@ -19,12 +19,11 @@ export function DefaultForm(object) {
             actionName,
             type: ['input'],
         });
-        console.log(data.dataString);
 
         if (
             name.value != '' && name.value.length < 25 && 
             phone.value != '' && imOkey(phone.value) == true && 
-            title.value.indexOf(' ', 0) != -1 && title.value.indexOf(' ', 0) != 0 && title.value.length < 100 && title.value.indexOf('src', 0) != -1
+            title.value.indexOf(' ', 0) != -1 && title.value.indexOf(' ', 0) != 0 && title.value.length < 100 && title.value.indexOf('src', 0) == -1
         ) {
             console.log('send');
             sendAjax({
