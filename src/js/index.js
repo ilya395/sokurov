@@ -133,7 +133,9 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_FORM, 
         eventName: EVENT_MODAL_FORM,        
     });
-    modalForm.init();
+    if ( window.location == '/' ) {
+        modalForm.init();
+    }
     function handlerModalFormRequest() {
         // console.log('успешный успех');
         //окно об успешной отправке в модалке
@@ -213,7 +215,9 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_FORM, 
         eventName: EVENT_STATIC_FORM,
     });
-    staticForm.init();
+    if ( window.location == '/' ) {
+        staticForm.init();
+    }
     window.addEventListener(`${EVENT_STATIC_FORM}_success`, function() {
         //окно об успешной отправке форма презентации
         $('.form-presentation-card form').fadeOut();
@@ -370,8 +374,10 @@ $( document ).ready(function() {
         }
     }
 
-    document.getElementById('catalog').addEventListener('click', handlerFlatCardPrevClick);
-    document.getElementById('catalog').addEventListener('click', handlerFlatCardNextClick);
+    if ( window.location == '/' ) {
+        document.getElementById('catalog').addEventListener('click', handlerFlatCardPrevClick);
+        document.getElementById('catalog').addEventListener('click', handlerFlatCardNextClick);
+    }
 
 
 
@@ -444,8 +450,10 @@ $( document ).ready(function() {
         moreBtnUrl: '[data-object="filter_more"]',
         eventName: 'filter-event'
     });
-    filter.init();
-    filter.manage();
+    if ( window.location == '/' ) {
+        filter.init();
+        filter.manage();
+    }
 
     const historyBuildinig = EventsForm({
         containerUrl: '#construction .section-content', 
@@ -455,8 +463,10 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_EVENT, 
         eventName: 'bulding-event',
     });
-    historyBuildinig.init();
-    historyBuildinig.manage();
+    if ( window.location == '/' ) {
+        historyBuildinig.init();
+        historyBuildinig.manage();
+    }
 });
 
 function smoothLink(event) {
