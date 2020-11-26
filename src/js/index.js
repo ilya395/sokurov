@@ -133,7 +133,7 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_FORM, 
         eventName: EVENT_MODAL_FORM,        
     });
-    if ( window.location == '/' ) {
+    if ( window.location.pathname == '/' ) {
         modalForm.init();
     }
     function handlerModalFormRequest() {
@@ -215,7 +215,7 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_FORM, 
         eventName: EVENT_STATIC_FORM,
     });
-    if ( window.location == '/' ) {
+    if ( window.location.pathname == '/' ) {
         staticForm.init();
     }
     window.addEventListener(`${EVENT_STATIC_FORM}_success`, function() {
@@ -374,7 +374,7 @@ $( document ).ready(function() {
         }
     }
 
-    if ( window.location == '/' ) {
+    if ( window.location.pathname == '/' ) {
         document.getElementById('catalog').addEventListener('click', handlerFlatCardPrevClick);
         document.getElementById('catalog').addEventListener('click', handlerFlatCardNextClick);
     }
@@ -450,7 +450,7 @@ $( document ).ready(function() {
         moreBtnUrl: '[data-object="filter_more"]',
         eventName: 'filter-event'
     });
-    if ( window.location == '/' ) {
+    if ( window.location.pathname == '/' ) {
         filter.init();
         filter.manage();
     }
@@ -463,7 +463,7 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_EVENT, 
         eventName: 'bulding-event',
     });
-    if ( window.location == '/' ) {
+    if ( window.location.pathname == '/' ) {
         historyBuildinig.init();
         historyBuildinig.manage();
     }
