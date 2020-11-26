@@ -114,7 +114,10 @@ $( document ).ready(function() {
         objects: objectsOnMap,
         zoom: 14,
     });
-    defMap.init();
+    
+    if (window.location.pathname == '/') {
+        defMap.init();
+    }
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -132,6 +135,7 @@ $( document ).ready(function() {
     });
     modalForm.init();
     function handlerModalFormRequest() {
+        console.log('слушаем что происходит в модалке');
         //окно об успешной отправке в модалке
         $('.modal-form .modal-form__inside').fadeOut();
         $('.modal-form .modal-form__success').fadeIn();
@@ -168,6 +172,7 @@ $( document ).ready(function() {
     }); 
 
     function handlerFormOpen(event) {
+        console.log(event.target);
         if(event.target.getAttribute('data-action') == 'form-open') {
             let planString = event.target.getAttribute('data-string');
             $('.modal-form').find('input[name="title"]').val(planString);
@@ -179,9 +184,11 @@ $( document ).ready(function() {
         }
     }
 
-    document.getElementById('catalog').addEventListener('click', handlerFormOpen);
-
-
+    // if (document.getElementById('catalog')) {
+    //     document.getElementById('catalog').addEventListener('click', handlerFormOpen);
+    // }
+    
+    document.addEventListener('click', handlerFormOpen);
 
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// модалка: конец ////////////////////////////////
