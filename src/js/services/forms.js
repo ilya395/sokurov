@@ -19,11 +19,24 @@ export function DefaultForm(object) {
             actionName,
             type: ['input'],
         });
-
+        console.log(
+            name.value != '', 
+            name.value.length < 25,
+            phone.value != '',
+            imOkey(phone.value) == true,
+            title.value.length < 100,
+            title.value.indexOf('src', 0) == -1
+        )
         if (
-            name.value != '' && name.value.length < 25 && 
-            phone.value != '' && imOkey(phone.value) == true && 
-            title.value.indexOf(' ', 0) != -1 && title.value.indexOf(' ', 0) != 0 && title.value.length < 100 && title.value.indexOf('src', 0) == -1
+            name.value != '' && 
+            name.value.length < 25 && 
+            phone.value != '' && 
+            imOkey(phone.value) == true && 
+            title.value.length < 100 && 
+            title.value.indexOf('src', 0) == -1 &&
+            title.value.indexOf('http', 0) == -1 &&
+            title.value.indexOf('https', 0) == -1 &&
+            title.value.indexOf('ws', 0) == -1
         ) {
             console.log('send');
             sendAjax({
@@ -31,6 +44,13 @@ export function DefaultForm(object) {
                 formData: data.dataString,
                 eventName
             });
+            // const successEvent = new CustomEvent(`${eventName}_success`, {
+            //     bubbles: true,
+            //     detail: {
+            //         data: {},
+            //     },
+            // });
+            // form.dispatchEvent(successEvent);
         } else {
             console.log('not send');
         }
@@ -76,11 +96,11 @@ export function FilterForm(object) {
         btn.dispatchEvent(morePlan);
     }
     function _listenBtn() {
-        console.log('слушвем кнопку');
+        // console.log('слушвем кнопку');
         btn.addEventListener('click', _handlerBtn)
     }
     function _dontListenBtn() {
-        console.log('не слушвем кнопку');
+        // console.log('не слушвем кнопку');
         btn.removeEventListener('click', _handlerBtn)
     }
 
@@ -364,17 +384,17 @@ export function FilterForm(object) {
                 resultArray.push({...i});
             }
         }
-        console.log('### нафильтровали: ',resultArray);
+        // console.log('### нафильтровали: ',resultArray);
         workingData = resultArray;
         return resultArray;
     }
 
     function _handlerMorePlans() {
         const data = workingData;
-        console.log('нужно больше планировок!');
-        console.log('### что у же есть, до рисования: ', controlArray);
+        // console.log('нужно больше планировок!');
+        // console.log('### что у же есть, до рисования: ', controlArray);
         // дорисуй до лимита
-        console.log(`все элементов: ${data.length}, уже отредерено: ${count}, limit: ${limit}`);
+        // console.log(`все элементов: ${data.length}, уже отредерено: ${count}, limit: ${limit}`);
         if ((data.length - count) > limit) {
             _draw(count, count + limit);
         } else {
@@ -386,9 +406,9 @@ export function FilterForm(object) {
     }
 
     function _draw(start, end) {
-        console.log(`от ${start} до ${end}`)
+        // console.log(`от ${start} до ${end}`)
         const data = workingData;
-        console.log(`data с которой работаю: `, data)
+        // console.log(`data с которой работаю: `, data)
         
         const container = document.querySelector(containerForRenderingUrl);
         if (start == 0 && end == 0) {
@@ -401,16 +421,16 @@ export function FilterForm(object) {
                 controlArray.push({i, ...data[i]});
             }
         }
-        console.log('### already _draw: ', controlArray);
+        // console.log('### already _draw: ', controlArray);
     }
 
     function _render(dataReturn, param = true) {
         const data = workingData;
         count = 0;
-        console.log('сравнение на входе: ', data, dataReturn);
+        // console.log('сравнение на входе: ', data, dataReturn);
         _dontListenBtn();
         document.querySelector(containerUrl).removeEventListener('give-more-plans', _handlerMorePlans);
-        console.log('### отправлены ренднриться: ', data, param);
+        // console.log('### отправлены ренднриться: ', data, param);
 
         const container = document.querySelector(containerForRenderingUrl);
         if (param == true) {
@@ -569,7 +589,7 @@ export function EventsForm(object) {
             }
 
             function __create() {
-                console.log('__create');
+                // console.log('__create');
 
                 slider.innerHTML = '';
 
@@ -590,7 +610,7 @@ export function EventsForm(object) {
             }
 
             function __init() {
-                console.log('__init');
+                // console.log('__init');
                 if (!constructionSwiper) {
                     
                     constructionSwiper = new Swiper('#construction-slider .swiper-container', {
@@ -609,7 +629,7 @@ export function EventsForm(object) {
             }
 
             function __destroy() {
-                console.log('__destroy');
+                // console.log('__destroy');
                 if (constructionSwiper) {
                     constructionSwiper.destroy();
                     constructionSwiper = null;
