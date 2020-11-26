@@ -135,7 +135,7 @@ $( document ).ready(function() {
     });
     modalForm.init();
     function handlerModalFormRequest() {
-        console.log('слушаем что происходит в модалке');
+        console.log('успешный успех');
         //окно об успешной отправке в модалке
         $('.modal-form .modal-form__inside').fadeOut();
         $('.modal-form .modal-form__success').fadeIn();
@@ -143,14 +143,19 @@ $( document ).ready(function() {
             // $('.modal-form .modal-form__inside').fadeOut();
             // $('.modal-form .modal-form__success').fadeIn();
         // });
+        const form = document.querySelector('#modal-form');
+        form.elements.phone.value = '';
+        form.elements.name.value = '';
+        
     }
+    window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
 
     //закрытие модалки с формой
     $('.modal-form .close').click(function() {
         $('.modal-form').fadeOut();
         $('.modal-form').find('input[name="title"]').val('Форма обратной связи');
         //
-        window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
+        // document.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
     });
 
     $('.modal-form').click(function(e) {
@@ -159,7 +164,7 @@ $( document ).ready(function() {
             $('.modal-form').find('input[name="title"]').val('Форма обратной связи');
         }
         //
-        window.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
+        // document.removeEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
     });
 
     //открытие модалки с формой
@@ -168,12 +173,13 @@ $( document ).ready(function() {
     	$('.modal-form .modal-form__success').css('display', 'none');
         $('.modal-form').fadeIn();
         //
-        window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
+        // document.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
     }); 
 
     function handlerFormOpen(event) {
-        console.log(event.target);
+        console.log('вот куда кликнул: ',event.target);
         if(event.target.getAttribute('data-action') == 'form-open') {
+            console.log('наш случай');
             event.preventDefault();
             let planString = event.target.getAttribute('data-string');
             $('.modal-form').find('input[name="title"]').val(planString);
@@ -181,7 +187,7 @@ $( document ).ready(function() {
             $('.modal-form .modal-form__success').css('display', 'none');
             $('.modal-form').fadeIn();
             //
-            window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
+            // document.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
         }
         smoothLink(event);
     }
