@@ -174,6 +174,7 @@ $( document ).ready(function() {
     function handlerFormOpen(event) {
         console.log(event.target);
         if(event.target.getAttribute('data-action') == 'form-open') {
+            event.preventDefault();
             let planString = event.target.getAttribute('data-string');
             $('.modal-form').find('input[name="title"]').val(planString);
             $('.modal-form .modal-form__inside').css('display', 'block');
@@ -182,6 +183,7 @@ $( document ).ready(function() {
             //
             window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
         }
+        smoothLink(event);
     }
 
     // if (document.getElementById('catalog')) {
@@ -449,7 +451,36 @@ $( document ).ready(function() {
     historyBuildinig.manage();
 });
 
+function smoothLink(event) {
 
+    function move(url) {
+        const target = document.querySelector(url);
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });        
+    }
+
+    if (event.target.classList.contains('smooth-link')) { // click on <li>
+        const child = event.target.firstElementChild;
+        event.preventDefault();
+        move(child.getAttribute('href'));
+    }
+    if (event.target.parentElement.classList.contains('smooth-link')) { // click on <a>
+        event.preventDefault();
+        move(event.target.getAttribute('href'));
+    }
+    if (event.target.dataset.link) { // click on simple link
+        const linkString = event.target.getAttribute('href');
+        if ( linkString.indexOf('http') == -1 ) { // нет совпадений - якорь
+            event.preventDefault();
+            move(event.target.getAttribute('href'));
+        } else {
+            window.location = event.target.getAttribute('href');
+        }
+         
+    }
+}
 
 
 
