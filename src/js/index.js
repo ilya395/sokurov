@@ -135,7 +135,7 @@ $( document ).ready(function() {
     });
     modalForm.init();
     function handlerModalFormRequest() {
-        console.log('успешный успех');
+        // console.log('успешный успех');
         //окно об успешной отправке в модалке
         $('.modal-form .modal-form__inside').fadeOut();
         $('.modal-form .modal-form__success').fadeIn();
@@ -171,7 +171,7 @@ $( document ).ready(function() {
     $('[data-action="form-open"]').click(function() {
     	$('.modal-form .modal-form__inside').css('display', 'block');
     	$('.modal-form .modal-form__success').css('display', 'none');
-        let formString = $(this).attr('data-title');
+        let formString = $(this).attr('data-title') || 'Форма обратной связи';
         $('.modal-form').find('input[name="title"]').val(formString);
         $('.modal-form').fadeIn();
         //
@@ -179,9 +179,9 @@ $( document ).ready(function() {
     }); 
 
     function handlerFormOpen(event) {
-        console.log('вот куда кликнул: ',event.target);
+        // console.log('вот куда кликнул: ',event.target);
         if(event.target.getAttribute('data-action') == 'form-open') {
-            console.log('наш случай');
+            // console.log('наш случай');
             event.preventDefault();
             let planString = event.target.getAttribute('data-title');
             $('.modal-form').find('input[name="title"]').val(planString);
