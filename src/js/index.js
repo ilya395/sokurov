@@ -168,9 +168,11 @@ $( document ).ready(function() {
     });
 
     //открытие модалки с формой
-    $('.form-open').click(function() {
+    $('[data-action="form-open"]').click(function() {
     	$('.modal-form .modal-form__inside').css('display', 'block');
     	$('.modal-form .modal-form__success').css('display', 'none');
+        let formString = $(this).attr('data-title');
+        $('.modal-form').find('input[name="title"]').val(formString);
         $('.modal-form').fadeIn();
         //
         // document.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
@@ -181,7 +183,7 @@ $( document ).ready(function() {
         if(event.target.getAttribute('data-action') == 'form-open') {
             console.log('наш случай');
             event.preventDefault();
-            let planString = event.target.getAttribute('data-string');
+            let planString = event.target.getAttribute('data-title');
             $('.modal-form').find('input[name="title"]').val(planString);
             $('.modal-form .modal-form__inside').css('display', 'block');
             $('.modal-form .modal-form__success').css('display', 'none');

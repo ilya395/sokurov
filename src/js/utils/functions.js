@@ -210,7 +210,7 @@ export function plansCard(object) {
                     <div class="flat-info__value">${area} м<sup>2</sup></div>
                 </div>
             </div>
-            <div class="btn5" data-action="form-open" data-string="Планировка ${name}">узнать цену</div>
+            <div class="btn5" data-action="form-open" data-title="Планировка ${name}">узнать цену</div>
         </div>
     `;
 

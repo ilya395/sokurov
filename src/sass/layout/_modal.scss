@@ -59,9 +59,11 @@
 			display: flex;
 			margin: auto;
 			position: relative;
+			padding: 35px 20px 60px;
 
 			@media screen and (min-width: 768px) {
 				width: 555px;
+				padding: 50px 96px 60px;
 			}
 
 			& .close {
@@ -81,11 +83,6 @@
 
 			& .modal-form__inside {
 				margin: auto;
-				padding: 35px 20px 60px;
-
-				@media screen and (min-width: 768px) {
-					padding: 50px 96px 60px;
-				}
 
 				& h1 {
 					text-align: center;
