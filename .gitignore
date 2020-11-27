@@ -1,2 +1,12 @@
 /node_modules
 node_modules
+/php-templates
+footer-inner.php
+footer.php
+functions.php
+head.php
+header.php
+index.php
+page.php
+style.css
+single-news.php
