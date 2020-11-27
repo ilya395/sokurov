@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>SOKUROV | News Page</title>
-<link href="/css/vendors~main.ed5a66f978eba4d72485.css" rel="stylesheet"><link href="/css/main.ed5a66f978eba4d72485.css" rel="stylesheet"></head>
-<body>
-
-	<div class="work-area news-page">
-		<header>
+        
+        <?php
+            $site_info = get_field_objects( 29 );
+        ?>
+        <header>
             <div class="container">
-                <a href="#" class="header__site-logo">
+                <a href="<?php echo home_url('/'); ?>" class="header__site-logo">
                     <svg width="200" height="50" viewBox="0 0 200 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0)">
                         <path d="M73.1071 21.9639C73.0005 21.4293 72.8562 20.903 72.6752 20.3888C72.5205 19.9513 72.3073 19.5366 72.0415 19.156C71.8115 18.834 71.5174 18.5627 71.1777 18.3592C70.8446 18.1702 70.4671 18.0731 70.0839 18.0779C69.3964 18.0345 68.7132 18.2137 68.1358 18.5888C67.9179 18.7341 67.7401 18.9317 67.6187 19.1635C67.4973 19.3953 67.4362 19.6539 67.441 19.9154C67.4291 20.2444 67.5122 20.5698 67.6804 20.8529C67.8611 21.1233 68.0961 21.3531 68.3705 21.5279C68.7223 21.7444 69.095 21.925 69.4831 22.067C69.9243 22.231 70.4219 22.4232 70.9665 22.6389C71.511 22.8545 72.1541 23.131 72.6752 23.3748C73.1617 23.599 73.6099 23.898 74.0037 24.2607C74.3753 24.6136 74.6666 25.042 74.8581 25.517C75.0797 26.1164 75.1818 26.7534 75.1585 27.392C75.1711 28.0516 75.0498 28.707 74.8018 29.3185C74.5735 29.8653 74.2273 30.3551 73.7878 30.7529C73.3292 31.1598 72.7926 31.4692 72.2105 31.6623C71.5582 31.8786 70.8744 31.9848 70.1872 31.9764C69.666 31.9779 69.1468 31.9118 68.6428 31.7795C68.1591 31.6487 67.7145 31.4026 67.3471 31.0623C67.0611 31.2624 66.7615 31.4425 66.4505 31.6014C66.1371 31.7653 65.8085 31.8988 65.4694 31.9998C65.2977 31.5052 65.1751 30.9949 65.1032 30.4764C65.0325 29.9512 64.998 29.4218 65 28.892C65 28.517 65 28.1514 65.0328 27.7904C65.0657 27.4295 65.0938 27.0639 65.1502 26.6889H66.5585C66.5614 27.1775 66.6245 27.664 66.7463 28.1373C66.8681 28.6182 67.0713 29.0747 67.3471 29.4873C67.6247 29.897 67.9904 30.2397 68.4174 30.4904C68.9033 30.7603 69.453 30.8947 70.0088 30.8795C70.4852 30.8912 70.9605 30.8279 71.4171 30.692C71.7632 30.5933 72.0836 30.4205 72.356 30.1857C72.5869 29.9825 72.7656 29.7269 72.8771 29.4404C72.9858 29.1546 73.04 28.8509 73.0367 28.5451C73.054 28.0928 72.9166 27.6481 72.647 27.2842C72.3122 26.8946 71.8697 26.6125 71.3749 26.4732C70.4923 26.1732 69.6896 25.8732 68.9526 25.5779C68.2716 25.3128 67.629 24.9581 67.042 24.5232C66.519 24.1345 66.0865 23.6371 65.7745 23.0654C65.4492 22.4241 65.2879 21.7123 65.3051 20.9935C65.2997 20.4244 65.4199 19.8611 65.6572 19.3435C65.8822 18.8516 66.2104 18.4136 66.6195 18.0592C67.0327 17.707 67.5112 17.4394 68.0278 17.2717C68.5847 17.0864 69.1684 16.9945 69.7553 16.9998C70.2807 16.9996 70.8015 17.0982 71.2904 17.2904C71.7846 17.4928 72.2088 17.8349 72.5109 18.2748C72.6777 17.9788 72.9209 17.7328 73.2151 17.5623C73.4971 17.3846 73.8018 17.2459 74.1211 17.1498C74.3484 17.9121 74.4824 18.6991 74.5201 19.4935C74.5717 20.3654 74.5952 21.1857 74.5952 21.9639H73.1071Z" fill="#1B3A4D"/>
@@ -39,15 +33,25 @@
                 </a>
 
                 <nav class="header__navigation-menu">
-                    <ul class="menu__list">
-                        <li><a href="#complex" class="scrollto">О комплексе</a></li>
-                        <li><a href="#catalog" class="scrollto">Квартиры</a></li>
-                        <li><a href="#payment" class="scrollto">Способы покупки</a></li>
-                        <li><a href="#news" class="scrollto">Новости</a></li>
-                    </ul>
+                    <!--<ul class="menu__list">-->
+                    <!--    <li><a href="#complex" class="scrollto">О комплексе</a></li>-->
+                    <!--    <li><a href="#catalog" class="scrollto">Квартиры</a></li>-->
+                    <!--    <li><a href="#payment" class="scrollto">Способы покупки</a></li>-->
+                    <!--    <li><a href="#news" class="scrollto">Новости</a></li>-->
+                    <!--</ul>-->
+                    <?php wp_nav_menu( [
+	                        'theme_location'  => 'top',
+							'container'       => 'false',
+							'container_class' => '', 
+							'container_id'    => '',
+							'menu_class'      => 'menu', 
+							'menu_id'         => '',
+							'items_wrap'      => '<ul class="menu__list">%3$s</ul>',
+						]); 
+					?>	
 
-                    <a href="tel:+78432122575" class="company-phone">
-                        +7 (843) 212-25-75
+                    <a href="tel:<?php echo $site_info['phone']['value']; ?>" class="company-phone">
+                        <?php echo $site_info['phone']['value']; ?>
                     </a>
                 </nav>
 
@@ -58,82 +62,3 @@
                 </div>
             </div>
         </header>
-
-        <div class="content">
-        	<div class="container">
-        		<a href="index.html#news" class="back-arrow"><img src="images/main-page/back.svg"></a>
-        	</div>
-    		<div class="container-news">
-    			<div class="date">25 декабря 2020 г.</div>
-    			<h1>
-    				Силурийский шельф: проникновение глубинных магм или замерзание?
-    			</h1>
-    		</div>
-    		<div class="container-tablet-news">
-    			<div class="news-image"><img src="images/main-page/pic_park_001.jpg"></div>
-    		</div>
-    		<div class="container-news">
-    			<p>
-    				Благодаря перемещению пород под действием силы тяжести коллювий анизотропно высвобождает гетит. Этажное залегание, так же, как и в других регионах, формирует биокосный корунд. Цунами, используя геологические данные нового типа, достаточно хорошо обогащает металлический кимберлит.
-    			</p>
-    			<p>
-    				Гетит продольно стягивает третичный отрог. Подземный сток вызывает ортоклаз, так как совершенно однозначно указывает на существование и рост в период оформления палеогеновой поверхности выравнивания. Агрессивность подземных вод, особенно в верхах разреза, своеобразна. Грабен высвобождает батолит. Кварц покрывает алмаз.
-    			</p>
-    			<p>
-    				Межледниковье интенсивно имеет тенденцию вторичный сталагмит. Туффит, формируя аномальные геохимические ряды, сменяет плейстоцен. Межледниковье полого причленяет к себе магнетизм. Область развития мерзлых пород, а также в преимущественно песчаных и песчано-глинистых отложениях верхней и средней юры, сбрасывает интрузивный апатит. Проникновение глубинных магм сбрасывает гидротермальный кайнозой, в тоже время поднимаясь в пределах горстов до абсолютных высот 250 м.
-    			</p>
-    		</div>	
-        </div>	
-
-        <footer>
-            <div class="section-content">
-                <div class="container">
-                    <div class="footer__wrapper">
-                        <div class="footer__logo"><img src="images/main-page/logo.svg"></div>
-                        <div class="footer__info">
-                            Офис продаж:<br>
-                            Казань, Туфана Минуллина, 8а<br>
-                            +7 (843) 212-25-75<br>
-                            hello@novastroy.com
-                        </div>
-                        <ul class="footer__menu">
-                            <li><a href="#complex" class="scrollto">О комплексе</a></li>
-                            <li><a href="#catalog" class="scrollto">Квартиры</a></li>
-                            <li><a href="#payment" class="scrollto">Способы покупки</a></li>
-                            <li><a href="#news" class="scrollto">Новости</a></li>
-                            <li><a href="https://novastroyrt.ru/about/#documents" target="_blank">Документы</a></li>
-                        </ul>
-                        <div class="footer__socials">
-                            <div class="social-item"><img src="images/main-page/facebook.svg"></div>
-                            <div class="social-item"><img src="images/main-page/facebook.svg"></div>
-                            <div class="social-item"><img src="images/main-page/vk.svg"></div>
-                        </div>
-                        <div class="footer__note">
-                            Сайт носит информационный характер и не является публичной офертой согласно положениям Статьи 437 Гражданского кодекса Российской Федерации.
-                        </div>
-                        <div class="divider"></div>
-                        <div class="gorilla"><img src="images/main-page/gorilla.svg"></div>
-                        <div class="footer__p fp1">Сделано в Gorilla company</div>
-                        <div class="footer__p fp2">© 2020. Все права защищены</div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <div class="modal-menu">
-            <div class="modal-menu__wrapper">
-                <div class="modal-menu__inside">
-                    <ul class="modal-menu__list">
-                        <li><a href="#complex" class="scrollto">О комплексе</a></li>
-                        <li><a href="#catalog" class="scrollto">Квартиры</a></li>
-                        <li><a href="#payment" class="scrollto">Способы покупки</a></li>
-                        <li><a href="#news" class="scrollto">Новости</a></li>
-                        <li><a href="https://novastroyrt.ru/about/#documents" target="_blank">Документы</a></li>
-                    </ul>
-                    <a href="tel:78432122575" class="btn1 modal-phone">+7 (843) 212-25-75</a>
-                </div>
-            </div>
-        </div>
-	</div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script><script src="https://maps.api.2gis.ru/2.0/loader.js?pkg=full"></script><script src="/js/vendors~main.ed5a66f978eba4d72485.js"></script><script src="/js/main.ed5a66f978eba4d72485.js"></script></body>
-</html>
