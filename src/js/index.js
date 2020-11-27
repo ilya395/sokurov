@@ -133,9 +133,11 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_FORM, 
         eventName: EVENT_MODAL_FORM,        
     });
-    modalForm.init();
+    if ( window.location.pathname == '/' ) {
+        modalForm.init();
+    }
     function handlerModalFormRequest() {
-        console.log('успешный успех');
+        // console.log('успешный успех');
         //окно об успешной отправке в модалке
         $('.modal-form .modal-form__inside').fadeOut();
         $('.modal-form .modal-form__success').fadeIn();
@@ -171,7 +173,7 @@ $( document ).ready(function() {
     $('[data-action="form-open"]').click(function() {
     	$('.modal-form .modal-form__inside').css('display', 'block');
     	$('.modal-form .modal-form__success').css('display', 'none');
-        let formString = $(this).attr('data-title');
+        let formString = $(this).attr('data-title') || 'Форма обратной связи';
         $('.modal-form').find('input[name="title"]').val(formString);
         $('.modal-form').fadeIn();
         //
@@ -179,9 +181,9 @@ $( document ).ready(function() {
     }); 
 
     function handlerFormOpen(event) {
-        console.log('вот куда кликнул: ',event.target);
+        // console.log('вот куда кликнул: ',event.target);
         if(event.target.getAttribute('data-action') == 'form-open') {
-            console.log('наш случай');
+            // console.log('наш случай');
             event.preventDefault();
             let planString = event.target.getAttribute('data-title');
             $('.modal-form').find('input[name="title"]').val(planString);
@@ -213,7 +215,9 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_FORM, 
         eventName: EVENT_STATIC_FORM,
     });
-    staticForm.init();
+    if ( window.location.pathname == '/' ) {
+        staticForm.init();
+    }
     window.addEventListener(`${EVENT_STATIC_FORM}_success`, function() {
         //окно об успешной отправке форма презентации
         $('.form-presentation-card form').fadeOut();
@@ -370,8 +374,10 @@ $( document ).ready(function() {
         }
     }
 
-    document.getElementById('catalog').addEventListener('click', handlerFlatCardPrevClick);
-    document.getElementById('catalog').addEventListener('click', handlerFlatCardNextClick);
+    if ( window.location.pathname == '/' ) {
+        document.getElementById('catalog').addEventListener('click', handlerFlatCardPrevClick);
+        document.getElementById('catalog').addEventListener('click', handlerFlatCardNextClick);
+    }
 
 
 
@@ -444,8 +450,10 @@ $( document ).ready(function() {
         moreBtnUrl: '[data-object="filter_more"]',
         eventName: 'filter-event'
     });
-    filter.init();
-    filter.manage();
+    if ( window.location.pathname == '/' ) {
+        filter.init();
+        filter.manage();
+    }
 
     const historyBuildinig = EventsForm({
         containerUrl: '#construction .section-content', 
@@ -455,8 +463,10 @@ $( document ).ready(function() {
         actionName: AJAX_REQUEST_SUBMIT_EVENT, 
         eventName: 'bulding-event',
     });
-    historyBuildinig.init();
-    historyBuildinig.manage();
+    if ( window.location.pathname == '/' ) {
+        historyBuildinig.init();
+        historyBuildinig.manage();
+    }
 });
 
 function smoothLink(event) {
