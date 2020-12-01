@@ -1,6 +1,6 @@
 export function DefaultMap(object) {
 
-    const { urlMapContainer, centerCoordinates = [55.620209, 49.395664], iconSize = [48, 48], zoom = 13, objects } = object;
+    const { urlMapContainer, centerCoordinates = [55.620209, 49.395664], iconSize = [20, 20], zoom = 13, objects } = object;
 
     function _init() {
         DG.then(function () {
@@ -14,53 +14,69 @@ export function DefaultMap(object) {
                 zoom: zoom
             });
 
-            const pin_school = DG.icon({
-                iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_school.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_school.svg',
-                iconSize: iconSize,
-            });
-            const pin_kindergarten = DG.icon({
-                iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_kindergarten.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_kindergarten.svg',
-                iconSize: iconSize,
-            });
-            const pin_market = DG.icon({
-                iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_market.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_market.svg',
-                iconSize: iconSize,
-            });
-            const pin_busStation = DG.icon({
-                iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_bus-station.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_bus-station.svg',
-                iconSize: iconSize,
+            const pin_sokurov = DG.icon({
+                iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_sokurov.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_bus-station.svg',
+                iconSize: [60, 60],
             });
 
 
             const pins = {
-                pin_school: () => {
-                    const pin = DG.icon({
-                        iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_school.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_school.svg',
+                'pin_school': () => {
+                    const pin = DG.divIcon({
+                        className: 'pin_school',
                         iconSize: iconSize,
                     });
                     return pin;
                 },
-                pin_kindergarten: () => {
-                    const pin = DG.icon({
-                        iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_kindergarten.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_kindergarten.svg',
+                'pin_kindergarten': () => {
+                    const pin = DG.divIcon({
+                        className: 'pin_kindergarten',
                         iconSize: iconSize,
                     });
                     return pin;
                 },
-                pin_market: () => {
-                    const pin = DG.icon({
-                        iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_market.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_market.svg',
+                'pin_market': () => {
+                    const pin = DG.divIcon({
+                        className: 'pin_market',
                         iconSize: iconSize,
                     });
                     return pin;
                 },
                 'pin_bus-station': () => {
-                    const pin = DG.icon({
-                        iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_bus-station.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_bus-station.svg',
+                    const pin = DG.divIcon({
+                        className: 'pin_bus-station',
                         iconSize: iconSize,
                     });
                     return pin;
                 }
+            }
+
+            function moveOneParam(param) {
+                const collection = objects[param];
+
+                const thisPin = pins[`pin_${param}`]();
+                
+                collection.forEach(item => {
+                    allMarkers.push( DG.marker( item, {icon: thisPin} ).addTo(map) );
+                });
+            }
+
+            function moveStart() {
+                const params = Object.keys(objects);
+                
+                params.forEach(function(item) {
+                    moveOneParam(item);
+                });
+
+                allMarkers.push( DG.marker( [55.622478, 49.386828], {icon: pin_sokurov} ).addTo(map) );
+
+                const group = DG.featureGroup(allMarkers);
+                group.addTo(map);
+                group.on('click', function(e) {
+                    map.setView([e.latlng.lat, e.latlng.lng]);
+                });
+
+                // map.setView(projects[slug]['coordinates'], zoom);
             }
 
             function move(param) {
@@ -71,11 +87,13 @@ export function DefaultMap(object) {
                     allMarkers.splice(0, allMarkers.length);
                 }
 
-                const thisPin = pins[`pin_${param}`];
+                const thisPin = pins[`pin_${param}`]();
                 
                 collection.forEach(item => {
-                    allMarkers.push( DG.marker( item ).addTo(map) );
+                    allMarkers.push( DG.marker( item, {icon: thisPin} ).addTo(map) );
                 });
+
+                allMarkers.push( DG.marker( [55.622478, 49.386828], {icon: pin_sokurov} ).addTo(map) );
 
                 const group = DG.featureGroup(allMarkers);
                 group.addTo(map);
@@ -96,7 +114,7 @@ export function DefaultMap(object) {
             }
             window.addEventListener('click', handler);
 
-            move('bus-station');
+            moveStart();
             
         });
     }
