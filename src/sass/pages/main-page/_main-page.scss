@@ -171,10 +171,10 @@
 							font-size: 15px;
 							line-height: 1.6;
 							margin-bottom: 15px;
+							color: #fff;
 
 							@media screen and (min-width: 1200px) {
 								font-size: 22px;
-								color: #fff;
 						    }
 						}
 					}
@@ -355,15 +355,15 @@
 
 		& .about-complex__cards-wrapper {
 			display: flex;
-			padding-left: 6.25vw;
+			margin-left: 6.25vw;
 			width: 840px;
 
 			@media screen and (min-width: 768px) {
-				padding-left: 20px;
+				margin-left: 20px;
 		        width: 1470px;
 		    }
 		    @media screen and (min-width: 1200px) {
-		    	padding-left: calc((100vw - 1140px)/2);
+		    	margin-left: calc((100vw - 1140px)/2);
 		    }
 
 			& .about-complex__card {
@@ -1831,8 +1831,34 @@
 		}
 	}
 }
-
-
+.pin_school {
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	background: #84D0FF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.36);
+}
+.pin_kindergarten {
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	background: #FFBE73;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.36);
+}
+.pin_market {
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	background: #73FF78;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.36);
+}
+.pin_bus-station {
+	width: 25px;
+	height: 25px;
+	border-radius: 100%;
+	background: #D084FF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.36);
+}
 
 
 
