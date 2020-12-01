@@ -15,7 +15,7 @@ export function DefaultMap(object) {
             });
 
             const pin_sokurov = DG.icon({
-                iconUrl: process.env.NODE_ENV == 'development' ? 'images/services/pin_sokurov.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/images/services/pin_bus-station.svg',
+                iconUrl: process.env.NODE_ENV == 'development' ? 'dist/images/services/pin_sokurov.svg' : 'https://sokurovpark.ru/wp-content/themes/sokurov_theme/dist/images/services/pin_sokurov.svg',
                 iconSize: [60, 60],
             });
 
