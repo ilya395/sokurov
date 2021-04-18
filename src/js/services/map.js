@@ -64,18 +64,19 @@ export function DefaultMap(object) {
             }
 
             function move(param) {
-                const collection = objects[param];
+                const collection = objects[param]; // достаем координаты из переданного объекта
 
                 if (allMarkers.length > 0) {
                     allMarkers.forEach(item => item.remove());
                     allMarkers.splice(0, allMarkers.length);
                 }
 
-                const thisPin = pins[`pin_${param}`];
+                const thisPin = pins[`pin_${param}`]();
+                console.log(thisPin);
                 
-                collection.forEach(item => {
-                    allMarkers.push( DG.marker( item ).addTo(map) );
-                });
+                collection.forEach(item => { // item - это координаты
+                    allMarkers.push( DG.marker( item, {icon: thisPin} ).addTo(map) ); // здесь пушатся дефолтные маркеты в массив, 
+                });                                                                   // т.к. кроме координат в маркер ничего не передается
 
                 const group = DG.featureGroup(allMarkers);
                 group.addTo(map);
