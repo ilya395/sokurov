@@ -11,7 +11,7 @@ import 'swiper/swiper-bundle.css';
 // import 'materialize-css/dist/css/materialize.min.css';
 // import 'materialize-css/dist/js/materialize.min';
 
-//import './materialize-src/js/bin/materialize.min'; 
+//import './materialize-src/js/bin/materialize.min';
 import '../sass/style.scss';
 
 import { FilterForm, DefaultForm, EventsForm } from './services/forms';
@@ -78,7 +78,7 @@ $( document ).ready(function() {
     		burger.addClass('active');
     		menu.fadeIn();
     	}
-    }); 
+    });
 
     $('.modal-menu__list a').click(function() {
     	$('.header__burger-button').removeClass('active');
@@ -114,7 +114,7 @@ $( document ).ready(function() {
         objects: objectsOnMap,
         zoom: 14,
     });
-    
+
     if (window.location.pathname == '/') {
         defMap.init();
     }
@@ -129,9 +129,9 @@ $( document ).ready(function() {
 //////////////////////////////////////////////////////////////////////////////
 
     const modalForm = DefaultForm({
-        containerUrl: '#modal-form', 
-        actionName: AJAX_REQUEST_SUBMIT_FORM, 
-        eventName: EVENT_MODAL_FORM,        
+        containerUrl: '#modal-form',
+        actionName: AJAX_REQUEST_SUBMIT_FORM,
+        eventName: EVENT_MODAL_FORM,
     });
     if ( window.location.pathname == '/' ) {
         modalForm.init();
@@ -148,7 +148,7 @@ $( document ).ready(function() {
         const form = document.querySelector('#modal-form');
         form.elements.phone.value = '';
         form.elements.name.value = '';
-        
+
     }
     window.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
 
@@ -178,7 +178,7 @@ $( document ).ready(function() {
         $('.modal-form').fadeIn();
         //
         // document.addEventListener(`${EVENT_MODAL_FORM}_success`, handlerModalFormRequest);
-    }); 
+    });
 
     function handlerFormOpen(event) {
         // console.log('вот куда кликнул: ',event.target);
@@ -199,7 +199,7 @@ $( document ).ready(function() {
     // if (document.getElementById('catalog')) {
     //     document.getElementById('catalog').addEventListener('click', handlerFormOpen);
     // }
-    
+
     document.addEventListener('click', handlerFormOpen);
 
 //////////////////////////////////////////////////////////////////////////////
@@ -209,10 +209,10 @@ $( document ).ready(function() {
 //////////////////////////////////////////////////////////////////////////////
 ///////////////////////// форма презентации: начало //////////////////////////
 //////////////////////////////////////////////////////////////////////////////
-    
+
     const staticForm = DefaultForm({
-        containerUrl: '#presentation-form', 
-        actionName: AJAX_REQUEST_SUBMIT_FORM, 
+        containerUrl: '#presentation-form',
+        actionName: AJAX_REQUEST_SUBMIT_FORM,
         eventName: EVENT_STATIC_FORM,
     });
     if ( window.location.pathname == '/' ) {
@@ -225,7 +225,7 @@ $( document ).ready(function() {
         // $('#presentation-form').submit(function() {
         //     $('.form-presentation-card form').fadeOut();
         //     $('.form-presentation-card .form-presentation__success').fadeIn();
-        // });       
+        // });
         //
         // вызвать функцию для скачивания
         makingDownload(
@@ -318,7 +318,7 @@ $( document ).ready(function() {
         }
     });
 
-    //flat-card slider 
+    //flat-card slider
     function flatCardPrevClick(index) {
         let sliderWrap = $('.instance-' + index).find('.swiper-wrapper');
         let slide = $('.instance-' + index).find('.swiper-slide');
@@ -350,10 +350,10 @@ $( document ).ready(function() {
     function handlerFlatCardPrevClick(event) {
         let btn = $(event.target).parent();
         if(
-                (btn.hasClass('swiper-button-prev') && 
+                (btn.hasClass('swiper-button-prev') &&
                 btn.hasClass('swiper-button-disabled') == false) ||
-                ($(event.target).hasClass('swiper-pagination-bullet') && 
-                $(event.target).eq(0) && 
+                ($(event.target).hasClass('swiper-pagination-bullet') &&
+                $(event.target).eq(0) &&
                 $(event.target).hasClass('swiper-pagination-bullet-active') == false)
             ) {
             let ind = btn.closest('.flat-card').attr('data-index');
@@ -363,10 +363,10 @@ $( document ).ready(function() {
     function handlerFlatCardNextClick(event) {
         let btn = $(event.target).parent();
         if(
-                (btn.hasClass('swiper-button-next') && 
+                (btn.hasClass('swiper-button-next') &&
                 btn.hasClass('swiper-button-disabled') == false) ||
-                ($(event.target).hasClass('swiper-pagination-bullet') && 
-                $(event.target).eq(1) && 
+                ($(event.target).hasClass('swiper-pagination-bullet') &&
+                $(event.target).eq(1) &&
                 $(event.target).hasClass('swiper-pagination-bullet-active') == false)
             ) {
             let ind = btn.closest('.flat-card').attr('data-index');
@@ -456,11 +456,11 @@ $( document ).ready(function() {
     }
 
     const historyBuildinig = EventsForm({
-        containerUrl: '#construction .section-content', 
-        containerSelectUrl: '.select-block select', 
-        containerTextUrl: '.construction__info-inside', 
-        containerSliderUrl: '#construction .construction-slider__slides.swiper-wrapper',// '#construction-slider .swiper-container', 
-        actionName: AJAX_REQUEST_SUBMIT_EVENT, 
+        containerUrl: '#construction .section-content',
+        containerSelectUrl: '.select-block select',
+        containerTextUrl: '.construction__info-inside',
+        containerSliderUrl: '#construction .construction-slider__slides.swiper-wrapper',// '#construction-slider .swiper-container',
+        actionName: AJAX_REQUEST_SUBMIT_EVENT,
         eventName: 'bulding-event',
     });
     if ( window.location.pathname == '/' ) {
@@ -476,7 +476,7 @@ function smoothLink(event) {
         target.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
-        });        
+        });
     }
 
     if (event.target.classList.contains('smooth-link')) { // click on <li>
@@ -496,7 +496,6 @@ function smoothLink(event) {
         } else {
             window.location = event.target.getAttribute('href');
         }
-         
     }
 }
 

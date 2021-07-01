@@ -15,12 +15,12 @@ export function DefaultForm(object) {
         // let formData = `action=${actionName}&name=${name ? name.value : ''}&phone=${phone ? phone.value : ''}&title=${title ? title.value : ''}`;
 
         const data = searchData({
-            containerUrl, 
+            containerUrl,
             actionName,
             type: ['input'],
         });
         console.log(
-            name.value != '', 
+            name.value != '',
             name.value.length < 25,
             phone.value != '',
             imOkey(phone.value) == true,
@@ -28,11 +28,11 @@ export function DefaultForm(object) {
             title.value.indexOf('src', 0) == -1
         )
         if (
-            name.value != '' && 
-            name.value.length < 25 && 
-            phone.value != '' && 
-            imOkey(phone.value) == true && 
-            title.value.length < 100 && 
+            name.value != '' &&
+            name.value.length < 25 &&
+            phone.value != '' &&
+            imOkey(phone.value) == true &&
+            title.value.length < 100 &&
             title.value.indexOf('src', 0) == -1 &&
             title.value.indexOf('http', 0) == -1 &&
             title.value.indexOf('https', 0) == -1 &&
@@ -107,11 +107,11 @@ export function FilterForm(object) {
     function _fetch() {
 
         const dataForRequest = searchData({
-            containerUrl, 
+            containerUrl,
             actionName,
             type: manageItems // null,
-        });     
-        
+        });
+
         sendAjax({
             containerUrl,
             formData: dataForRequest.dataString,
@@ -409,7 +409,7 @@ export function FilterForm(object) {
         // console.log(`от ${start} до ${end}`)
         const data = workingData;
         // console.log(`data с которой работаю: `, data)
-        
+
         const container = document.querySelector(containerForRenderingUrl);
         if (start == 0 && end == 0) {
             container.insertAdjacentHTML('beforeend', `<p>Данные объекты закончились...<p>`);
@@ -438,7 +438,7 @@ export function FilterForm(object) {
         }
         const btn = document.querySelector(moreBtnUrl);
         btn.style.opacity = 1;
-        
+
         // let hasCollection = 0;
         // let newCollection = data.length - hasCollection;
 
@@ -471,7 +471,7 @@ export function FilterForm(object) {
                 const result = _filter({
                     data: globalData,
                     options: searchData({
-                        containerUrl, 
+                        containerUrl,
                         actionName,
                         type: manageItems,
                     }).dataObject,
@@ -496,13 +496,13 @@ export function FilterForm(object) {
                         const result = _filter({
                             data: globalData,
                             options: searchData({
-                                containerUrl, 
+                                containerUrl,
                                 actionName,
                                 type: manageItems,
                             }).dataObject,
                         });
                         _render(result, true);
-                         
+
                     }
                 }
             }
@@ -528,12 +528,12 @@ export function EventsForm(object) {
     function _findData(index) {
         // const data = `action=${actionName}&event_id=${arg}`;
         // return data;
-        
+
         let result = {};
         if (globalData.length > 0) {
             for (let i of globalData) {
                 if (i.id == index) {
-                    result = {...i}; 
+                    result = {...i};
                 }
             }
         } else {
@@ -554,19 +554,21 @@ export function EventsForm(object) {
         //         content: "Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь. Если вам нужен Lorem Ipsum для серьёзного проекта, вы наверняка не хотите какой-нибудь шутки, скрытой в середине абзаца. Также все другие известные генераторы Lorem Ipsum используют один и тот же текст, который они просто повторяют, пока не достигнут нужный объём. Это делает предлагаемый здесь генератор единственным настоящим Lorem Ipsum генератором. Он использует словарь из более чем 200 латинских слов, а также набор моделей предложений. В результате сгенерированный Lorem Ipsum выглядит правдоподобно, не имеет повторяющихся абзацей или \"невозможных\" слов",
         //         id: 47,
         //         images: [
-        //             "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3-1.jpg",
-        //             "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3.jpg"
+        //             // "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3-1.jpg",
+        //             // "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3.jpg"
         //         ],
-        //         name: "15 октября 2020"
+        //         name: "15 октября 2020",
+        //         video: "https://www.youtube.com/embed/xo4RKI7PYFc"
         //     },
         //     {
         //         content: "<strong>Lorem Ipsum</strong> - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum",
         //         id: 46,
         //         images: [
-        //             "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3-1.jpg",
-        //             "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3-2.jpg"
+        //             // "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3-1.jpg",
+        //             // "http://sokurovpark.ru/wp-content/uploads/2020/11/rectangle-3-2.jpg"
         //         ],
-        //         name: "5 сентября 2020"
+        //         name: "5 сентября 2020",
+        //         video: "https://www.youtube.com/embed/xo4RKI7PYFc"
         //     }
         // ]
 
@@ -593,26 +595,38 @@ export function EventsForm(object) {
 
                 slider.innerHTML = '';
 
-                const { images } = obj;
+                const { images, video } = obj;
 
-                function htmlTpl(url = 'images/main-page/pic_park_001.jpg') {
+                if (images.length > 0) {
+                  function htmlTpl(url = 'images/main-page/pic_park_001.jpg') {
                     const html = `
                         <div class="construction-slider__slide swiper-slide">
                             <img src="${url}">
                         </div>
                     `
                     return html;
+                  }
+
+                  for (let i in images) {
+                      slider.insertAdjacentHTML('beforeend', htmlTpl(images[i]));
+                  }
                 }
 
-                for (let i in images) {
-                    slider.insertAdjacentHTML('beforeend', htmlTpl(images[i]));
+                if (video) {
+                  const wrapper = document.getElementById('construction-slider');
+                  const insertVideo = (url) => {
+                    return `
+                      <iframe width="${`${wrapper.offsetWidth}px`}" height="100%" src="${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    `;
+                  }
+                  slider.insertAdjacentHTML('beforeend', insertVideo(video));
                 }
             }
 
             function __init() {
                 // console.log('__init');
                 if (!constructionSwiper) {
-                    
+
                     constructionSwiper = new Swiper('#construction-slider .swiper-container', {
                         navigation: {
                             nextEl: '#construction-slider .swiper-button-next',
@@ -633,7 +647,7 @@ export function EventsForm(object) {
                 if (constructionSwiper) {
                     constructionSwiper.destroy();
                     constructionSwiper = null;
-                    
+
                 }
                 // console.log(constructionSwiper);
             }
@@ -666,7 +680,7 @@ export function EventsForm(object) {
             }
             select.addEventListener('change', handler)
         }
-    } 
+    }
 
     return methods;
 

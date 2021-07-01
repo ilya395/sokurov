@@ -6,16 +6,16 @@
 add_action('wp_enqueue_scripts', 'sokurov_wp_media');
 
 function sokurov_wp_media() {
-    wp_enqueue_style('vendors_style', get_template_directory_uri() . '/dist/css/vendors~main.c87f9af668ccf59e99dc.css', [], null, false);
-	wp_enqueue_style('main_style', get_template_directory_uri() . '/dist/css/main.c87f9af668ccf59e99dc.css', [], null, false);
-	
+    wp_enqueue_style('vendors_style', get_template_directory_uri() . '/dist/css/vendors~main.c3494e65ad4bac748528.css', [], null, false);
+	wp_enqueue_style('main_style', get_template_directory_uri() . '/dist/css/main.c3494e65ad4bac748528.css', [], null, false);
+
     wp_register_script( 'jq', 'https://code.jquery.com/jquery-3.4.1.min.js', null, null, true );
     wp_enqueue_script('jq');
     wp_register_script( 'api2gis', 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full', null, null, true );
     wp_enqueue_script('api2gis');
 
-	wp_enqueue_script('vendors_script', get_template_directory_uri() . '/dist/js/vendors~main.c87f9af668ccf59e99dc.js', ['jq', 'api2gis'], null, true);
-	wp_enqueue_script('main_script', get_template_directory_uri() . '/dist/js/main.c87f9af668ccf59e99dc.js', ['jq', 'api2gis'], null, true);
+	wp_enqueue_script('vendors_script', get_template_directory_uri() . '/dist/js/vendors~main.c3494e65ad4bac748528.js', ['jq', 'api2gis'], null, true);
+	wp_enqueue_script('main_script', get_template_directory_uri() . '/dist/js/main.c3494e65ad4bac748528.js', ['jq', 'api2gis'], null, true);
 
 }
 
@@ -37,7 +37,7 @@ function sokurov_after_setup() {
 add_action('wp_head', 'way_js_vars');
 
 function way_js_vars() {
-    
+
     $site_data = get_field_objects( 29 );
     // var_dump($site_data);
     $pr = NULL;
@@ -88,7 +88,7 @@ function registering_post_type() {
         'show_in_rest'        => null, // добавить в REST API. C WP 4.7
         'rest_base'           => null, // $post_type. C WP 4.7
         'menu_position'       => null,
-        'menu_icon'           => 'dashicons-chart-area', 
+        'menu_icon'           => 'dashicons-chart-area',
         //'capability_type'   => 'post',
         //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
         //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
@@ -97,7 +97,7 @@ function registering_post_type() {
         'taxonomies'          => array(),
         'has_archive'         => true,
     ]);
-    
+
     // планировки
     register_post_type('plans', [
         'label'  => null,
@@ -126,7 +126,7 @@ function registering_post_type() {
         'show_in_rest'        => null, // добавить в REST API. C WP 4.7
         'rest_base'           => null, // $post_type. C WP 4.7
         'menu_position'       => null,
-        'menu_icon'           => 'dashicons-images-alt', 
+        'menu_icon'           => 'dashicons-images-alt',
         //'capability_type'   => 'post',
         //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
         //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
@@ -135,7 +135,7 @@ function registering_post_type() {
         'taxonomies'          => array(),
         'has_archive'         => true,
     ]);
-    
+
     // данные сайта
     register_post_type('site-data', [
         'label'  => null,
@@ -164,7 +164,7 @@ function registering_post_type() {
         'show_in_rest'        => null, // добавить в REST API. C WP 4.7
         'rest_base'           => null, // $post_type. C WP 4.7
         'menu_position'       => null,
-        'menu_icon'           => 'dashicons-admin-tools', 
+        'menu_icon'           => 'dashicons-admin-tools',
         //'capability_type'   => 'post',
         //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
         //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
@@ -173,7 +173,7 @@ function registering_post_type() {
         'taxonomies'          => array(),
         'has_archive'         => true,
     ]);
-    
+
     // предложения
     register_post_type('offers', [
         'label'  => null,
@@ -202,7 +202,7 @@ function registering_post_type() {
         'show_in_rest'        => null, // добавить в REST API. C WP 4.7
         'rest_base'           => null, // $post_type. C WP 4.7
         'menu_position'       => null,
-        'menu_icon'           => 'dashicons-cart', 
+        'menu_icon'           => 'dashicons-cart',
         //'capability_type'   => 'post',
         //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
         //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
@@ -211,7 +211,7 @@ function registering_post_type() {
         'taxonomies'          => array(),
         'has_archive'         => true,
     ]);
-    
+
     // способы оплаты
     register_post_type('payments', [
         'label'  => null,
@@ -240,7 +240,7 @@ function registering_post_type() {
         'show_in_rest'        => null, // добавить в REST API. C WP 4.7
         'rest_base'           => null, // $post_type. C WP 4.7
         'menu_position'       => null,
-        'menu_icon'           => 'dashicons-money-alt', 
+        'menu_icon'           => 'dashicons-money-alt',
         //'capability_type'   => 'post',
         //'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
         //'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
@@ -249,7 +249,7 @@ function registering_post_type() {
         'taxonomies'          => array(),
         'has_archive'         => true,
     ]);
-    
+
     // ход строительства
     register_post_type('event', [
         'label'  => null,
@@ -278,7 +278,7 @@ function registering_post_type() {
 		'show_in_rest'        => null, // добавить в REST API. C WP 4.7
 		'rest_base'           => null, // $post_type. C WP 4.7
 		'menu_position'       => null,
-		'menu_icon'           => 'dashicons-calendar-alt', 
+		'menu_icon'           => 'dashicons-calendar-alt',
 		//'capability_type'   => 'post',
 		//'capabilities'      => 'post', // массив дополнительных прав для этого типа записи
 		//'map_meta_cap'      => null, // Ставим true чтобы включить дефолтный обработчик специальных прав
@@ -304,7 +304,7 @@ function ajax_form() {
     // $utm_turm = (string)htmlspecialchars(trim($_POST['utm_turm']));
     // $utm_content = (string)htmlspecialchars(trim($_POST['utm_content']));
     // $utm_campaign = (string)htmlspecialchars(trim($_POST['utm_campaign']));
-    
+
     // данные для сообщения
     $message = array();
     if ($title) {
@@ -312,13 +312,13 @@ function ajax_form() {
     } else {
         $message['title'] = NULL;
     }
-    
+
     if ($name) {
         $message['name'] = $name;
     } else {
         $message['name'] = NULL;
     }
-    
+
     if ($phone) {
         $message['phone'] = $phone;
     } else {
@@ -354,8 +354,8 @@ function ajax_form() {
             $res[1]['to_email'] = 'Done';
         } else {
             $res[1]['error'] = 'Not_okay';
-        }  
-        
+        }
+
         $request_to_crm = request_for_crm($message);
         if ($request_to_crm['without mistakes'] == true) {
             $res['request']['success'] = 'Okay';
@@ -363,8 +363,8 @@ function ajax_form() {
             $res['request']['response'] = $request_to_crm['result'];
         } else {
             $res['request']['error'] = 'Not_okay';
-        } 
-        
+        }
+
     } else {
         $res['error'] = 'Not_okay';
     };
@@ -380,11 +380,11 @@ function message_to_telegram($text) {
 	// //  open connection
 	$ch = curl_init();
 	$bot_token = '919656472:AAFtg4HI0cmd_fkpdJbSomlBMeJPCGIL9jM';
-	
+
 	$bot_url = 'https://api.telegram.org/bot' . $bot_token .'/sendMessage';
-	
+
 	$post = array(
-		'chat_id' => '-1001352697643', // 
+		'chat_id' => '-1001352697643', //
 		'text' => $text,
 	);
 	//  set the url
@@ -399,12 +399,12 @@ function message_to_telegram($text) {
 	// curl_setopt($ch, CURLOPT_PROXY, 'socks5://tgdm:superslivaestbanan@149.56.15.105:7653');
 	// execute post
 	$result = curl_exec($ch);
-	
+
 	//  close connection
 	curl_close($ch);
-	
+
     return true;
-	
+
 };
 
 function message_to_email($message) {
@@ -415,16 +415,16 @@ function message_to_email($message) {
 
     $field_obj = get_field_objects( 29 );
     $email_adress = $field_obj['email_for_requestes']['value'];
-    
+
     // Кому отправляем
     $to = get_option('admin_email') . ', ' . $email_adress;
-       
+
     // Тема письма
     $subject = "Заявка с сайта " . get_bloginfo('name');
-      
+
     // Само сообщение
     $message = "Заголовок сообщения: заявка; " . PHP_EOL . "Тема сообщения: " . $title . "; " . PHP_EOL . "Имя: " . $name . "; " . PHP_EOL .  "Номер: " . $phone . "; ";;
-       
+
     // Отправляем письмо
     $sent_message = wp_mail( $to, $subject, $message ) || mail( $to, $subject, $message );
 
@@ -438,18 +438,18 @@ function message_to_email($message) {
 };
 
 function request_for_crm($message) {
-    
+
     //  open connection
 	$ch = curl_init();
-    
+
     $URL_TO_CRM = 'http://crm.novastroyrt.ru/integration/requests/';
-    $TOKEN_FOR_CRM = 'dfbPkrtgm32!rgmkpoerHJBeumn';    
-    
+    $TOKEN_FOR_CRM = 'dfbPkrtgm32!rgmkpoerHJBeumn';
+
     $title = $message['title'];
     $name = $message['name'];
     $phone = $message['phone'];
     // $email = $message['email'] ? $message['email'] : NULL;
-    
+
     $data = array(
         'token' => $TOKEN_FOR_CRM,
         'comment' => NULL,
@@ -464,7 +464,7 @@ function request_for_crm($message) {
         'utm_content' => NULL,
         'utm_campaign' => NULL,
     );
-    
+
 
 // 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
 	//  set the url
@@ -481,10 +481,10 @@ function request_for_crm($message) {
 	$result = curl_exec($ch);
 	//  close connection
 	curl_close($ch);
-	
+
     return array(
         'result' => $result,
-        'without mistakes' => true,  
+        'without mistakes' => true,
     );
 }
 
@@ -501,7 +501,7 @@ function ajax_filter() {
         'order'       => 'DESC',
         'post_type'   => 'plans', // тип получаемых записей
         // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-    ); 
+    );
     $posts = get_posts($args);
     global $post;
     $array = array();
@@ -522,15 +522,15 @@ function ajax_filter() {
             $arr['rooms'] = $fields['rooms']['value'];
             //
             array_push($array, $arr);
-        }        
+        }
     } else {
         $array['status'] = 'not';
     }
 
-    
+
     $data = json_encode($array);
 	echo $data;
-    wp_die();    
+    wp_die();
 }
 
 // обработка ajax
@@ -545,7 +545,7 @@ function ajax_events() {
         'order'       => 'DESC',
         'post_type'   => 'event', // тип получаемых записей
         // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-    ); 
+    );
     $posts = get_posts($args);
     global $post;
     $array = array();
@@ -578,11 +578,11 @@ function ajax_events() {
 			$arr['video'] = $video;
             //
             array_push($array, $arr);
-        }        
+        }
     } else {
         $array['status'] = 'not';
     }
-    
+
     $data = json_encode($array);
 	echo $data;
     wp_die();

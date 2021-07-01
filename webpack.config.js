@@ -17,7 +17,7 @@ const optimization = () => {
         splitChunks: {
             chunks: 'all'
         }
-    } 
+    }
 
     if (isProd) {
         config.minimizer = [
@@ -26,7 +26,7 @@ const optimization = () => {
         ]
     }
 
-    return config 
+    return config
 }
 
 const filename = ext => isDev ? `[name].${ext}` : `[name].[hash].${ext}`
@@ -36,11 +36,11 @@ const cssLoaders  = (extra) => {
         {
             loader: MiniCssExtractPlugin.loader,
             options: {
-                hrm: isDev,                                               // hot module replacement // изменяй определенные сущности без перезагрузки страницы 
+                hrm: isDev,                                               // hot module replacement // изменяй определенные сущности без перезагрузки страницы
                 reloadAll: true,
                 publicPath: isDev ? '../../' : '../../dist/'
             },
-        }, 
+        },
         'css-loader',
         {
             loader: 'postcss-loader',
@@ -74,7 +74,7 @@ const babelOptions = (preset) => {
         plugins: [
             '@babel/plugin-proposal-class-properties'
         ]
-    } 
+    }
 
     if (preset) {
         opts.presets.push(preset)
@@ -87,7 +87,7 @@ const jsLoaders = () => {
     const loaders = [
         {
             loader: 'babel-loader',
-            options: babelOptions() 
+            options: babelOptions()
         }
     ]
 
@@ -110,9 +110,9 @@ module.exports = {
         extensions: [                                                       // какие расширения нужно понимать по умолчанию
             '.js', '.json', '.png'
         ],
-       alias: {                                                             
+       alias: {
            '@': path.resolve(__dirname, 'src')                              // путь до корня проекта
-       } 
+       }
     },
     optimization: optimization(),
     devServer: {
@@ -158,7 +158,7 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: path.resolve(__dirname, './src/images/**/*'),
+                    from: path.resolve(__dirname, './src/images/**/*').replace(/\\/g, "/"), // в win пути с другими слэшами
                     to: path.resolve(__dirname, './dist/'),
                 },
             ]
@@ -191,7 +191,7 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                use: cssLoaders() 
+                use: cssLoaders()
             },
             {
                 test: /\.s[ac]ss$/,
@@ -237,7 +237,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[path][name].[ext]',
-                        }                        
+                        }
                     }
                 ]
             },
@@ -248,7 +248,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[path][name].[ext]',
-                        }                        
+                        }
                     }
                 ]
             },
