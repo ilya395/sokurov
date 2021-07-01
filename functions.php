@@ -6,16 +6,16 @@
 add_action('wp_enqueue_scripts', 'sokurov_wp_media');
 
 function sokurov_wp_media() {
-    wp_enqueue_style('vendors_style', get_template_directory_uri() . '/dist/css/vendors~main.2b7c828bfdf06cf41ec4.css', [], null, false);
-	wp_enqueue_style('main_style', get_template_directory_uri() . '/dist/css/main.2b7c828bfdf06cf41ec4.css', [], null, false);
+    wp_enqueue_style('vendors_style', get_template_directory_uri() . '/dist/css/vendors~main.c87f9af668ccf59e99dc.css', [], null, false);
+	wp_enqueue_style('main_style', get_template_directory_uri() . '/dist/css/main.c87f9af668ccf59e99dc.css', [], null, false);
 	
     wp_register_script( 'jq', 'https://code.jquery.com/jquery-3.4.1.min.js', null, null, true );
     wp_enqueue_script('jq');
     wp_register_script( 'api2gis', 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full', null, null, true );
     wp_enqueue_script('api2gis');
 
-	wp_enqueue_script('vendors_script', get_template_directory_uri() . '/dist/js/vendors~main.2b7c828bfdf06cf41ec4.js', ['jq', 'api2gis'], null, true);
-	wp_enqueue_script('main_script', get_template_directory_uri() . '/dist/js/main.2b7c828bfdf06cf41ec4.js', ['jq', 'api2gis'], null, true);
+	wp_enqueue_script('vendors_script', get_template_directory_uri() . '/dist/js/vendors~main.c87f9af668ccf59e99dc.js', ['jq', 'api2gis'], null, true);
+	wp_enqueue_script('main_script', get_template_directory_uri() . '/dist/js/main.c87f9af668ccf59e99dc.js', ['jq', 'api2gis'], null, true);
 
 }
 
@@ -41,9 +41,9 @@ function way_js_vars() {
     $site_data = get_field_objects( 29 );
     // var_dump($site_data);
     $pr = NULL;
-    if ( isset($site_data['presentation']['value']) ) {
-        $pr = $site_data['presentation']['value'];
-    }
+//     if ( isset($site_data['presentation']['value']) ) {
+//         $pr = $site_data['presentation']['value'];
+//     }
 
     $vars = array(
         'ajax_url' => admin_url('admin-ajax.php'),
@@ -298,43 +298,73 @@ function ajax_form() {
     $title = (string)htmlspecialchars(trim($_POST['title']));
     $name = (string)htmlspecialchars(trim($_POST['name']));
     $phone = (string)htmlspecialchars(trim($_POST['phone']));
+
+    // $utm_source = (string)htmlspecialchars(trim($_POST['utm_source']));
+    // $utm_medium = (string)htmlspecialchars(trim($_POST['utm_medium']));
+    // $utm_turm = (string)htmlspecialchars(trim($_POST['utm_turm']));
+    // $utm_content = (string)htmlspecialchars(trim($_POST['utm_content']));
+    // $utm_campaign = (string)htmlspecialchars(trim($_POST['utm_campaign']));
     
     // данные для сообщения
     $message = array();
     if ($title) {
         $message['title'] = $title;
+    } else {
+        $message['title'] = NULL;
     }
+    
     if ($name) {
         $message['name'] = $name;
+    } else {
+        $message['name'] = NULL;
     }
+    
     if ($phone) {
         $message['phone'] = $phone;
+    } else {
+        $message['phone'] = NULL;
     }
+    // $message['utm_source'] = $utm_source ? $utm_source : NULL;
+    // $message['utm_medium'] = $utm_medium ? $utm_medium : NULL;
+    // $message['utm_turm'] = $utm_turm ? $utm_turm : NULL;
+    // $message['utm_content'] = $utm_content ? $utm_content : NULL;
+    // $message['utm_campaign'] = $utm_campaign ? $utm_campaign : NULL;
 
     //формируем сообщение
-    $text="----------- Заказ звонка с сайта NOVOSTROY -----------\n";
+    $text="----------- Заказ звонка с сайта SOKUROVPARK -----------\n";
     foreach($message as $key => $value) {
          $text .= "" . $key . ": " . $value . "\n";
     };
     //
     $res = array(
         'text' => $message,
+        'POST' => $_POST,
     );
     // отправляем ссобщение
     if ($phone != "") {
-//         if (message_to_telegram($text) == true) { // заменить на отправку на email
-//             $res[0]['success'] = 'Okay';
-//             $res[0]['to_telegram'] = 'Done';
-//         } else {
-//             $res[0]['error'] = 'Not_okay';
-// 		}
-// 		//
+        if (message_to_telegram($text) == true) { // заменить на отправку на email
+            $res[0]['success'] = 'Okay';
+            $res[0]['to_telegram'] = 'Done';
+        } else {
+            $res[0]['error'] = 'Not_okay';
+		}
+		//
         if (message_to_email($message) == true) { // заменить на отправку на email
             $res[1]['success'] = 'Okay';
             $res[1]['to_email'] = 'Done';
         } else {
             $res[1]['error'] = 'Not_okay';
         }  
+        
+        $request_to_crm = request_for_crm($message);
+        if ($request_to_crm['without mistakes'] == true) {
+            $res['request']['success'] = 'Okay';
+            $res['request']['to_crm'] = 'Done';
+            $res['request']['response'] = $request_to_crm['result'];
+        } else {
+            $res['request']['error'] = 'Not_okay';
+        } 
+        
     } else {
         $res['error'] = 'Not_okay';
     };
@@ -406,6 +436,58 @@ function message_to_email($message) {
     }
     return $result;
 };
+
+function request_for_crm($message) {
+    
+    //  open connection
+	$ch = curl_init();
+    
+    $URL_TO_CRM = 'http://crm.novastroyrt.ru/integration/requests/';
+    $TOKEN_FOR_CRM = 'dfbPkrtgm32!rgmkpoerHJBeumn';    
+    
+    $title = $message['title'];
+    $name = $message['name'];
+    $phone = $message['phone'];
+    // $email = $message['email'] ? $message['email'] : NULL;
+    
+    $data = array(
+        'token' => $TOKEN_FOR_CRM,
+        'comment' => NULL,
+        'name' => $name,
+        'phone' => $phone,
+        'email' => NULL,
+        'form_name' => $title,
+        'site_name' => 'https://sokurovpark.ru/',
+        'utm_source' => NULL,
+        'utm_medium'=> NULL,
+        'utm_turm' => NULL,
+        'utm_content' => NULL,
+        'utm_campaign' => NULL,
+    );
+    
+
+// 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+	//  set the url
+	curl_setopt($ch, CURLOPT_URL, $URL_TO_CRM);
+	//  number of POST vars
+	curl_setopt($ch, CURLOPT_POST, true);
+	//  POST data
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	//  To display result of curl
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	// set proxy
+	// curl_setopt($ch, CURLOPT_PROXY, 'socks5://tgdm:superslivaestbanan@149.56.15.105:7653');
+	// execute post
+	$result = curl_exec($ch);
+	//  close connection
+	curl_close($ch);
+	
+    return array(
+        'result' => $result,
+        'without mistakes' => true,  
+    );
+}
+
 
 // обработка ajax
 add_action('wp_ajax_ajax_submit_filter', 'ajax_filter'); // ajax от админа или авторизованого пользователя
@@ -491,6 +573,9 @@ function ajax_events() {
             $fields = get_field_objects( $id_post ); # $post->ID
             $name = $fields['date']['value'];
             $arr['name'] = $name;
+            //
+            $video = $fields['video']['value'];
+			$arr['video'] = $video;
             //
             array_push($array, $arr);
         }        

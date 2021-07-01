@@ -1,4 +1,3 @@
-
         <?php
             $site_info = get_field_objects( 29 );
         ?>
@@ -31,9 +30,9 @@
                             wp_nav_menu($menu_args); 
                         ?>	
                         <div class="footer__socials">
-                            <a href="<?php echo $site_info['instagram']['value']; ?>" class="social-item"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/inst.svg"></a>
-                            <a href="<?php echo $site_info['facebook']['value']; ?>" class="social-item"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/facebook.svg"></a>
-                            <a href="<?php echo $site_info['vk']['value']; ?>" class="social-item"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/vk.svg"></a>
+                            <noindex><a href="<?php echo $site_info['instagram']['value']; ?>" class="social-item"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/inst.svg" rel="nofollow" target="blank_"></a></noindex>
+                            <noindex><a href="<?php echo $site_info['facebook']['value']; ?>" class="social-item"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/facebook.svg" rel="nofollow" target="blank_"></a></noindex>
+                            <noindex><a href="<?php echo $site_info['vk']['value']; ?>" class="social-item"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/vk.svg" rel="nofollow" target="blank_"></a></noindex>
                         </div>
                         <div class="footer__note">
                             Сайт носит информационный характер и не является публичной офертой согласно положениям Статьи 437 Гражданского кодекса Российской Федерации.
@@ -41,7 +40,7 @@
                         <div class="divider"></div>
                         <div class="gorilla"><a href="https://gorillacompany.ru/" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/gorilla.svg"></a></div>
                         <div class="footer__p fp1">Сделано в Gorilla company</div>
-                        <div class="footer__p fp2">© 2020. Все права защищены</div>
+                        <div class="footer__p fp2">© 2020-2021. Все права защищены</div>
                     </div>
                 </div>
             </div>
@@ -86,7 +85,7 @@
                             <input class="text-input phonemask" type="phone" name="phone" placeholder="Ваш телефон">
                             <div class="check-block">
                                 <input type="checkbox" name="agree" checked="checked">
-                                <label>Согласен на <a href="#">обработку персональных данных</a></label>
+                                <label>Согласен на <a href="https://novastroyrt.ru/politika-konfidenczialnosti/?preview=true" target="_blank">обработку персональных данных</a></label>
                             </div>
                             <button class="btn2">отправить</button>
                         </form>
@@ -104,5 +103,21 @@
     	wp_footer();
     ?> 	
     
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(74970115, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/74970115" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+
 </body>
 </html>

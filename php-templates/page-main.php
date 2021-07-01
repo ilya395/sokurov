@@ -99,11 +99,16 @@
                 <div class="container">
                     <div class="section-title">о комплексе</div>
                     <div class="about-complex__info">
-                        <h1>
-                            Таун-парк — современный формат загородной жизни
-                        </h1>
+                        <h2 class="main-zagolovok">
+                            Мечтаете о комфорте – купите дом таунхаус в пригороде Казани напрямую от застройщика!
+                        </h2>
+						<!--<h2>Таун-парк — современный формат загородной жизни</h2>-->
                         <p>
-                            Таунхаусы и квадрохаусы, собственная закрытая территория, продуманная инфраструктура с прогулочной аллей, удачное расположение.
+							<b>Вдали от суеты мегаполиса</b><br>
+Место застройки выбрано с учетом максимальной близости к природе. В Лаишевском районе вы будете дышать чистым воздухом, наслаждаться размеренной, спокойной жизнью и живописным ландшафтом. Купить таунхаус в таун-парке SOKUROV в пригороде Казани без посредников от застройщика сейчас выгодно!</p>
+						<p><b>Самые современные решения</b><br>
+Застройка выполнена в европейском стиле: аккуратные аллеи, вдоль которых располагаются квадрохаусы и таунхаусы с кирпичной отделкой. Территория утопает в зелени, созданы все условия для комфортной жизни за городом: охраняемая территория, уютные места для прогулок с детьми, удобные парковки.
+
                         </p>
                         <div class="about-complex__place-note">
                             <div class="icon"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/pin.svg"></div>
@@ -133,7 +138,7 @@
                         <div class="about-complex__card">
                             <div class="card-title">Охраняемый комплекс</div>
                             <p>
-                                Будьте спокойны за себя и свою семью: закрытая территория, видеонаблюдение и охрана таун-парка SOKUROV обеспечивает вашу безопасность 24 часа в сутки.
+                                Будьте спокойны за себя и свою семью: закрытая территория и видеонаблюдение на территории таун-парка SOKUROV обеспечивает вашу безопасность 24 часа в сутки.
                             </p>
                         </div>
                     </div>
@@ -146,9 +151,10 @@
                 <div class="container">
                     <div class="section-title white">живописная аллея</div>
                     <div class="alley-info">
-                        <h1 class="white">Всё для актив​ной жизни</h1>
+                        <h2 class="main-zagolovok-white">Выбирайте таунхаус: даже в пригороде Казани вы остаетесь в центре активной жизни!</h2>
+						<!--<h2>Всё для актив​ной жизни</h2>-->
                         <p class="white">
-                            Здесь каждый найдет, чем заняться в свободное время: безопасные детские площадки, живописная прогулочная аллея, площадки для отдыха и спортивные площадки.
+                            Отдых для всей семьи продуман в таунхаусе в пригороде Казани до мелочей: здесь созданы все условия для занятий спортом, прогулок и развлечений. От самых маленьких до пожилых – для каждого жителя таун-парка найдется занятие по душе!
                         </p>
                     </div>
                 </div>
@@ -214,11 +220,11 @@
             <div class="section-content">
                 <div class="container">
                     <div class="presentation__info">
-                        <div class="section-title">презентация PDF</div>
+                        <div class="section-title">Информация</div> <!-- презентация PDF -->
                         <h1>Хотите узнать больше о&nbsp;таун-парке SOKUROV?</h1>
-                        <p>Скачайте подробную презентацию заполнив небольшую форму</p>
+                        <p style="display: none;">Скачайте подробную презентацию, заполнив небольшую форму</p>
                     </div>
-                    <div class="presentaton-image"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/presentation.png"></div>
+                    <div class="presentaton-image" style="display: none;"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/presentation.png"></div>
                     <div class="form-presentation-card">
                         <form id="presentation-form">
                             <input type="hidden" name="title" value="Скачали презентацию">
@@ -226,7 +232,7 @@
                             <input class="text-input phonemask" type="phone" name="phone" placeholder="Ваш телефон">
                             <div class="check-block">
                                 <input type="checkbox" name="" checked="checked">
-                                <label>Согласен на <a href="#">обработку персональных данных</a></label>
+                                <label>Согласен на <a href="https://novastroyrt.ru/politika-konfidenczialnosti/?preview=true" target="_blank">обработку персональных данных</a></label>
                             </div>
                             <button class="btn2">отправить</button>
                         </form>
@@ -244,9 +250,10 @@
                 <div class="container">
                     <div class="section-title white">виды домов</div>
                     <div class="houses-types__info">
-                        <h1 class="white">Таунхаусы и квадрохаусы</h1>
+                        <h2 class="main-zagolovok-white">Купите дом в таун-парке в Лаишевском районе Казани – оцените уникальное сочетание загородной жизни и городского комфорта!</h2>
+						<!--<h2>Таунхаусы и квадрохаусы</h2>-->
                         <p class="white">
-                            Наслаждайтесь размеренной жизнью в собственном доме с участком земли, парковкой и просторными комнатами. Дома от 81 до 125 м<sup>2</sup> — выберите свой оптимальный вариант!
+                           Вы можете <b>купить дом в Лаишевском районе Казани</b>, выбрав один из двух вариантов. Отдельный собственный дом в два этажа, построенный по принципу городской квартиры, со всеми удобствами, отдельным входом, собственным участком и парковкой – таунхаус. Или дом на четыре семьи, для тесного общения и крепкой дружбы с добрыми соседями – квадрохаус. Вам нужно только выбрать!
                         </p>
                     </div> 
                     <a href="#catalog" class="scrollto btn3">к планировкам</a>   
@@ -261,7 +268,7 @@
                         <div class="houses-types__card">
                             <div class="card-title">Двухэтажные таунхаусы </div>
                             <p>
-                                Почувствуйте настоящую свободу и комфорт в собственном двухэтажном доме! Парковка на два автомобиля, отдельный вход, небольшой дворик у дома, террасы — всё в лучших традициях загородного жилья. 
+                                Почувствуйте настоящую свободу и комфорт в собственном двухэтажном доме! Парковка на два автомобиля, отдельный вход, небольшой дворик у дома — всё в лучших традициях загородного жилья. 
                             </p>
                         </div>
                         <div class="houses-types__card">
@@ -280,12 +287,13 @@
                 <div class="container">
                     <div class="section-title">выбор планировки</div>
                     <div class="houses-types__info">
-                        <h1>Выберите вариант, который подходит Вам лучше всего!</h1>
+                        <h2 class="main-zagolovok">Любимая европейцами планировка таунхауса в черте города Казани теперь доступна и вам!</h2>
+						<!--<h2>Заголовок для продвижения</h2>-->
                         <p>
-                            Европейский стиль загородной жизни вдохновил архитекторов на создание двухэтажных таунхаусов и квадрохаусов SOKUROV.
+                            Таун-парк  SOKUROV предлагает много вариантов планировки таунхауса в черте города Казани. Здесь воплощены самые удачные идеи планировки жилых домов, реализованные в Европе. Мы отобрали для вас только лучшее! Вы можете приобрести трех-, четырех- и пятикомнатные таунхаусы площадью от 81,61 кв.м до 113,76 кв.м.
                         </p>
                     </div> 
-                    <a href="#" class="btn5 desktop plans-dwnld">скачать планировки</a>
+                    <a href="<?php echo home_url(); ?>/wp-content/themes/sokurov_theme/docs/prez.pdf" class="btn5 desktop plans-dwnld" download style="opacity: 0;">скачать презентацию</a>
 
                     <div class="plans">
                         <div class="plans__filter">
@@ -547,20 +555,22 @@
             </div>
         </section>
 
+		<?php
+			wp_reset_postdata();
+			$event_args = array( // получает любые записи
+				'numberposts' => -1,
+				'orderby'     => 'date',
+				'order'       => 'DESC',
+				'post_status' => 'publish',
+				'post_type'   => 'event', // тип получаемых записей
+				// 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+			); 
+			$events = get_posts($event_args);
+			$events_count = 0;
+			
+			if (count($events) > 0) {
+		?>
         <section class="construction" id="construction">
-            <?php
-                wp_reset_postdata();
-                $event_args = array( // получает любые записи
-                    'numberposts' => -1,
-                    'orderby'     => 'date',
-                    'order'       => 'DESC',
-                    'post_status' => 'publish',
-                    'post_type'   => 'event', // тип получаемых записей
-                    // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-                ); 
-                $events = get_posts($event_args);
-                $events_count = 0;
-            ?>
             <div class="section-content">
                 <div class="container">
                     <h1 class="white">Ход строительства</h1>
@@ -571,6 +581,7 @@
                                     setup_postdata($event);
                                     
                                     $event_data = get_field_objects( $event->ID );
+									var_dump($event_data['video']['value']);
                             ?>
                                 <option value="<?php echo $event_data['date']['value']; ?>" data-plan-index="<?php echo $event->ID; ?>" <?php if ($events_count == 0) { echo 'selected="selected"'; } ?>><?php echo $event_data['date']['value']; ?></option>
                             <?php        
@@ -603,16 +614,14 @@
                                         </div>
                                     <?php
                                         }
+										if ($event_data['video']['value']) {
+									?>
+										<div class="construction-slider__slide swiper-slide">
+											<iframe width="100%" height="100%" src="<?php echo $event_data['video']['value'] ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        </div>
+									<?php
+										}
                                     ?>
-                                    <!--<div class="construction-slider__slide swiper-slide">-->
-                                    <!--    <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/pic_park_001.jpg">-->
-                                    <!--</div>-->
-                                    <!--<div class="construction-slider__slide swiper-slide">-->
-                                    <!--    <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/pic_park_002.jpg">-->
-                                    <!--</div>-->
-                                    <!--<div class="construction-slider__slide swiper-slide">-->
-                                    <!--    <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/pic_park_002.jpg">-->
-                                    <!--</div>-->
                                 </div>
                             </div>
 
@@ -645,7 +654,23 @@
                 </div>
             </div>
         </section>
+		<?php
+			}
+		?>
 
+		<?php
+			wp_reset_postdata();
+			$news_args = array( // получает любые записи
+				'numberposts' => -1,
+				'orderby'     => 'date',
+				'order'       => 'DESC',
+				'post_status' => 'publish',
+				'post_type'   => 'news', // тип получаемых записей
+				// 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+			); 
+			$all_news = get_posts($news_args);
+			if ( count($all_news) > 0 ) {
+		?>
         <section class="news" id="news">
             <div class="section-content">
                 <div class="container">
@@ -661,16 +686,6 @@
                         <div class="news__slider-wrapper swiper-container">
                             <div class="news__slider-slides swiper-wrapper">
                                 <?php
-                                    wp_reset_postdata();
-                                    $news_args = array( // получает любые записи
-                                        'numberposts' => -1,
-                                        'orderby'     => 'date',
-                                        'order'       => 'DESC',
-                                        'post_status' => 'publish',
-                                        'post_type'   => 'news', // тип получаемых записей
-                                        // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-                                    ); 
-                                    $all_news = get_posts($news_args);
                                     foreach ($all_news as $news) {
                                         setup_postdata($news);
                                 ?>
@@ -703,6 +718,9 @@
                 </div>
             </div>
         </section>
+		<?php
+			}
+		?>
 
         <section class="infrastructure" id="infrastructure">
             <div class="section-content">

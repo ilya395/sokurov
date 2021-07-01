@@ -1,4 +1,3 @@
-
         <?php
             $site_info = get_field_objects( 29 );
         ?>
@@ -34,7 +33,7 @@
                         <div class="divider"></div>
                         <div class="gorilla"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/gorilla.svg"></div>
                         <div class="footer__p fp1">Сделано в Gorilla company</div>
-                        <div class="footer__p fp2">© 2020. Все права защищены</div>
+                        <div class="footer__p fp2">© 2020-2021. Все права защищены</div>
                     </div>
                 </div>
             </div>

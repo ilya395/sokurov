@@ -9,10 +9,14 @@
     <link rel="shortcut icon" sizes="16x16" href="<?php echo get_template_directory_uri() . '/favs/favicon.ico' ?>" type="image/x-icon" />
     <link rel="icon" sizes="32x32" href="<?php echo get_template_directory_uri() . '/favs/152.png' ?>" type="image/x-icon" />
     <link rel="shortcut icon" sizes="32x32" href="<?php echo get_template_directory_uri() . '/favs/152.png' ?>" type="image/x-icon" />
-    
+	<link rel="canonical" href="https://sokurovpark.ru/">
+	<meta name="yandex-verification" content="f8f8420294e9d972" />
+    <meta name="google-site-verification" content="30vdtt3rXw9A2G_Mc6yVg6FZUGAo3DDxGgJ4AiVvU64" />
+	
     <style>
         .preloader {
             position: fixed;
+            display: flex;
             width: 100%;
             height: 100%;
             background-color: #F0F0F0;
@@ -20,113 +24,48 @@
             left: 0;
             z-index: 10000;
         }
-        
-        .preloader .marquee__inside {
-            height: 6.25vh;
-            width: 300vw;
-            background-image: url(<?php echo get_template_directory_uri(); ?>/dist/images/main-page/logo-preloader.svg);
-            background-repeat: repeat-x;
-            background-size: auto 100%;
+        .lds-ripple {
+          display: block;
+          position: relative;
+          margin: auto;
+          width: 80px;
+          height: 80px;
         }
-        .preloader .preloader__logo {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
+        .lds-ripple div {
+          position: absolute;
+          border: 4px solid #4F738B;
+          opacity: 1;
+          border-radius: 50%;
+          animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
         }
-        
-        .preloader__logo img {
-            width: 500px;
-            margin: auto;
+        .lds-ripple div:nth-child(2) {
+          animation-delay: -0.5s;
+        }
+        @keyframes lds-ripple {
+          0% {
+            top: 36px;
+            left: 36px;
+            width: 0;
+            height: 0;
+            opacity: 1;
+          }
+          100% {
+            top: 0px;
+            left: 0px;
+            width: 72px;
+            height: 72px;
+            opacity: 0;
+          }
         }
     </style>
     
     <?php
     	wp_head();
     ?>
+    <?php get_template_part( 'includes/counters' ); ?>
 </head>
 <body>
     <script>
-        (function() {
-            var FX = {
-                easing: {
-                    linear: function(progress) {
-                        return progress;
-                    },
-                    quadratic: function(progress) {
-                        return Math.pow(progress, 2);
-                    },
-                    swing: function(progress) {
-                        return 0.5 - Math.cos(progress * Math.PI) / 2;
-                    },
-                    circ: function(progress) {
-                        return 1 - Math.sin(Math.acos(progress));
-                    },
-                    back: function(progress, x) {
-                        return Math.pow(progress, 2) * ((x + 1) * progress - x);
-                    },
-                    bounce: function(progress) {
-                        for (var a = 0, b = 1, result; 1; a += b, b /= 2) {
-                            if (progress >= (7 - 4 * a) / 11) {
-                                return -Math.pow((11 - 6 * a - 11 * progress) / 4, 2) + Math.pow(b, 2);
-                            }
-                        }
-                    },
-                    elastic: function(progress, x) {
-                        return Math.pow(2, 10 * (progress - 1)) * Math.cos(20 * Math.PI * x / 3 * progress);
-                    }
-                },
-                animate: function(options) {
-                    var start = new Date;
-                    var id = setInterval(function() {
-                        var timePassed = new Date - start;
-                        var progress = timePassed / options.duration;
-                        if (progress > 1) {
-                            progress = 1;
-                        }
-                        options.progress = progress;
-                        var delta = options.delta(progress);
-                        options.step(delta);
-                        if (progress == 1) {
-                            clearInterval(id);
-                            options.complete();
-                        }
-                    }, options.delay || 10);
-                },
-                fadeOut: function(element, options) {
-                    var to = 1;
-                    this.animate({
-                        duration: options.duration,
-                        delta: function(progress) {
-                            progress = this.progress;
-                            return FX.easing.swing(progress);
-                        },
-                        complete: options.complete,
-                        step: function(delta) {
-                            element.style.opacity = to - delta;
-                        }
-                    });
-                },
-                fadeIn: function(element, options) {
-                    var to = 0;
-                    this.animate({
-                        duration: options.duration,
-                        delta: function(progress) {
-                            progress = this.progress;
-                            return FX.easing.swing(progress);
-                        },
-                        complete: options.complete,
-                        step: function(delta) {
-                            element.style.opacity = to + delta;
-                        }
-                    });
-                }
-            };
-            window.FX = FX;
-        })()
-        
         var preloader = '';
         
         window.addEventListener('DOMContentLoaded', function() {
@@ -138,66 +77,13 @@
                 preloader.removeEventListener('transitionend', handler);
             }
             preloader.addEventListener('transitionend', handler);
-            console.log(preloader);            
         });
         
         window.onload = function() {
-            // FX.fadeOut(document.getElementById('preloader'), { // вываливается с ошибкой
-            //     duration: 1000
-            // });
-            console.log(preloader)
             preloader.style.opacity = '0';
         };
     </script>
     <div class="preloader" id="preloader">
-        <marquee behavior="alternate" scrollamount="3" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" direction="right" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" direction="right" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" direction="right" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" direction="right" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" direction="right" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" direction="right" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" direction="right" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <marquee behavior="alternate" scrollamount="3" direction="right" loop="4">
-            <div class="marquee__inside"></div>
-        </marquee>
-        <div class="preloader__logo"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/logo.svg"></div>  
+        <div class="lds-ripple"><div></div><div></div></div>  
     </div>
 
