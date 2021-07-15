@@ -27,9 +27,9 @@
                             wp_nav_menu($menu_args); 
                         ?>	
                         <div class="footer__socials">
-                            <noindex><a href="<?php echo $site_info['instagram']['value']; ?>" class="social-item"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/inst.svg" rel="nofollow" target="blank_"></a></noindex>
-                            <noindex><a href="<?php echo $site_info['facebook']['value']; ?>" class="social-item"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/facebook.svg" rel="nofollow" target="blank_"></a></noindex>
-                            <noindex><a href="<?php echo $site_info['vk']['value']; ?>" class="social-item"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/vk.svg" rel="nofollow" target="blank_"></a></noindex>
+                            <noindex><a href="<?php echo $site_info['instagram']['value']; ?>" class="social-item" target="blank_"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/inst.svg" rel="nofollow"></a></noindex>
+                            <noindex><a href="<?php echo $site_info['facebook']['value']; ?>" class="social-item" target="blank_"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/facebook.svg" rel="nofollow"></a></noindex>
+                            <noindex><a href="<?php echo $site_info['vk']['value']; ?>" class="social-item" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/vk.svg" rel="nofollow"></a></noindex>
                         </div>
                         <div class="footer__note">
                             Сайт носит информационный характер и не является публичной офертой согласно положениям Статьи 437 Гражданского кодекса Российской Федерации.
