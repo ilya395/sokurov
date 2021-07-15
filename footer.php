@@ -8,15 +8,12 @@
                         <div class="footer__logo"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/logo.svg"></div>
                         <div class="footer__info">
                             Офис продаж:<br>
-                            <?php echo $site_info['address']['value']; ?>
+                            <?php echo $site_info['address']['value']; ?><br>
+							Время работы:<br>пн-пт 9.00-18.00,<br>сб-вс 10.00-16.00<br>
+							<a href="tel:<?php echo $site_info['phone']['value']; ?>" class="company-phone footer__info">
+                        		<?php echo $site_info['phone']['value']; ?>
+                    		</a>
                         </div>
-                        <!--<ul class="footer__menu">-->
-                        <!--    <li><a href="#complex" class="scrollto">О комплексе</a></li>-->
-                        <!--    <li><a href="#catalog" class="scrollto">Квартиры</a></li>-->
-                        <!--    <li><a href="#payment" class="scrollto">Способы покупки</a></li>-->
-                        <!--    <li><a href="#news" class="scrollto">Новости</a></li>-->
-                        <!--    <li><a href="https://novastroyrt.ru/about/#documents" target="_blank">Документы</a></li>-->
-                        <!--</ul>-->
                         <?php 
                             $menu_args = array(
                                 'theme location' => 'bottom',
@@ -49,13 +46,6 @@
         <div class="modal-menu">
             <div class="modal-menu__wrapper">
                 <div class="modal-menu__inside">
-                    <!--<ul class="modal-menu__list">-->
-                    <!--    <li><a href="#complex" class="scrollto">О комплексе</a></li>-->
-                    <!--    <li><a href="#catalog" class="scrollto">Квартиры</a></li>-->
-                    <!--    <li><a href="#payment" class="scrollto">Способы покупки</a></li>-->
-                    <!--    <li><a href="#news" class="scrollto">Новости</a></li>-->
-                    <!--    <li><a href="https://novastroyrt.ru/about/#documents" target="_blank">Документы</a></li>-->
-                    <!--</ul>-->
                     <?php 
                         $menu_args = array(
                             'theme location' => 'bottom',

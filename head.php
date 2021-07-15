@@ -33,12 +33,6 @@
                 </a>
 
                 <nav class="header__navigation-menu">
-                    <!--<ul class="menu__list">-->
-                    <!--    <li><a href="#complex" class="scrollto">О комплексе</a></li>-->
-                    <!--    <li><a href="#catalog" class="scrollto">Квартиры</a></li>-->
-                    <!--    <li><a href="#payment" class="scrollto">Способы покупки</a></li>-->
-                    <!--    <li><a href="#news" class="scrollto">Новости</a></li>-->
-                    <!--</ul>-->
                     <?php wp_nav_menu( [
 	                        'theme_location'  => 'top',
 							'container'       => 'false',
