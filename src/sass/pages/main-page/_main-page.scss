@@ -159,7 +159,7 @@
 					    }
 					}
 
-					h1 {
+					h1, h2 {
 						color: #fff;
 					}
 
@@ -423,7 +423,7 @@
 		@media screen and (min-width: 1200px) {
 			width: 600px;
 		}
-		h1 {
+		h1, h2 {
 			@media screen and (min-width: 1200px) {
 				margin-bottom: 10px;
 			}
@@ -630,7 +630,7 @@
 	& .container {
 		@media screen and (min-width: 768px) {
 			display: grid;
-  			grid-template-areas: 
+  			grid-template-areas:
     			"text image"
     			"form form";
   			grid-template-columns: 1fr 233px;
@@ -639,7 +639,7 @@
 		}
 		@media screen and (min-width: 1200px) {
 			display: grid;
-  			grid-template-areas: 
+  			grid-template-areas:
     			"text form"
     			"image form";
   			grid-template-columns: 1fr 555px;
@@ -662,7 +662,7 @@
 				grid-area: form;
 			}
 		}
-		
+
 	}
 
 	& .presentation__info {
@@ -1229,7 +1229,7 @@
 		padding-bottom: 124px;
     }
 
-	h1 {
+	h1, h2 {
 		margin-bottom: 30px;
 
 		@media screen and (min-width: 768px) {
@@ -1292,7 +1292,7 @@
 		padding-bottom: 178px;
 	}
 
-	& h1 {
+	& h1, h2 {
 		margin-bottom: 30px;
 
 		@media screen and (min-width: 768px) {
@@ -1334,7 +1334,7 @@
 			z-index: 4;
 
 			@media screen and (min-width: 1200px) {
-				
+
 			}
 		}
 
@@ -1574,7 +1574,7 @@
 		padding-bottom: 178px;
 	}
 
-	& h1 {
+	& h1, h2 {
 		margin-bottom: 40px;
 	}
 
@@ -1603,7 +1603,7 @@
 			color: #fff;
 
 			@media screen and (min-width: 768px) {
-				
+
 		    }
 		    @media screen and (min-width: 1200px) {
 
@@ -1738,7 +1738,7 @@
 	}
 
 	& .infrastructure__items {
-		
+
 		@media screen and (min-width: 768px) {
 			display: flex;
 			flex-wrap: wrap;

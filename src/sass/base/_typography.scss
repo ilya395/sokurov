@@ -16,7 +16,7 @@ sup {
 a {
 	text-decoration: none;
 }
-h1 {
+h1, h2 {
 	font-family: $cormorant;
 	font-weight: bold;
 	font-size: 28px;
@@ -25,15 +25,21 @@ h1 {
 	color: $text-color-dark-grey;
 
 	@media screen and (min-width: 768px) {
-        font-size: 46px;
-    }
-    @media screen and (min-width: 1200px) {
+    font-size: 46px;
+  }
+  @media screen and (min-width: 1200px) {
 
-    }
+  }
 
-    &.white {
-    	color: #fff;
-    }
+  &.white {
+    color: #fff;
+  }
+}
+h2 {
+  font-size: 28px;
+	@media screen and (min-width: 768px) {
+    font-size: 30px;
+  }
 }
 p {
 	font-family: $ibm;

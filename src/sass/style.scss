@@ -111,4 +111,7 @@
         width: 750px;
     }
 }
-
+.disable {
+  pointer-events: none;
+  opacity: .6;
+}

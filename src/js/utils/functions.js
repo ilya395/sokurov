@@ -29,11 +29,11 @@ export function imOkey(n) {
               };
           };
       };
-  
+
       var goodOrBadValue = false;
       var badNumbers = [
-          "+7 (911) 111-11-11", 
-          "+7 (922) 222-22-22", 
+          "+7 (911) 111-11-11",
+          "+7 (922) 222-22-22",
           "+7 (933) 333-33-33",
           "+7 (944) 444-44-44",
           "+7 (955) 555-55-55",
@@ -46,8 +46,8 @@ export function imOkey(n) {
           if (n == badNumbers[i]) {
               goodOrBadValue = true;
           };
-      }; 
-      
+      };
+
       // console.log(n, typeof n, countNumber, goodOrBadValue);
       if (countNumber == 11 && goodOrBadValue == false) {
           return true;
@@ -67,7 +67,7 @@ export function makeMasks() {
         });
         //
         let im = new Inputmask("+7(f99)999-99-99");
-        // 
+        //
         for (let i of inputMask) {
             if (typeof i != 'undefined') {
                 im.mask(i);
@@ -75,7 +75,7 @@ export function makeMasks() {
         }
     } else {
         console.log('нету масок на инпутах');
-    }    
+    }
 }
 
 export function searchData(object) {
@@ -104,7 +104,7 @@ export function searchData(object) {
                         string += i;
                     } else {
                         const i = j.classList.contains('active') ? `,${j.dataset.value}` : '';
-                        string += i;                    
+                        string += i;
                     }
                     if (j.classList.contains('active')) {
                         dataObject[j.dataset.object] = j.dataset.value;
@@ -127,7 +127,7 @@ export function searchData(object) {
 
 export function sendAjax(object) {
 
-    const { containerUrl, formData, eventName } = object;
+    const { containerUrl, formData, eventName, succesCallback, errorCallBack } = object;
 
     const container = document.querySelector(containerUrl);
     // console.log(containerUrl, container, eventName)
@@ -135,12 +135,30 @@ export function sendAjax(object) {
     const customEvent = new CustomEvent(eventName, {bubbles: true});
     container.dispatchEvent(customEvent);
 
+    // if (process.env.NODE_ENV === 'development') {
+    //   setTimeout(() => {
+    //     const successEvent = new CustomEvent(`${eventName}_success`, {
+    //         bubbles: true,
+    //         detail: {
+    //             data: {
+    //               status: "success"
+    //             },
+    //         },
+    //     });
+    //     container.dispatchEvent(successEvent);
+    //     if (succesCallback) {
+    //       succesCallback();
+    //     }
+    //   }, 3000);
+    //   return
+    // }
+
     fetch(
         window.wp.ajax_url, // 'http://sokurovpark.ru//wp-admin/admin-ajax.php', // точка входа
         {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded', // отправляемые данные 
+                'Content-Type': 'application/x-www-form-urlencoded', // отправляемые данные
             },
             body: formData
         }
@@ -160,6 +178,9 @@ export function sendAjax(object) {
                 },
             });
             container.dispatchEvent(successEvent);
+            if (succesCallback) {
+              succesCallback();
+            }
         }
     )
     .catch(
@@ -168,6 +189,9 @@ export function sendAjax(object) {
 
             const errorEvent = new CustomEvent(`${eventName}_error`, {bubbles: true});
             container.dispatchEvent(errorEvent);
+            if (errorCallBack) {
+              errorCallBack
+            }
         }
     )
 

@@ -11,6 +11,19 @@ export function DefaultForm(object) {
         const name = form.querySelector('form input[name="name"]');
         const phone = form.querySelector('form input[name="phone"]');
         const title = form.querySelector('form input[name="title"]');
+        const btn = form.querySelector('form button');
+
+        const makeDisabled = (arg) => {
+          if (arg) {
+            btn.disabled = true;
+            btn.classList.add('disable');
+          } else {
+            btn.disabled = false;
+            btn.classList.remove('disable');
+          }
+        }
+
+        makeDisabled(true);
 
         // let formData = `action=${actionName}&name=${name ? name.value : ''}&phone=${phone ? phone.value : ''}&title=${title ? title.value : ''}`;
 
@@ -19,14 +32,14 @@ export function DefaultForm(object) {
             actionName,
             type: ['input'],
         });
-        console.log(
-            name.value != '',
-            name.value.length < 25,
-            phone.value != '',
-            imOkey(phone.value) == true,
-            title.value.length < 100,
-            title.value.indexOf('src', 0) == -1
-        )
+        // console.log(
+        //     name.value != '',
+        //     name.value.length < 25,
+        //     phone.value != '',
+        //     imOkey(phone.value) == true,
+        //     title.value.length < 100,
+        //     title.value.indexOf('src', 0) == -1
+        // )
         if (
             name.value != '' &&
             name.value.length < 25 &&
@@ -38,11 +51,11 @@ export function DefaultForm(object) {
             title.value.indexOf('https', 0) == -1 &&
             title.value.indexOf('ws', 0) == -1
         ) {
-            console.log('send');
             sendAjax({
                 containerUrl,
                 formData: data.dataString,
-                eventName
+                eventName,
+                succesCallback: () => makeDisabled(false)
             });
             // const successEvent = new CustomEvent(`${eventName}_success`, {
             //     bubbles: true,
