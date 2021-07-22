@@ -26,7 +26,7 @@
                                 'post_status' => 'publish',
                                 'post_type'   => 'offers', // тип получаемых записей
                                 // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-                            ); 
+                            );
                             $offers = get_posts($offers_args);
                             $offers_count = 0;
                         ?>
@@ -46,13 +46,13 @@
                                         <?php echo $offer_data['name']['value']; ?>
 
                                     <div class="info-slide__subtitle"><?php echo $offer_data['subtitle']['value']; ?></div>
-                                    <a 
-                                        class="btn1<?php isset( $offer_data['lids']['choices'] ) ? ' form-open' : ''; ?>" 
+                                    <a
+                                        class="btn1<?php isset( $offer_data['lids']['choices'] ) ? ' form-open' : ''; ?>"
                                         data-attr="<?php echo $offer_data['attr']['value']; ?>"
                                         <?php
                                             if ( $offer_data['lids']['value']['value'] == 'yep' ) {
                                         ?>
-                                                data-action="form-open" 
+                                                data-action="form-open"
                                                 data-title="<?php echo $offer_data['name']['value']; ?>"
                                         <?php
                                             } else {
@@ -61,14 +61,14 @@
                                                 data-link="simple-link"
                                         <?php
                                             }
-                                        ?>  
+                                        ?>
                                     >
                                         <?php echo $offer_data['link_name']['value']; ?>
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <?php        
+                        <?php
                                 $offers_count += 1;
                             }
                         ?>
@@ -89,7 +89,7 @@
                                 }
                             ?>
                         </div>
-                    </div>        
+                    </div>
                 </div>
             </div>
         </section>
@@ -126,7 +126,7 @@
                         <div class="about-complex__card">
                             <div class="card-title">Вблизи природы</div>
                             <p>
-                                Таун-парк SOKUROV расположен в селе Сокуры Лаишевского района. Живописные виды, чистый воздух, тишина и спокойствие — ради этого действительно стоит переехать за город. 
+                                Таун-парк SOKUROV расположен в селе Сокуры Лаишевского района. Живописные виды, чистый воздух, тишина и спокойствие — ради этого действительно стоит переехать за город.
                             </p>
                         </div>
                         <div class="about-complex__card">
@@ -142,8 +142,8 @@
                             </p>
                         </div>
                     </div>
-                </div> 
-            </div>  
+                </div>
+            </div>
         </section>
 
         <section class="alley" id="alley">
@@ -187,7 +187,7 @@
                 <div class="alley-interactive desktop">
                     <div class="interactive__image">
                         <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/к0.jpg">
-                    </div> 
+                    </div>
                     <div class="plus plus1 right-photo">
                         <img class="plus__img" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/plus.svg">
                         <div class="plus__photo">
@@ -255,8 +255,8 @@
                         <p class="white">
                            Вы можете <b>купить дом в Лаишевском районе Казани</b>, выбрав один из двух вариантов. Отдельный собственный дом в два этажа, построенный по принципу городской квартиры, со всеми удобствами, отдельным входом, собственным участком и парковкой – таунхаус. Или дом на четыре семьи, для тесного общения и крепкой дружбы с добрыми соседями – квадрохаус. Вам нужно только выбрать!
                         </p>
-                    </div> 
-                    <a href="#catalog" class="scrollto btn3">к планировкам</a>   
+                    </div>
+                    <a href="#catalog" class="scrollto btn3">к планировкам</a>
                 </div>
                 <div class="houses-types__image">
                     <img class="mobile" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/rndr_6.jpg">
@@ -268,7 +268,7 @@
                         <div class="houses-types__card">
                             <div class="card-title">Двухэтажные таунхаусы </div>
                             <p>
-                                Почувствуйте настоящую свободу и комфорт в собственном двухэтажном доме! Парковка на два автомобиля, отдельный вход, небольшой дворик у дома — всё в лучших традициях загородного жилья. 
+                                Почувствуйте настоящую свободу и комфорт в собственном двухэтажном доме! Парковка на два автомобиля, отдельный вход, небольшой дворик у дома — всё в лучших традициях загородного жилья.
                             </p>
                         </div>
                         <div class="houses-types__card">
@@ -292,7 +292,7 @@
                         <p>
                             Таун-парк  SOKUROV предлагает много вариантов планировки таунхауса в черте города Казани. Здесь воплощены самые удачные идеи планировки жилых домов, реализованные в Европе. Мы отобрали для вас только лучшее! Вы можете приобрести трех-, четырех- и пятикомнатные таунхаусы площадью от 81,61 кв.м до 113,76 кв.м.
                         </p>
-                    </div> 
+                    </div>
                     <a href="<?php echo home_url(); ?>/wp-content/themes/sokurov_theme/docs/prez.pdf" class="btn5 desktop plans-dwnld" download style="opacity: 0;">скачать презентацию</a>
 
                     <div class="plans">
@@ -519,7 +519,7 @@
                                 'post_status' => 'publish',
                                 'post_type'   => 'payments', // тип получаемых записей
                                 // 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-                            ); 
+                            );
                             $payments = get_posts($payments_args);
                             $payments_count = 0;
                         ?>
@@ -534,7 +534,7 @@
                                 <?php echo $payment_data['content']['value']; ?>
                             </p>
                         </div>
-                        <?php        
+                        <?php
                                 $payments_count += 1;
                             }
                         ?>
@@ -556,6 +556,15 @@
             </div>
         </section>
 
+        <section class="genplan">
+          <div class="container">
+            <h2>Генплан</h2>
+          </div>
+          <div class="genplan__image">
+            <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/GP_sokurov.jpg" alt="Генплан" class="genplan__img">
+          </div>
+        </section>
+
 		<?php
 			wp_reset_postdata();
 			$event_args = array( // получает любые записи
@@ -565,10 +574,10 @@
 				'post_status' => 'publish',
 				'post_type'   => 'event', // тип получаемых записей
 				// 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-			); 
+			);
 			$events = get_posts($event_args);
 			$events_count = 0;
-			
+
 			if (count($events) > 0) {
 		?>
         <section class="construction" id="construction">
@@ -580,17 +589,17 @@
                             <?php
                                 foreach ($events as $event) {
                                     setup_postdata($event);
-                                    
+
                                     $event_data = get_field_objects( $event->ID );
 									var_dump($event_data['video']['value']);
                             ?>
                                 <option value="<?php echo $event_data['date']['value']; ?>" data-plan-index="<?php echo $event->ID; ?>" <?php if ($events_count == 0) { echo 'selected="selected"'; } ?>><?php echo $event_data['date']['value']; ?></option>
-                            <?php        
+                            <?php
                                     $events_count += 1;
                                 }
-                                
+
                                 $first_event = $events[0];
-                                
+
                                 $gal = get_post_gallery( $first_event->ID, false );
                                 // print_r(count($gal[src]));
                                 $images = array();
@@ -668,7 +677,7 @@
 				'post_status' => 'publish',
 				'post_type'   => 'news', // тип получаемых записей
 				// 'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
-			); 
+			);
 			$all_news = get_posts($news_args);
 			if ( count($all_news) > 0 ) {
 		?>

@@ -115,7 +115,7 @@ module.exports = {
        }
     },
     optimization: optimization(),
-    watch: true,
+    // watch: true,
     devServer: {
         overlay: true,                                                       // вывод ошибок на экранб в браузер
         port: 4200,
