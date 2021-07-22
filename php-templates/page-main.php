@@ -117,9 +117,9 @@
                     </div>
                 </div>
                 <div class="about-complex__image">
-                    <img class="mobile" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/complex-mp-mobile.png">
-                    <img class="tablet" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/complex-mp-tablet.png">
-                    <img class="desktop" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/complex-mp-desktop.png">
+                    <img class="mobile" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/k3_new.png">
+                    <img class="tablet" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/k3_new.png">
+                    <img class="desktop" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/k3_new.png">
                 </div>
                 <div class="about-complex__cards">
                     <div class="about-complex__cards-wrapper">
@@ -186,7 +186,7 @@
 
                 <div class="alley-interactive desktop">
                     <div class="interactive__image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/alley-interactive.png">
+                        <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/к0.jpg">
                     </div> 
                     <div class="plus plus1 right-photo">
                         <img class="plus__img" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/plus.svg">
@@ -259,9 +259,9 @@
                     <a href="#catalog" class="scrollto btn3">к планировкам</a>   
                 </div>
                 <div class="houses-types__image">
-                    <img class="mobile" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/types-mobile.jpg">
-                    <img class="tablet" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/types-tablet.jpg">
-                    <img class="desktop" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/types-desktop.jpg">
+                    <img class="mobile" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/rndr_6.jpg">
+                    <img class="tablet" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/rndr_6.jpg">
+                    <img class="desktop" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/rndr_6.jpg">
                 </div>
                 <div class="houses-types__cards">
                     <div class="houses-types__cards-wrapper">
@@ -287,7 +287,7 @@
                 <div class="container">
                     <div class="section-title">выбор планировки</div>
                     <div class="houses-types__info">
-                        <h2 class="main-zagolovok white">Любимая европейцами планировка таунхауса в черте города Казани теперь доступна и вам!</h2>
+                        <h2 class="main-zagolovok">Любимая европейцами планировка таунхауса в черте города Казани теперь доступна и вам!</h2>
 						<!--<h2>Заголовок для продвижения</h2>-->
                         <p>
                             Таун-парк  SOKUROV предлагает много вариантов планировки таунхауса в черте города Казани. Здесь воплощены самые удачные идеи планировки жилых домов, реализованные в Европе. Мы отобрали для вас только лучшее! Вы можете приобрести трех-, четырех- и пятикомнатные таунхаусы площадью от 81,61 кв.м до 113,76 кв.м.
@@ -304,9 +304,10 @@
                             <div class="filter__rooms">
                                 <div class="label">Кол-во комнат</div>
                                 <div class="filter-room__btns">
-                                    <div class="filter-room__btn active" data-object="filter_rooms" data-value="3">3</div>
-                                    <div class="filter-room__btn" data-object="filter_rooms" data-value="4">4</div>
+<!--                                     <div class="filter-room__btn active" data-object="filter_rooms" data-value="3">3</div> -->
+                                    <div class="filter-room__btn active" data-object="filter_rooms" data-value="4">4</div>
                                     <div class="filter-room__btn" data-object="filter_rooms" data-value="5">5</div>
+									<div class="filter-room__btn" data-object="filter_rooms" data-value="6">6</div>
                                 </div>
                             </div>
                         </div>

@@ -12,7 +12,8 @@
 							Время работы:<br>пн-пт 9.00-18.00,<br>сб-вс 10.00-16.00<br>
 							<a href="tel:<?php echo $site_info['phone']['value']; ?>" class="company-phone footer__info">
                         		<?php echo $site_info['phone']['value']; ?>
-                    		</a>
+                    		</a><br>
+							<?php echo $site_info['email']['value']; ?>
                         </div>
                         <?php 
                             $menu_args = array(
