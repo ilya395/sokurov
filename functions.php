@@ -6,16 +6,16 @@
 add_action('wp_enqueue_scripts', 'sokurov_wp_media');
 
 function sokurov_wp_media() {
-    wp_enqueue_style('vendors_style', get_template_directory_uri() . '/dist/css/vendors~main.922c9760b7d566f670c9.css', [], null, false);
-	wp_enqueue_style('main_style', get_template_directory_uri() . '/dist/css/main.922c9760b7d566f670c9.css', [], null, false);
+    wp_enqueue_style('vendors_style', get_template_directory_uri() . '/dist/css/vendors~main.5f16f7c9a9a8f08187e8.css', [], null, false);
+	wp_enqueue_style('main_style', get_template_directory_uri() . '/dist/css/main.5f16f7c9a9a8f08187e8.css', [], null, false);
 
     wp_register_script( 'jq', 'https://code.jquery.com/jquery-3.4.1.min.js', null, null, true );
     wp_enqueue_script('jq');
     wp_register_script( 'api2gis', 'https://maps.api.2gis.ru/2.0/loader.js?pkg=full', null, null, true );
     wp_enqueue_script('api2gis');
 
-	wp_enqueue_script('vendors_script', get_template_directory_uri() . '/dist/js/vendors~main.922c9760b7d566f670c9.js', ['jq', 'api2gis'], null, true);
-	wp_enqueue_script('main_script', get_template_directory_uri() . '/dist/js/main.922c9760b7d566f670c9.js', ['jq', 'api2gis'], null, true);
+	wp_enqueue_script('vendors_script', get_template_directory_uri() . '/dist/js/vendors~main.5f16f7c9a9a8f08187e8.js', ['jq', 'api2gis'], null, true);
+	wp_enqueue_script('main_script', get_template_directory_uri() . '/dist/js/main.5f16f7c9a9a8f08187e8.js', ['jq', 'api2gis'], null, true);
 
 }
 

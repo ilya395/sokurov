@@ -6,7 +6,7 @@ footer {
 		padding-top: 95px;
 		padding-bottom: 95px;
 	}
-	@media screen and (min-width: 1200px) {
+	@media screen and (min-width: 1000px) {
 		padding-top: 110px;
 		padding-bottom: 78px;
 	}
@@ -23,7 +23,7 @@ footer {
 			grid-column-gap: 50px;
   			grid-row-gap: 40px;
 		}
-		@media screen and (min-width: 1200px) {
+		@media screen and (min-width: 1000px) {
 			grid-template-columns: 600px 116px 262px;
 			grid-column-gap: 80px;
   			grid-row-gap: 30px;
@@ -43,7 +43,7 @@ footer {
 			width: 145px;
 			margin-bottom: 0px;
 		}
-		@media screen and (min-width: 1200px) {
+		@media screen and (min-width: 1000px) {
 			width: 200px;
 		}
 	}
@@ -117,7 +117,7 @@ footer {
 			margin-bottom: 0px;
 			margin-top: -43px;
 		}
-		@media screen and (min-width: 1200px) {
+		@media screen and (min-width: 1000px) {
 			width: 550px;
 			font-size: 15px;
 		}

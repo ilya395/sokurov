@@ -135,23 +135,23 @@ export function sendAjax(object) {
     const customEvent = new CustomEvent(eventName, {bubbles: true});
     container.dispatchEvent(customEvent);
 
-    // if (process.env.NODE_ENV === 'development') {
-    //   setTimeout(() => {
-    //     const successEvent = new CustomEvent(`${eventName}_success`, {
-    //         bubbles: true,
-    //         detail: {
-    //             data: {
-    //               status: "success"
-    //             },
-    //         },
-    //     });
-    //     container.dispatchEvent(successEvent);
-    //     if (succesCallback) {
-    //       succesCallback();
-    //     }
-    //   }, 3000);
-    //   return
-    // }
+    if (process.env.NODE_ENV === 'development') {
+      setTimeout(() => {
+        const successEvent = new CustomEvent(`${eventName}_success`, {
+            bubbles: true,
+            detail: {
+                data: {
+                  status: "success"
+                },
+            },
+        });
+        container.dispatchEvent(successEvent);
+        if (succesCallback) {
+          succesCallback();
+        }
+      }, 3000);
+      return
+    }
 
     fetch(
         window.wp.ajax_url, // 'http://sokurovpark.ru//wp-admin/admin-ajax.php', // точка входа

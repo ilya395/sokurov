@@ -7,7 +7,7 @@ header {
     background-color: #fff;
     transition: all .3s ease-in-out;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1000px) {
         /*background-image: url(../images/main-page/ptn3.png);
         background-repeat: no-repeat;
         background-size: 100% auto;
@@ -28,14 +28,14 @@ header {
 }
 .header__site-logo {
     & svg {
-        
+
         height: auto;
         width: 37.5vw;
 
         @media screen and (min-width: 768px) {
-            width: 120px;       
+            width: 120px;
         }
-        @media screen and (min-width: 1200px) {
+        @media screen and (min-width: 1000px) {
             width: 200px;
         }
     }
@@ -43,7 +43,7 @@ header {
 .header__navigation-menu {
     display: none;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1000px) {
         display: flex;
     }
 
@@ -105,7 +105,7 @@ header.modify {
         }
     }
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1000px) {
         display: none;
     }
 
@@ -121,14 +121,14 @@ header.modify {
     }
 }
 .news-page header {
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1000px) {
         background: #fff;
     }
 }
 
 header.modify {
     & .header__burger-button {
-        @media screen and (min-width: 1200px) {
+        @media screen and (min-width: 1000px) {
             display: flex;
         }
     }
