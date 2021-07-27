@@ -163,7 +163,7 @@
                     <div class="alley-slider-wrapper swiper-container">
                         <div class="alley-slides-wrapper swiper-wrapper">
                             <div class="alley-slide swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/pic_park_001.jpg"></div>
-                            <div class="alley-slide swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/pic_park_002.jpg"></div>
+                            <div class="alley-slide swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/k0.jpg"></div>
                             <div class="alley-slide swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/pic_park_003.jpg"></div>
                             <div class="alley-slide swiper-slide"><img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/pic_park_004.jpg"></div>
                         </div>
@@ -186,7 +186,7 @@
 
                 <div class="alley-interactive desktop">
                     <div class="interactive__image">
-                        <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/к0.jpg">
+                        <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/alley-interactive.png">
                     </div>
                     <div class="plus plus1 right-photo">
                         <img class="plus__img" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/plus.svg">
@@ -197,7 +197,7 @@
                     <div class="plus plus2 right-photo">
                         <img class="plus__img" class="plus__img" src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/plus.svg">
                         <div class="plus__photo">
-                            <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/pic_park_002.jpg">
+                            <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/к0.jpg">
                         </div>
                     </div>
                     <div class="plus plus3 left-photo">
@@ -556,12 +556,15 @@
             </div>
         </section>
 
-        <section class="genplan">
+        <section class="genplan" style="z-index: 2; position: relative;">
           <div class="container">
             <h2>Генплан</h2>
           </div>
           <div class="genplan__image">
-            <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/GP_sokurov.jpg" alt="Генплан" class="genplan__img">
+            <picture>
+                <source srcset="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/ГП_Сокуров_Квадратная.jpg" media="(max-width: 500px)">
+                <img src="<?php echo get_template_directory_uri(); ?>/dist/images/main-page/ГП_Сокуров_прямоугольная.jpg" alt="Генплан" class="genplan__img">
+            </picture>
           </div>
         </section>
 
